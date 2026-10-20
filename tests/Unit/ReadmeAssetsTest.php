@@ -7,13 +7,13 @@ namespace PJGuardian\Tests\Unit;
 use PJGuardian\Tests\TestCase;
 
 /**
- * README·기능 소개 그림(P33 4-1): README.md·README.ko.md·docs/features(.ko).md가 가리키는 그림이 모두 있고 대체 텍스트가 비어 있지 않음,
+ * README·기능 소개 그림(P33 4-1): README.md·README.en.md·docs/features(.ko).md가 가리키는 그림이 모두 있고 대체 텍스트가 비어 있지 않음,
  * 그림 한 장 300KB·합계 8MB 이하, 파일 이름 규칙(<이름>.png, 한국어판 <이름>.ko.png), docs/screenshots의 모든 그림이 어느 문서엔가 쓰임,
  * 목록(SCREENSHOTS.json)과 실제 파일이 같음. 그림은 tools/make_readme_screenshots.mjs가 만든다.
  */
 final class ReadmeAssetsTest extends TestCase
 {
-    private const DOCS = ['README.md', 'README.ko.md', 'docs/features.md', 'docs/features.ko.md'];
+    private const DOCS = ['README.md', 'README.en.md', 'docs/features.md', 'docs/features.ko.md'];
     private const MAX_BYTES = 300 * 1024;
     private const MAX_TOTAL = 8 * 1024 * 1024;
 

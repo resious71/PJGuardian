@@ -142,7 +142,7 @@ final class LicenseNoticeTest extends TestCase
         foreach (self::LEGAL as $doc) {
             $this->assertTrue(is_file(PJG_ROOT . '/docs/legal/' . $doc), "docs/legal/{$doc} 없음");
         }
-        foreach (['README.md', 'README.ko.md'] as $readme) {
+        foreach (['README.md', 'README.en.md'] as $readme) {
             $text = $this->read($readme);
             foreach (['LICENSE', 'NOTICE', 'THIRD_PARTY_NOTICES', 'docs/legal/DISCLAIMER', 'docs/legal/TRADEMARKS.md', 'docs/legal/PRIVACY.md', 'docs/legal/AI_ASSISTED.md', 'SECURITY.md'] as $target) {
                 $this->assertTrue(str_contains($text, '](' . $target), "{$readme}에서 {$target} 링크");

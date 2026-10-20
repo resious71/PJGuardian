@@ -1,23 +1,23 @@
-# Code of conduct
+# 행동 강령
 
-This project's own short code of conduct. (It is written for this project and is not the Contributor Covenant text.)
+이 프로젝트가 직접 쓴 짧은 행동 강령입니다. (Contributor Covenant 문구가 아닙니다.)
 
-## Our standards
+[English](CODE_OF_CONDUCT.en.md)
 
-- Be respectful and considerate. Disagree about ideas, not people.
-- Assume good intent and help newcomers.
-- Give and accept constructive feedback; credit other people's work.
-- Keep discussions on topic, and keep private information private — never post someone else's personal data, passwords or logs that contain them.
+## 우리의 기준
 
-## Not acceptable
+- 서로 존중하고 배려합니다. 사람이 아니라 생각에 대해 의견이 다를 수 있습니다.
+- 좋은 뜻으로 받아들이고, 처음 오신 분을 도와줍니다.
+- 건설적인 피드백을 주고받으며, 다른 사람의 작업에 대한 공을 인정합니다.
+- 주제에서 벗어나지 않고, 사적인 정보는 지킵니다. 다른 사람의 개인 정보, 비밀번호, 그런 정보가 담긴 로그를 올리지 마세요.
 
-- Harassment, insults, threats, or discriminatory language or imagery.
-- Sexualized language or attention.
-- Publishing others' private information without permission.
-- Repeated disruption of issues, pull requests or discussions.
+## 허용하지 않는 것
 
-## Scope and enforcement
+- 괴롭힘, 모욕, 협박, 차별적인 표현이나 이미지.
+- 성적인 표현이나 관심 표현.
+- 허락 없이 다른 사람의 사적인 정보를 공개하는 일.
+- 이슈, 풀 리퀘스트, 토론을 반복해서 방해하는 일.
 
-This applies to all project spaces (issues, pull requests, discussions, reviews) and to anyone representing the project. Report problems privately to `resious@gmail.com`. Maintainers will review reports confidentially and may edit or remove contributions, or temporarily or permanently block participants who violate this code.
+## 적용 범위와 조치
 
-[한국어 요약] 서로 존중하고, 사람이 아니라 생각에 대해 논의하며, 다른 사람의 개인 정보·비밀번호·로그를 올리지 않습니다. 괴롭힘·모욕·차별·성적 표현은 허용하지 않습니다. 문제는 `resious@gmail.com`으로 비공개로 알려 주세요.
+이 강령은 이슈, 풀 리퀘스트, 토론, 리뷰를 비롯한 모든 프로젝트 공간과 프로젝트를 대표하는 모든 사람에게 적용됩니다. 문제는 `resious@gmail.com`으로 비공개로 알려 주세요. 관리자는 신고를 비공개로 검토하며, 이 강령을 어긴 기여를 고치거나 지우고, 참여자를 일시적으로 또는 영구적으로 차단할 수 있습니다.

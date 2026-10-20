@@ -49,7 +49,7 @@
 | [legal/PRIVACY.md](legal/PRIVACY.md) | 텔레메트리 없음·외부 연결 지점·저장 데이터와 보존 기간 |
 | [legal/AI_ASSISTED.md](legal/AI_ASSISTED.md) | AI 보조 개발 고지 |
 
-저장소 루트의 `LICENSE`(Apache-2.0)·`NOTICE`·`THIRD_PARTY_NOTICES`·`README.md`(`README.ko.md`)·`CONTRIBUTING.md`·`SECURITY.md`·`CODE_OF_CONDUCT.md`도 함께 본다.
+저장소 루트의 `LICENSE`(Apache-2.0)·`NOTICE`·`THIRD_PARTY_NOTICES`·`README.md`(한국어)·`README.en.md`(영어)·`CONTRIBUTING.md`·`SECURITY.md`·`CODE_OF_CONDUCT.md`도 함께 본다.
 
 ## 인증·연동
 

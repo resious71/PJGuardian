@@ -44,6 +44,8 @@ return [
     ['file' => 'SECURITY.md', 'kind' => 'name', 'match' => '/^resious$/', 'line' => '*', 'reason' => '사용자가 공개하기로 한 연락처 주소의 계정 이름'],
     ['file' => 'CODE_OF_CONDUCT.md', 'kind' => 'email', 'match' => '/^resious@gmail\.com$/', 'line' => '*', 'reason' => '사용자가 공개하기로 한 연락처(행동 강령 신고)'],
     ['file' => 'CODE_OF_CONDUCT.md', 'kind' => 'name', 'match' => '/^resious$/', 'line' => '*', 'reason' => '사용자가 공개하기로 한 연락처 주소의 계정 이름'],
+    ['file' => 'CODE_OF_CONDUCT.en.md', 'kind' => 'email', 'match' => '/^resious@gmail\\.com$/', 'line' => '*', 'reason' => '사용자가 공개하기로 한 연락처(행동 강령 신고, 영어본)'],
+    ['file' => 'CODE_OF_CONDUCT.en.md', 'kind' => 'name', 'match' => '/^resious$/', 'line' => '*', 'reason' => '사용자가 공개하기로 한 연락처 주소의 계정 이름(영어본)'],
     ['file' => 'docs/publish_checklist.md', 'kind' => 'email', 'match' => '/^resious@gmail\.com$/', 'line' => '*', 'reason' => '사용자가 공개하기로 한 연락처(정한 것 목록)'],
     ['file' => 'docs/publish_checklist.md', 'kind' => 'name', 'match' => '/^resious$/', 'line' => '*', 'reason' => '사용자가 공개하기로 한 연락처 주소의 계정 이름'],
 

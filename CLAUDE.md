@@ -27,7 +27,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```
 PJGuardian_requirements.md   요구사항 명세 (수정 금지)
-CLAUDE.md, THIRD_PARTY_NOTICES, LICENSE·NOTICE(Apache-2.0), README(.ko).md, CONTRIBUTING·SECURITY·CODE_OF_CONDUCT.md, CHANGELOG.md, .github/(CI·템플릿, P33)
+CLAUDE.md, THIRD_PARTY_NOTICES, LICENSE·NOTICE(Apache-2.0), README.md(한국어)·README.en.md(영어), CONTRIBUTING·SECURITY·CODE_OF_CONDUCT.md, CHANGELOG.md, .github/(CI·템플릿, P33)
 public/      웹 루트: index.php(프런트 컨트롤러), .htaccess, assets/ (css, js, vendor, icons)
 src/         PHP 소스(PJGuardian\): bootstrap.php, App.php, routes.php,
              Controllers/, Services/, Repositories/, Http/, Support/, Lang/
