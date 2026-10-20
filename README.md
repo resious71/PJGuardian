@@ -25,13 +25,20 @@ PJGuardian은 팀이 정적 분석 결과를 함께 관리하는 설치형 웹 �
 
 ## 화면
 
-| 대시보드 | 결함 |
-| --- | --- |
-| ![현황 요약 카드, 프로젝트별 결함 추이, 규칙·파일 상위 10이 보이는 대시보드](docs/screenshots/dashboard.ko.png) | ![심각도·상태·담당자별 결함 수, Run 선택, 결함 검색 영역이 있는 프로젝트 화면](docs/screenshots/defects-list.ko.png) |
-| **결함 상세와 코드 뷰어** | **시스템 모니터링** |
-| ![ruff:F401 결함 상세: 감지 이력, 변경 양식, 코드 뷰어](docs/screenshots/defect-detail.ko.png) | ![오류 카드 하나, 경고 카드 하나, 나머지는 정상인 시스템 모니터링](docs/screenshots/monitoring.ko.png) |
-| **감사 로그** | **다크 테마** |
-| ![무결성 검사를 통과한 감사 로그와 항목별 설명](docs/screenshots/audit-log.ko.png) | ![다크 테마의 대시보드(영어 화면)](docs/screenshots/dashboard-dark.png) |
+<table>
+  <tr>
+    <td width="50%" valign="top"><b>대시보드</b><br><img src="docs/screenshots/dashboard.ko.png" alt="현황 요약 카드, 프로젝트별 결함 추이, 규칙·파일 상위 10이 보이는 대시보드" width="100%"></td>
+    <td width="50%" valign="top"><b>결함</b><br><img src="docs/screenshots/defects-list.ko.png" alt="심각도·상태·담당자별 결함 수, Run 선택, 결함 검색 영역이 있는 프로젝트 화면" width="100%"></td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top"><b>결함 상세와 코드 뷰어</b><br><img src="docs/screenshots/defect-detail.ko.png" alt="ruff:F401 결함 상세: 감지 이력, 변경 양식, 코드 뷰어" width="100%"></td>
+    <td width="50%" valign="top"><b>시스템 모니터링</b><br><img src="docs/screenshots/monitoring.ko.png" alt="오류 카드 하나, 경고 카드 하나, 나머지는 정상인 시스템 모니터링" width="100%"></td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top"><b>감사 로그</b><br><img src="docs/screenshots/audit-log.ko.png" alt="무결성 검사를 통과한 감사 로그와 항목별 설명" width="100%"></td>
+    <td width="50%" valign="top"><b>다크 테마</b><br><img src="docs/screenshots/dashboard-dark.png" alt="다크 테마의 대시보드(영어 화면)" width="100%"></td>
+  </tr>
+</table>
 
 그림은 모두 가상의 시연 데이터입니다.
 

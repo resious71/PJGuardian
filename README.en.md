@@ -21,13 +21,20 @@ See [docs/features.md](docs/features.md) for the full tour with screenshots.
 
 ## Screenshots
 
-| Dashboard | Defects |
-| --- | --- |
-| ![Dashboard with summary cards, defect trends by project and the top 10 rules and files](docs/screenshots/dashboard.png) | ![Project page with defect counts by severity, status and assignee, the Run selector and the defect search area](docs/screenshots/defects-list.png) |
-| **Defect detail and code viewer** | **System monitoring** |
-| ![Defect detail for ruff:F401 with detection history, the change form and the code viewer](docs/screenshots/defect-detail.png) | ![System monitoring with one error card, one warning card and the rest OK](docs/screenshots/monitoring.png) |
-| **Audit log** | **Dark theme** |
-| ![Audit log after a passed integrity check, with readable descriptions for each entry](docs/screenshots/audit-log.png) | ![Dashboard in the dark theme](docs/screenshots/dashboard-dark.png) |
+<table>
+  <tr>
+    <td width="50%" valign="top"><b>Dashboard</b><br><img src="docs/screenshots/dashboard.png" alt="Dashboard with summary cards, defect trends by project and the top 10 rules and files" width="100%"></td>
+    <td width="50%" valign="top"><b>Defects</b><br><img src="docs/screenshots/defects-list.png" alt="Project page with defect counts by severity, status and assignee, the Run selector and the defect search area" width="100%"></td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top"><b>Defect detail and code viewer</b><br><img src="docs/screenshots/defect-detail.png" alt="Defect detail for ruff:F401 with detection history, the change form and the code viewer" width="100%"></td>
+    <td width="50%" valign="top"><b>System monitoring</b><br><img src="docs/screenshots/monitoring.png" alt="System monitoring with one error card, one warning card and the rest OK" width="100%"></td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top"><b>Audit log</b><br><img src="docs/screenshots/audit-log.png" alt="Audit log after a passed integrity check, with readable descriptions for each entry" width="100%"></td>
+    <td width="50%" valign="top"><b>Dark theme</b><br><img src="docs/screenshots/dashboard-dark.png" alt="Dashboard in the dark theme" width="100%"></td>
+  </tr>
+</table>
 
 All screenshots use made-up demo data.
 
