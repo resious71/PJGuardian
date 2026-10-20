@@ -1,0 +1,26 @@
+{
+  "_doc": "P31 A-2 출력 이스케이프 시험 문자열 모음. PHP(tests/Support/XssCorpus.php)·JS(tests/js/xss_corpus.test.mjs)가 함께 읽는다. markers는 이스케이프되지 않았을 때만 HTML에 나타나는 조각",
+  "html": [
+    "<script>alert('pjg-xss-1')</script>",
+    "\"><img src=x onerror=alert('pjg-xss-2')>",
+    "'><svg onload=alert('pjg-xss-3')>",
+    "</title></textarea></script><script>alert('pjg-xss-4')</script>",
+    "<a href=\"javascript:alert('pjg-xss-5')\">x</a>",
+    "{{constructor.constructor('alert(6)')()}} ${alert('pjg-xss-6')}",
+    "<iframe srcdoc=\"<script>alert('pjg-xss-7')</script>\"></iframe>",
+    "<style>*{background:url('//evil.example/pjg-xss-8')}</style>"
+  ],
+  "markers": ["<script>alert(", "<img src=x onerror", "<svg onload", "<iframe", "href=\"javascript:", "<style>*{"],
+  "markdown": [
+    "[a](javascript:alert('pjg-md-1'))",
+    "[b](JaVaScRiPt:alert(1))",
+    "[c](  javascript:alert(1))",
+    "[d](vbscript:msgbox(1))",
+    "[e](data:text/html,<script>alert(1)</script>)",
+    "[f](//evil.example/x)",
+    "[g](java&#x09;script:alert(1))",
+    "<img src=x onerror=alert('pjg-md-2')>",
+    "![h](javascript:alert(1))"
+  ],
+  "csv": ["=HYPERLINK(\"http://evil.example\",\"x\")", "+cmd|' /C calc'!A0", "-2+3", "@SUM(1+1)", "\t=1+1", "\r=1+1"]
+}

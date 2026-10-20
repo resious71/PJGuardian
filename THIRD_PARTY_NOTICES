@@ -1,0 +1,249 @@
+PJGuardian — 서드파티 라이선스 고지 (THIRD_PARTY_NOTICES)
+=============================================================
+
+이 파일은 PJGuardian 배포 패키지에 포함된 서드파티 소프트웨어와 그 라이선스를 적는다(명세 19.7, 20.2).
+PJGuardian 자체는 Apache License 2.0이다(LICENSE, NOTICE). 아래 구성요소는 각자의 라이선스를 따른다(P33).
+"저장소" = 소스 저장소(공개 저장소 포함)에 파일이 들어 있는가, "묶음" = 배포 묶음(tools/build_bundle.php)에 들어가는가.
+bin/ 도구는 저장소에 체크섬 매니페스트만 있고, 실행 파일은 운영자가 bin/에 둔다(docs/bin_setup.md). 묶음은 --with-bin일 때만 넣는다.
+앱의 가이드 하단에서 열람할 수 있게 한다(명세 16.1, P28). 새 라이브러리를 포함하면 이 파일에 항목을 추가한다.
+배포 전 재배포 조건 검토 대상: ruff, ESLint, Chart.js, CodeMirror, fflate, onelogin/php-saml, xmlseclibs, PHPMailer, git, p4, 아이콘 세트 등(명세 19.7). Dompdf·PhpSpreadsheet는 포함하지 않는다(PDF 내보내기 제외, Excel은 PHP 의존성 없이 자체 작성 — P23).
+
+목록
+----
+| 이름   | 버전  | 라이선스 | 위치                              | 용도                          | 저장소 | 묶음 |
+| fflate | 0.8.3 | MIT      | public/assets/vendor/fflate/      | 브라우저에서 폴더를 zip으로 묶기 | 포함 | 포함 |
+| Lucide (lucide-static) | 1.50.0 | ISC | public/assets/icons/lucide/ | 화면 아이콘(필요한 것만, 목록은 docs/icons.md) | 포함 | 포함 |
+| CodeMirror 6 (번들, 패키지 15개) | @codemirror/view 6.43.13 외(SOURCE.txt) | MIT | public/assets/vendor/codemirror/ | 결함 코드 뷰어(읽기 전용, P17) | 포함 | 포함 |
+| Chart.js (번들, 패키지 2개) | chart.js 4.5.1, @kurkle/color 0.3.4 | MIT | public/assets/vendor/chartjs/ | 대시보드 차트(P20) | 포함 | 포함 |
+| Git (MinGit, Windows) | 2.56.0.windows.2 (MinGit 2.56.0.2 64-bit) | GPL-2.0 (+ 포함 구성요소별 라이선스) | bin/git/2.56.0/windows/ | 소스 저장소 가져오기(P25, X09에서 배치) | 매니페스트만 | --with-bin일 때(GPL 소스 입수처 안내 필요) |
+| Perforce P4 명령줄 클라이언트(p4) | 2026.1/3062361 (Windows x64, Linux x86_64) | Perforce 사용 약관(재배포 조건 확인 필요) | bin/p4/2026.1.0/ | Perforce 가져오기(P26, X09에서 배치) | 매니페스트만 | 공개 묶음 금지(운영자가 직접 받음) |
+| onelogin/php-saml (SAML-Toolkits) | 4.3.2 | MIT | vendor/onelogin/php-saml/ (composer.lock, 빌드 때 Composer) | SAML 2.0 SP 로그인 — 응답 서명 검증·AuthnRequest·SP 메타데이터(P28D) | composer.lock만 | 포함(vendor/) |
+| robrichards/xmlseclibs | 3.1.5 | BSD-3-Clause | vendor/robrichards/xmlseclibs/ (composer.lock) | XML 서명·암호화(php-saml이 씀, P28D) | composer.lock만 | 포함(vendor/) |
+| PHPMailer (phpmailer/phpmailer) | 7.1.1 | LGPL-2.1-only | vendor/phpmailer/phpmailer/ (composer.lock) | 관리자 장애 이메일의 메시지 구성·SMTP 전송(P30B, 수정하지 않고 그대로 사용) | composer.lock만 | 포함(vendor/, 수정 없음) |
+| ruff | 0.16.10 | MIT | bin/ruff/0.16.10/<OS>/ | Python 정적 분석(P15) | 매니페스트만 | --with-bin일 때 |
+| ESLint (+ @eslint/js, @typescript-eslint, typescript 등 의존성 113개) | eslint 10.11.0 | MIT(의존성: MIT·Apache-2.0·BSD-2/3-Clause·ISC·Python-2.0·BlueOak-1.0.0 — package-lock.json) | bin/eslint/10.11.0/ | JavaScript/TypeScript 정적 분석(P15) | 매니페스트·package*.json만 | --with-bin일 때 |
+| Node.js | 운영자 설치(tools.node_min_version 이상) | MIT | bin/ 밖(설정 tools.node_path) | ESLint 실행 런타임 | 없음 | 없음 |
+
+-------------------------------------------------------------
+fflate 0.8.3
+출처: https://github.com/101arrowz/fflate (npm 레지스트리 fflate-0.8.3.tgz)
+라이선스 원문: public/assets/vendor/fflate/LICENSE
+
+MIT License
+
+Copyright (c) 2026 Arjun Barrett
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-------------------------------------------------------------
+Lucide (lucide-static) 1.50.0
+출처: https://github.com/lucide-icons/lucide (npm 레지스트리 lucide-static-1.50.0.tgz)
+라이선스 원문: public/assets/icons/lucide/LICENSE
+
+ISC License
+
+Copyright (c) 2026 Lucide Icons and Contributors
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+---
+
+The following Lucide icons are derived from the Feather project:
+
+airplay, alert-circle, alert-octagon, alert-triangle, aperture, arrow-down-circle, arrow-down-left, arrow-down-right, arrow-down, arrow-left-circle, arrow-left, arrow-right-circle, arrow-right, arrow-up-circle, arrow-up-left, arrow-up-right, arrow-up, at-sign, calendar, cast, check, chevron-down, chevron-left, chevron-right, chevron-up, chevrons-down, chevrons-left, chevrons-right, chevrons-up, circle, clipboard, clock, code, columns, command, compass, corner-down-left, corner-down-right, corner-left-down, corner-left-up, corner-right-down, corner-right-up, corner-up-left, corner-up-right, crosshair, database, divide-circle, divide-square, dollar-sign, download, external-link, feather, frown, hash, headphones, help-circle, info, italic, key, layout, life-buoy, link-2, link, loader, lock, log-in, log-out, maximize, meh, minimize, minimize-2, minus-circle, minus-square, minus, monitor, moon, more-horizontal, more-vertical, move, music, navigation-2, navigation, octagon, pause-circle, percent, plus-circle, plus-square, plus, power, radio, rss, search, server, share, shopping-bag, sidebar, smartphone, smile, square, table-2, tablet, target, terminal, trash-2, trash, triangle, tv, type, upload, x-circle, x-octagon, x-square, x, zoom-in, zoom-out
+
+The MIT License (MIT) (for the icons listed above)
+
+Copyright (c) 2013-present Cole Bemis
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-------------------------------------------------------------
+CodeMirror 6 (codemirror.js 번들, P17)
+출처: npm 레지스트리. 빌드 방법 docs/vendor_build.md(tools/build_vendor.mjs, 버전 고정 tools/vendor/codemirror/package-lock.json)
+포함 패키지(모두 MIT): @codemirror/autocomplete 6.20.3, @codemirror/lang-javascript 6.2.5, @codemirror/lang-python 6.2.1,
+  @codemirror/language 6.12.4, @codemirror/state 6.7.6, @codemirror/view 6.43.13, @lezer/common 1.5.3, @lezer/highlight 1.2.5,
+  @lezer/javascript 1.5.6, @lezer/lr 1.4.10, @lezer/python 1.1.19, @marijn/find-cluster-break 1.0.4, crelt 1.0.7, style-mod 4.1.4, w3c-keyname 2.2.8
+저작권: Copyright (C) 2016-2024 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
+라이선스 원문(패키지별): public/assets/vendor/codemirror/LICENSES.txt
+
+Chart.js 4 (chart.js 번들, P20)
+출처: npm 레지스트리. 빌드 방법 docs/vendor_build.md(tools/build_vendor.mjs, 버전 고정 tools/vendor/chartjs/package-lock.json)
+포함 패키지(모두 MIT): chart.js 4.5.1(Copyright (c) 2014-2024 Chart.js Contributors), @kurkle/color 0.3.4(Copyright (c) 2018-2024 Jukka Kurkela)
+라이선스 원문(패키지별): public/assets/vendor/chartjs/LICENSES.txt
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-------------------------------------------------------------
+Git 2.56.0 — Git for Windows MinGit 2.56.0.2 64-bit (X09)
+출처: https://github.com/git-for-windows/git/releases/tag/v2.56.0.windows.2
+      (MinGit-2.56.0.2-64-bit.zip, sha256 da35e72aa21c005a5a0d298cfbae110bc1609a815730ea0dde84b01a1b3cd3be)
+라이선스: Git은 GNU General Public License v2(GPL-2.0). 원문: bin/git/2.56.0/windows/LICENSE.txt
+포함 구성요소(curl, OpenSSL, zlib, expat, PCRE2, brotli, Git Credential Manager 등)의 라이선스는 MinGit 묶음에 그대로 두었다:
+  bin/git/2.56.0/windows/ucrt64/share/licenses/<구성요소>/ , bin/git/2.56.0/windows/usr/share/licenses/ ,
+  bin/git/2.56.0/windows/ucrt64/doc/git-credential-manager/LICENSE . 구성요소 버전 목록: bin/git/2.56.0/windows/etc/package-versions.txt
+대응 소스(GPL 소스 제공): Git for Windows 소스 https://github.com/git-for-windows/git (태그 v2.56.0.windows.2),
+  묶음 구성요소 소스 https://github.com/git-for-windows/MINGW-packages · https://github.com/msys2/MINGW-packages
+Linux용 git(배치하는 경우): kernel.org 공식 소스 https://www.kernel.org/pub/software/scm/git/git-2.56.0.tar.xz
+  (sha256 26c56c296b38c0695b26fa95f475f1d01704d2d38e73465ca30b0b2f5dc789d3)를 tools/build_git_linux.sh로 수정 없이 빌드한다.
+  빌드 기록은 bin/git/2.56.0/VERSION.txt에 남는다. 배포할 때는 이 소스 입수처를 함께 안내한다.
+
+-------------------------------------------------------------
+Perforce P4 명령줄 클라이언트(p4) 2026.1/3062361 (X09)
+출처: https://cdist2.perforce.com/perforce/r26.1/bin.ntx64/p4.exe , https://cdist2.perforce.com/perforce/r26.1/bin.linux26x86_64/p4
+라이선스: Perforce Software의 사용 약관(독점 소프트웨어, 무료 배포 클라이언트). https://www.perforce.com/purchase/license-agreements
+재배포: 제품 패키지에 p4를 함께 넣어 배포해도 되는지는 **확인 필요**(사용자가 배포 전에 약관을 확인한다. docs/vcs_tools.md 6절).
+        허용되지 않으면 패키지에서 빼고 운영자가 위 공식 주소에서 직접 받아 bin/p4/<버전>/에 두게 한다.
+
+-------------------------------------------------------------
+onelogin/php-saml 4.3.2 (P28D) — https://github.com/SAML-Toolkits/php-saml
+라이선스: MIT. 원문: vendor/onelogin/php-saml/LICENSE
+
+Copyright (c) 2010-2022 OneLogin, Inc.
+Copyright (c) 2023 IAM Digital Services, SL.
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+-------------------------------------------------------------
+robrichards/xmlseclibs 3.1.5 (P28D) — https://github.com/robrichards/xmlseclibs
+라이선스: BSD-3-Clause. 원문: vendor/robrichards/xmlseclibs/LICENSE
+
+Copyright (c) 2007-2024, Robert Richards <rrichards@cdatazone.org>.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+
+  * Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the
+    distribution.
+
+  * Neither the name of Robert Richards nor the names of his
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+-------------------------------------------------------------
+PHPMailer 7.1.1 (P30B) — https://github.com/PHPMailer/PHPMailer
+라이선스: GNU Lesser General Public License v2.1(LGPL-2.1). 원문: vendor/phpmailer/phpmailer/LICENSE (배포 묶음에 함께 들어감)
+
+Copyright 2012 - 2020 Marcus Bointon, 2010 - 2012 Jim Jagielski, 2004 - 2009 Andy Prevost (원 작성자 Brent R. Matzelle)
+
+PJGuardian은 PHPMailer를 고치지 않고 Composer 패키지 그대로(vendor/phpmailer/phpmailer/) 라이브러리로만 쓴다.
+LGPL-2.1에 따라 사용자는 이 라이브러리를 같은 인터페이스의 다른 버전으로 바꿔 쓸 수 있다
+(composer.json의 버전을 바꾸고 composer install, docs/vendor_build.md 3절). 소스는 위 주소와 vendor/ 폴더에 있다.
+
+-------------------------------------------------------------
+ruff 0.16.10 (P15) — https://github.com/astral-sh/ruff
+라이선스: MIT. Copyright (c) 2022 Charles Marsh. 원문은 ruff 배포 묶음(wheel·zip)의 LICENSE에 있다(위 MIT 전문과 같은 조건).
+ruff가 포함한 서드파티 코드(flake8 플러그인 등에서 옮긴 규칙)의 고지는 ruff 저장소의 LICENSE 끝부분에 있다. PJGuardian 저장소에는 실행 파일이 없고
+bin/ruff/<버전>/SHA256SUMS만 있다. 묶음에 넣을 때(--with-bin)는 운영자가 받은 ruff 묶음의 LICENSE를 함께 둔다.
+
+-------------------------------------------------------------
+ESLint 10.11.0과 의존성 (P15) — https://github.com/eslint/eslint
+라이선스: MIT. Copyright OpenJS Foundation and other contributors, <www.openjsf.org>.
+의존성(@eslint/js, @eslint/eslintrc, @typescript-eslint/parser·eslint-plugin, typescript 등 113개)의 라이선스는 bin/eslint/10.11.0/package-lock.json의
+license 필드와 각 패키지의 node_modules/<패키지>/LICENSE에 있다(typescript: Apache-2.0, Copyright (c) Microsoft Corporation).
+저장소에는 package.json·package-lock.json·SHA256SUMS만 있고 node_modules는 운영자가 npm ci로 만든다(docs/bin_setup.md).
+
+-------------------------------------------------------------
+프로젝트 자체 자산
+public/assets/icons/custom/(pjg-*.svg), samples/(시험용 샘플 코드·1×1 PNG), resources/의 가이드·FAQ·규칙 쉬운 설명은 이 프로젝트에서 만든 것으로
+PJGuardian과 같은 Apache-2.0이다. 규칙 목록(resources/severity/*.catalog.json의 규칙 이름·분류)은 설치된 ruff·ESLint의
+규칙 메타데이터에서 추출한 것이며 각 도구의 라이선스(MIT, typescript-eslint는 MIT)를 따른다. 화면의 규칙 설명 원문도 실행 시 bin/ 도구에서 읽는다.

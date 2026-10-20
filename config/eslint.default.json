@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "extends": ["eslint:recommended"],
+  "env": { "browser": true, "node": true, "es2022": true },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": { "jsx": true }
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint"],
+      "extends": ["plugin:@typescript-eslint/recommended"]
+    },
+    {
+      "files": ["**/*.test.*", "**/*.spec.*", "**/test/**", "**/tests/**", "**/__tests__/**", "**/spec/**"],
+      "env": { "jasmine": true, "mocha": true, "jest": true },
+      "globals": { "vi": "readonly", "vitest": "readonly" }
+    }
+  ]
+}

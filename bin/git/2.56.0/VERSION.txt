@@ -1,0 +1,18 @@
+도구: git (X09에서 배치, 2026-10-07)
+폴더 버전: 2.56.0 (ToolRegistry 형식 x.y.z — Linux 소스 빌드도 같은 2.56.0 폴더의 linux/에 둔다)
+
+windows/  MinGit 2.56.0.2 64-bit (Git for Windows v2.56.0.windows.2, 2026-10-05 게시, busybox 아님)
+  출처: https://github.com/git-for-windows/git/releases/download/v2.56.0.windows.2/MinGit-2.56.0.2-64-bit.zip
+  zip sha256: da35e72aa21c005a5a0d298cfbae110bc1609a815730ea0dde84b01a1b3cd3be
+    = 릴리스 노트의 SHA-256 표 + GitHub 자산 digest(두 곳 일치)
+  zip을 안전 해제(경로 이탈·절대 경로·심볼릭 링크 거부)해 그대로 둠(파일 373개, 96,142,395바이트). 번들 파일은 고치지 않았다.
+  진입점: windows/cmd/git.exe (MinGit 런처, ucrt64/ 를 자기 위치 기준으로 찾음)
+  라이선스: windows/LICENSE.txt, windows/ucrt64/share/licenses/, windows/ucrt64/doc/git-credential-manager/LICENSE
+  주의: 번들 windows/etc/gitconfig 가 core.autocrlf=true, credential.helper=manager 를 켜고
+        C:/Program Files/Git/etc/gitconfig(설치된 Git for Windows의 시스템 설정)을 include 한다.
+        앱은 실행할 때 GIT_CONFIG_NOSYSTEM=1 과 임시 HOME 을 주어 이 설정들을 읽지 않게 한다(P25).
+
+linux/    미배치 — tools/build_git_linux.sh 로 운영 Linux 서버에서 빌드(docs/vcs_tools.md)
+  소스: https://www.kernel.org/pub/software/scm/git/git-2.56.0.tar.xz (sha256은 sha256sums.asc 서명으로 확인)
+
+검증: SHA256SUMS(windows/ 아래 모든 파일) — php tools/check_bin_vcs.php

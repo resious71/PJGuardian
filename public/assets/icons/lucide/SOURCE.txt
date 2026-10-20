@@ -1,0 +1,2 @@
+lucide-static 1.50.0 (ISC) — npm registry lucide-static-1.50.0.tgz, integrity sha512-Pge6F5Au0bEBvjaeBIjfU5PsmA43FHdM3s5g3rYqSNWvBO3o7WwDSNQSavwX76z/OoSCjwSVbQpGA9lqKud/WA==
+필요한 아이콘만 package/icons/에서 복사했다. 목록은 public/assets/icons/icons.json에서 쓰는 lucide 아이콘과 같다(docs/icons.md).

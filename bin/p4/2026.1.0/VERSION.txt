@@ -1,0 +1,19 @@
+도구: p4 (Perforce P4 명령줄 클라이언트, X09에서 배치, 2026-10-07)
+폴더 버전: 2026.1.0 (ToolRegistry 형식 x.y.z. 실제 빌드는 아래 Rev 줄 — 같은 릴리스의 패치는 이 폴더를 교체)
+
+windows/p4.exe  Rev. P4/NTX64/2026.1/3062361 (2026/09/08)
+  출처: https://cdist2.perforce.com/perforce/r26.1/bin.ntx64/p4.exe
+  sha256: 3239328be1ce92e55bd7ca7daf35a0901d696de96fbaa3ad41f334a57389e515
+    = 공식 https://cdist2.perforce.com/perforce/r26.1/bin.ntx64/SHA256SUMS 와 일치(서명 파일은 게시되지 않음)
+
+linux/p4        P4/LINUX26X86_64/2026.1/3062361 (ELF 64-bit x86-64)
+  출처: https://cdist2.perforce.com/perforce/r26.1/bin.linux26x86_64/p4
+  sha256: f03c7c33c04fac1c6941a97b6bb4be649c54a416fd085a80dd70fb79b1555383
+    ≠ 공식 SHA256SUMS(2026-08-13 갱신, a539b30d…224f — 2026-09-08 패치 전 파일의 값으로 보임)
+    = 공식 서명 p4.asc(2026-09-08) GPG 검증 "Good signature", Perforce Software (Package Signing)
+      주 키 지문 E581 31C0 AEA7 B082 C6DC 4C93 7123 CB76 0FF1 8869 (https://package.perforce.com/perforce.pubkey)
+  실행 확인은 Linux에서 필요(Windows에서는 형식·해시만 확인)
+
+릴리스 선택: r26.2 이후 릴리스에는 p4 명령줄 클라이언트가 없다(P4V·P4 One 등만) → p4가 있는 최신 릴리스 r26.1.
+라이선스: Perforce 사용 약관 — 재배포 조건은 사용자 확인 필요(docs/vcs_tools.md)
+검증: SHA256SUMS — php tools/check_bin_vcs.php

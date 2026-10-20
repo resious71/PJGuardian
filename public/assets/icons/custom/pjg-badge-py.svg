@@ -1,0 +1,5 @@
+<!-- PJGuardian 자체 제작(Lucide와 같은 규격: 24×24, stroke 2, round). Python·ruff 텍스트 배지. 외부 로고 아님 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2" y="5" width="20" height="14" rx="3" />
+  <text x="12" y="15.5" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9" font-weight="700" fill="currentColor" stroke="none">Py</text>
+</svg>

@@ -1,0 +1,5725 @@
+{
+    "tool": "ruff",
+    "tool_version": "0.16.10",
+    "note": "도구가 제공하는 규칙 목록과 분류군(ruff: category, ESLint: meta.type). 손으로 고치지 않는다 — php tools/severity_coverage.php --write-catalog가 만든다",
+    "rules": {
+        "A001": {
+            "name": "builtin-variable-shadowing",
+            "group": "pedantic",
+            "linter": "flake8-builtins",
+            "preview": false
+        },
+        "A002": {
+            "name": "builtin-argument-shadowing",
+            "group": "pedantic",
+            "linter": "flake8-builtins",
+            "preview": false
+        },
+        "A003": {
+            "name": "builtin-attribute-shadowing",
+            "group": "pedantic",
+            "linter": "flake8-builtins",
+            "preview": false
+        },
+        "A004": {
+            "name": "builtin-import-shadowing",
+            "group": "pedantic",
+            "linter": "flake8-builtins",
+            "preview": false
+        },
+        "A005": {
+            "name": "stdlib-module-shadowing",
+            "group": "pedantic",
+            "linter": "flake8-builtins",
+            "preview": false
+        },
+        "A006": {
+            "name": "builtin-lambda-argument-shadowing",
+            "group": "pedantic",
+            "linter": "flake8-builtins",
+            "preview": false
+        },
+        "AIR001": {
+            "name": "airflow-variable-name-task-id-mismatch",
+            "group": "style",
+            "linter": "Airflow",
+            "preview": false
+        },
+        "AIR002": {
+            "name": "airflow-dag-no-schedule-argument",
+            "group": "suspicious",
+            "linter": "Airflow",
+            "preview": false
+        },
+        "AIR003": {
+            "name": "airflow-variable-get-outside-task",
+            "group": "suspicious",
+            "linter": "Airflow",
+            "preview": true
+        },
+        "AIR004": {
+            "name": "airflow-task-branch-as-short-circuit",
+            "group": "complexity",
+            "linter": "Airflow",
+            "preview": true
+        },
+        "AIR201": {
+            "name": "airflow-xcom-pull-in-template-string",
+            "group": "complexity",
+            "linter": "Airflow",
+            "preview": true
+        },
+        "AIR202": {
+            "name": "airflow-task-implicit-multiple-outputs",
+            "group": "style",
+            "linter": "Airflow",
+            "preview": true
+        },
+        "AIR301": {
+            "name": "airflow3-removal",
+            "group": "pedantic",
+            "linter": "Airflow",
+            "preview": false
+        },
+        "AIR302": {
+            "name": "airflow3-moved-to-provider",
+            "group": "pedantic",
+            "linter": "Airflow",
+            "preview": false
+        },
+        "AIR303": {
+            "name": "airflow3-incompatible-function-signature",
+            "group": "pedantic",
+            "linter": "Airflow",
+            "preview": false
+        },
+        "AIR304": {
+            "name": "airflow3-dag-dynamic-value",
+            "group": "correctness",
+            "linter": "Airflow",
+            "preview": true
+        },
+        "AIR311": {
+            "name": "airflow3-suggested-update",
+            "group": "pedantic",
+            "linter": "Airflow",
+            "preview": false
+        },
+        "AIR312": {
+            "name": "airflow3-suggested-to-move-to-provider",
+            "group": "pedantic",
+            "linter": "Airflow",
+            "preview": false
+        },
+        "AIR321": {
+            "name": "airflow31-moved",
+            "group": "pedantic",
+            "linter": "Airflow",
+            "preview": true
+        },
+        "ANN001": {
+            "name": "missing-type-function-argument",
+            "group": "pedantic",
+            "linter": "flake8-annotations",
+            "preview": false
+        },
+        "ANN002": {
+            "name": "missing-type-args",
+            "group": "pedantic",
+            "linter": "flake8-annotations",
+            "preview": false
+        },
+        "ANN003": {
+            "name": "missing-type-kwargs",
+            "group": "pedantic",
+            "linter": "flake8-annotations",
+            "preview": false
+        },
+        "ANN201": {
+            "name": "missing-return-type-undocumented-public-function",
+            "group": "pedantic",
+            "linter": "flake8-annotations",
+            "preview": false
+        },
+        "ANN202": {
+            "name": "missing-return-type-private-function",
+            "group": "pedantic",
+            "linter": "flake8-annotations",
+            "preview": false
+        },
+        "ANN204": {
+            "name": "missing-return-type-special-method",
+            "group": "pedantic",
+            "linter": "flake8-annotations",
+            "preview": false
+        },
+        "ANN205": {
+            "name": "missing-return-type-static-method",
+            "group": "pedantic",
+            "linter": "flake8-annotations",
+            "preview": false
+        },
+        "ANN206": {
+            "name": "missing-return-type-class-method",
+            "group": "pedantic",
+            "linter": "flake8-annotations",
+            "preview": false
+        },
+        "ANN401": {
+            "name": "any-type",
+            "group": "pedantic",
+            "linter": "flake8-annotations",
+            "preview": false
+        },
+        "ARG001": {
+            "name": "unused-function-argument",
+            "group": "pedantic",
+            "linter": "flake8-unused-arguments",
+            "preview": false
+        },
+        "ARG002": {
+            "name": "unused-method-argument",
+            "group": "pedantic",
+            "linter": "flake8-unused-arguments",
+            "preview": false
+        },
+        "ARG003": {
+            "name": "unused-class-method-argument",
+            "group": "pedantic",
+            "linter": "flake8-unused-arguments",
+            "preview": false
+        },
+        "ARG004": {
+            "name": "unused-static-method-argument",
+            "group": "pedantic",
+            "linter": "flake8-unused-arguments",
+            "preview": false
+        },
+        "ARG005": {
+            "name": "unused-lambda-argument",
+            "group": "pedantic",
+            "linter": "flake8-unused-arguments",
+            "preview": false
+        },
+        "ASYNC100": {
+            "name": "cancel-scope-no-checkpoint",
+            "group": "suspicious",
+            "linter": "flake8-async",
+            "preview": false
+        },
+        "ASYNC105": {
+            "name": "trio-sync-call",
+            "group": "suspicious",
+            "linter": "flake8-async",
+            "preview": false
+        },
+        "ASYNC109": {
+            "name": "async-function-with-timeout",
+            "group": "pedantic",
+            "linter": "flake8-async",
+            "preview": false
+        },
+        "ASYNC110": {
+            "name": "async-busy-wait",
+            "group": "pedantic",
+            "linter": "flake8-async",
+            "preview": false
+        },
+        "ASYNC115": {
+            "name": "async-zero-sleep",
+            "group": "style",
+            "linter": "flake8-async",
+            "preview": false
+        },
+        "ASYNC116": {
+            "name": "long-sleep-not-forever",
+            "group": "style",
+            "linter": "flake8-async",
+            "preview": false
+        },
+        "ASYNC119": {
+            "name": "yield-in-context-manager-in-async-generator",
+            "group": "pedantic",
+            "linter": "flake8-async",
+            "preview": true
+        },
+        "ASYNC210": {
+            "name": "blocking-http-call-in-async-function",
+            "group": "suspicious",
+            "linter": "flake8-async",
+            "preview": false
+        },
+        "ASYNC212": {
+            "name": "blocking-http-call-httpx-in-async-function",
+            "group": "suspicious",
+            "linter": "flake8-async",
+            "preview": false
+        },
+        "ASYNC220": {
+            "name": "create-subprocess-in-async-function",
+            "group": "suspicious",
+            "linter": "flake8-async",
+            "preview": false
+        },
+        "ASYNC221": {
+            "name": "run-process-in-async-function",
+            "group": "suspicious",
+            "linter": "flake8-async",
+            "preview": false
+        },
+        "ASYNC222": {
+            "name": "wait-for-process-in-async-function",
+            "group": "suspicious",
+            "linter": "flake8-async",
+            "preview": false
+        },
+        "ASYNC230": {
+            "name": "blocking-open-call-in-async-function",
+            "group": "suspicious",
+            "linter": "flake8-async",
+            "preview": false
+        },
+        "ASYNC240": {
+            "name": "blocking-path-method-in-async-function",
+            "group": "suspicious",
+            "linter": "flake8-async",
+            "preview": false
+        },
+        "ASYNC250": {
+            "name": "blocking-input-in-async-function",
+            "group": "suspicious",
+            "linter": "flake8-async",
+            "preview": false
+        },
+        "ASYNC251": {
+            "name": "blocking-sleep-in-async-function",
+            "group": "suspicious",
+            "linter": "flake8-async",
+            "preview": false
+        },
+        "B002": {
+            "name": "unary-prefix-increment-decrement",
+            "group": "correctness",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B003": {
+            "name": "assignment-to-os-environ",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B004": {
+            "name": "unreliable-callable-check",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B005": {
+            "name": "strip-with-multi-characters",
+            "group": "correctness",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B006": {
+            "name": "mutable-argument-default",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B007": {
+            "name": "unused-loop-control-variable",
+            "group": "pedantic",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B008": {
+            "name": "function-call-in-default-argument",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B009": {
+            "name": "get-attr-with-constant",
+            "group": "complexity",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B010": {
+            "name": "set-attr-with-constant",
+            "group": "complexity",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B011": {
+            "name": "assert-false",
+            "group": "pedantic",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B012": {
+            "name": "jump-statement-in-finally",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B013": {
+            "name": "redundant-tuple-in-exception-handler",
+            "group": "complexity",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B014": {
+            "name": "duplicate-handler-exception",
+            "group": "correctness",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B015": {
+            "name": "useless-comparison",
+            "group": "correctness",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B016": {
+            "name": "raise-literal",
+            "group": "correctness",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B017": {
+            "name": "assert-raises-exception",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B018": {
+            "name": "useless-expression",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B019": {
+            "name": "cached-instance-method",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B020": {
+            "name": "loop-variable-overrides-iterator",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B021": {
+            "name": "f-string-docstring",
+            "group": "correctness",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B022": {
+            "name": "useless-contextlib-suppress",
+            "group": "correctness",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B023": {
+            "name": "function-uses-loop-variable",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B024": {
+            "name": "abstract-base-class-without-abstract-method",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B025": {
+            "name": "duplicate-try-block-exception",
+            "group": "correctness",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B026": {
+            "name": "star-arg-unpacking-after-keyword-arg",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B027": {
+            "name": "empty-method-without-abstract-decorator",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B028": {
+            "name": "no-explicit-stacklevel",
+            "group": "pedantic",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B029": {
+            "name": "except-with-empty-tuple",
+            "group": "correctness",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B030": {
+            "name": "except-with-non-exception-classes",
+            "group": "correctness",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B031": {
+            "name": "reuse-of-groupby-generator",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B032": {
+            "name": "unintentional-type-annotation",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B033": {
+            "name": "duplicate-value",
+            "group": "correctness",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B034": {
+            "name": "re-sub-positional-args",
+            "group": "pedantic",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B035": {
+            "name": "static-key-dict-comprehension",
+            "group": "correctness",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B039": {
+            "name": "mutable-contextvar-default",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B043": {
+            "name": "del-attr-with-constant",
+            "group": "complexity",
+            "linter": "flake8-bugbear",
+            "preview": true
+        },
+        "B901": {
+            "name": "return-in-generator",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": true
+        },
+        "B903": {
+            "name": "class-as-data-structure",
+            "group": "pedantic",
+            "linter": "flake8-bugbear",
+            "preview": true
+        },
+        "B904": {
+            "name": "raise-without-from-inside-except",
+            "group": "pedantic",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B905": {
+            "name": "zip-without-explicit-strict",
+            "group": "pedantic",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B909": {
+            "name": "loop-iterator-mutation",
+            "group": "suspicious",
+            "linter": "flake8-bugbear",
+            "preview": true
+        },
+        "B911": {
+            "name": "batched-without-explicit-strict",
+            "group": "pedantic",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "B912": {
+            "name": "map-without-explicit-strict",
+            "group": "pedantic",
+            "linter": "flake8-bugbear",
+            "preview": false
+        },
+        "BLE001": {
+            "name": "blind-except",
+            "group": "suspicious",
+            "linter": "flake8-blind-except",
+            "preview": false
+        },
+        "C400": {
+            "name": "unnecessary-generator-list",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C401": {
+            "name": "unnecessary-generator-set",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C402": {
+            "name": "unnecessary-generator-dict",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C403": {
+            "name": "unnecessary-list-comprehension-set",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C404": {
+            "name": "unnecessary-list-comprehension-dict",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C405": {
+            "name": "unnecessary-literal-set",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C406": {
+            "name": "unnecessary-literal-dict",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C408": {
+            "name": "unnecessary-collection-call",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C409": {
+            "name": "unnecessary-literal-within-tuple-call",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C410": {
+            "name": "unnecessary-literal-within-list-call",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C411": {
+            "name": "unnecessary-list-call",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C413": {
+            "name": "unnecessary-call-around-sorted",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C414": {
+            "name": "unnecessary-double-cast-or-process",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C415": {
+            "name": "unnecessary-subscript-reversal",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C416": {
+            "name": "unnecessary-comprehension",
+            "group": "pedantic",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C417": {
+            "name": "unnecessary-map",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C418": {
+            "name": "unnecessary-literal-within-dict-call",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C419": {
+            "name": "unnecessary-comprehension-in-call",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C420": {
+            "name": "unnecessary-dict-comprehension-for-iterable",
+            "group": "complexity",
+            "linter": "flake8-comprehensions",
+            "preview": false
+        },
+        "C901": {
+            "name": "complex-structure",
+            "group": "restriction",
+            "linter": "mccabe",
+            "preview": false
+        },
+        "COM812": {
+            "name": "missing-trailing-comma",
+            "group": "formatting",
+            "linter": "flake8-commas",
+            "preview": false
+        },
+        "COM818": {
+            "name": "trailing-comma-on-bare-tuple",
+            "group": "suspicious",
+            "linter": "flake8-commas",
+            "preview": false
+        },
+        "COM819": {
+            "name": "prohibited-trailing-comma",
+            "group": "formatting",
+            "linter": "flake8-commas",
+            "preview": false
+        },
+        "CPY001": {
+            "name": "missing-copyright-notice",
+            "group": "pedantic",
+            "linter": "flake8-copyright",
+            "preview": false
+        },
+        "D100": {
+            "name": "undocumented-public-module",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D101": {
+            "name": "undocumented-public-class",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D102": {
+            "name": "undocumented-public-method",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D103": {
+            "name": "undocumented-public-function",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D104": {
+            "name": "undocumented-public-package",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D105": {
+            "name": "undocumented-magic-method",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D106": {
+            "name": "undocumented-public-nested-class",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D107": {
+            "name": "undocumented-public-init",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D200": {
+            "name": "unnecessary-multiline-docstring",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D201": {
+            "name": "blank-line-before-function",
+            "group": "formatting",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D202": {
+            "name": "blank-line-after-function",
+            "group": "formatting",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D203": {
+            "name": "incorrect-blank-line-before-class",
+            "group": "formatting",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D204": {
+            "name": "incorrect-blank-line-after-class",
+            "group": "formatting",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D205": {
+            "name": "missing-blank-line-after-summary",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D206": {
+            "name": "docstring-tab-indentation",
+            "group": "formatting",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D207": {
+            "name": "under-indentation",
+            "group": "formatting",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D208": {
+            "name": "over-indentation",
+            "group": "formatting",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D209": {
+            "name": "new-line-after-last-paragraph",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D210": {
+            "name": "surrounding-whitespace",
+            "group": "formatting",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D211": {
+            "name": "blank-line-before-class",
+            "group": "formatting",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D212": {
+            "name": "multi-line-summary-first-line",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D213": {
+            "name": "multi-line-summary-second-line",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D214": {
+            "name": "overindented-section",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D215": {
+            "name": "overindented-section-underline",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D300": {
+            "name": "triple-single-quotes",
+            "group": "formatting",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D301": {
+            "name": "escape-sequence-in-docstring",
+            "group": "suspicious",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D400": {
+            "name": "missing-trailing-period",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D401": {
+            "name": "non-imperative-mood",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D402": {
+            "name": "signature-in-docstring",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D403": {
+            "name": "first-word-uncapitalized",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D404": {
+            "name": "docstring-starts-with-this",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D405": {
+            "name": "non-capitalized-section-name",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D406": {
+            "name": "missing-new-line-after-section-name",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D407": {
+            "name": "missing-dashed-underline-after-section",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D408": {
+            "name": "missing-section-underline-after-name",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D409": {
+            "name": "mismatched-section-underline-length",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D410": {
+            "name": "no-blank-line-after-section",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D411": {
+            "name": "no-blank-line-before-section",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D412": {
+            "name": "blank-lines-between-header-and-content",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D413": {
+            "name": "missing-blank-line-after-last-section",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D414": {
+            "name": "empty-docstring-section",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D415": {
+            "name": "missing-terminal-punctuation",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D416": {
+            "name": "missing-section-name-colon",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D417": {
+            "name": "undocumented-param",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D418": {
+            "name": "overload-with-docstring",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D419": {
+            "name": "empty-docstring",
+            "group": "suspicious",
+            "linter": "pydocstyle",
+            "preview": false
+        },
+        "D420": {
+            "name": "incorrect-section-order",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": true
+        },
+        "D421": {
+            "name": "property-docstring-starts-with-verb",
+            "group": "pedantic",
+            "linter": "pydocstyle",
+            "preview": true
+        },
+        "DJ001": {
+            "name": "django-nullable-model-string-field",
+            "group": "pedantic",
+            "linter": "flake8-django",
+            "preview": false
+        },
+        "DJ003": {
+            "name": "django-locals-in-render-function",
+            "group": "security",
+            "linter": "flake8-django",
+            "preview": false
+        },
+        "DJ006": {
+            "name": "django-exclude-with-model-form",
+            "group": "security",
+            "linter": "flake8-django",
+            "preview": false
+        },
+        "DJ007": {
+            "name": "django-all-with-model-form",
+            "group": "security",
+            "linter": "flake8-django",
+            "preview": false
+        },
+        "DJ008": {
+            "name": "django-model-without-dunder-str",
+            "group": "style",
+            "linter": "flake8-django",
+            "preview": false
+        },
+        "DJ012": {
+            "name": "django-unordered-body-content-in-model",
+            "group": "style",
+            "linter": "flake8-django",
+            "preview": false
+        },
+        "DJ013": {
+            "name": "django-non-leading-receiver-decorator",
+            "group": "suspicious",
+            "linter": "flake8-django",
+            "preview": false
+        },
+        "DOC102": {
+            "name": "docstring-extraneous-parameter",
+            "group": "pedantic",
+            "linter": "pydoclint",
+            "preview": true
+        },
+        "DOC201": {
+            "name": "docstring-missing-returns",
+            "group": "pedantic",
+            "linter": "pydoclint",
+            "preview": true
+        },
+        "DOC202": {
+            "name": "docstring-extraneous-returns",
+            "group": "pedantic",
+            "linter": "pydoclint",
+            "preview": true
+        },
+        "DOC402": {
+            "name": "docstring-missing-yields",
+            "group": "pedantic",
+            "linter": "pydoclint",
+            "preview": true
+        },
+        "DOC403": {
+            "name": "docstring-extraneous-yields",
+            "group": "pedantic",
+            "linter": "pydoclint",
+            "preview": true
+        },
+        "DOC501": {
+            "name": "docstring-missing-exception",
+            "group": "pedantic",
+            "linter": "pydoclint",
+            "preview": true
+        },
+        "DOC502": {
+            "name": "docstring-extraneous-exception",
+            "group": "pedantic",
+            "linter": "pydoclint",
+            "preview": true
+        },
+        "DTZ001": {
+            "name": "call-datetime-without-tzinfo",
+            "group": "pedantic",
+            "linter": "flake8-datetimez",
+            "preview": false
+        },
+        "DTZ002": {
+            "name": "call-datetime-today",
+            "group": "suspicious",
+            "linter": "flake8-datetimez",
+            "preview": false
+        },
+        "DTZ003": {
+            "name": "call-datetime-utcnow",
+            "group": "suspicious",
+            "linter": "flake8-datetimez",
+            "preview": false
+        },
+        "DTZ004": {
+            "name": "call-datetime-utcfromtimestamp",
+            "group": "suspicious",
+            "linter": "flake8-datetimez",
+            "preview": false
+        },
+        "DTZ005": {
+            "name": "call-datetime-now-without-tzinfo",
+            "group": "pedantic",
+            "linter": "flake8-datetimez",
+            "preview": false
+        },
+        "DTZ006": {
+            "name": "call-datetime-fromtimestamp",
+            "group": "pedantic",
+            "linter": "flake8-datetimez",
+            "preview": false
+        },
+        "DTZ007": {
+            "name": "call-datetime-strptime-without-zone",
+            "group": "pedantic",
+            "linter": "flake8-datetimez",
+            "preview": false
+        },
+        "DTZ011": {
+            "name": "call-date-today",
+            "group": "pedantic",
+            "linter": "flake8-datetimez",
+            "preview": false
+        },
+        "DTZ012": {
+            "name": "call-date-fromtimestamp",
+            "group": "pedantic",
+            "linter": "flake8-datetimez",
+            "preview": false
+        },
+        "DTZ901": {
+            "name": "datetime-min-max",
+            "group": "pedantic",
+            "linter": "flake8-datetimez",
+            "preview": false
+        },
+        "E101": {
+            "name": "mixed-spaces-and-tabs",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E111": {
+            "name": "indentation-with-invalid-multiple",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E112": {
+            "name": "no-indented-block",
+            "group": "pedantic",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E113": {
+            "name": "unexpected-indentation",
+            "group": "pedantic",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E114": {
+            "name": "indentation-with-invalid-multiple-comment",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E115": {
+            "name": "no-indented-block-comment",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E116": {
+            "name": "unexpected-indentation-comment",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E117": {
+            "name": "over-indented",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E201": {
+            "name": "whitespace-after-open-bracket",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E202": {
+            "name": "whitespace-before-close-bracket",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E203": {
+            "name": "whitespace-before-punctuation",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E204": {
+            "name": "whitespace-after-decorator",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E211": {
+            "name": "whitespace-before-parameters",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E221": {
+            "name": "multiple-spaces-before-operator",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E222": {
+            "name": "multiple-spaces-after-operator",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E223": {
+            "name": "tab-before-operator",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E224": {
+            "name": "tab-after-operator",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E225": {
+            "name": "missing-whitespace-around-operator",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E226": {
+            "name": "missing-whitespace-around-arithmetic-operator",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E227": {
+            "name": "missing-whitespace-around-bitwise-or-shift-operator",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E228": {
+            "name": "missing-whitespace-around-modulo-operator",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E231": {
+            "name": "missing-whitespace",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E241": {
+            "name": "multiple-spaces-after-comma",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E242": {
+            "name": "tab-after-comma",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E251": {
+            "name": "unexpected-spaces-around-keyword-parameter-equals",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E252": {
+            "name": "missing-whitespace-around-parameter-equals",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E261": {
+            "name": "too-few-spaces-before-inline-comment",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E262": {
+            "name": "no-space-after-inline-comment",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E265": {
+            "name": "no-space-after-block-comment",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E266": {
+            "name": "multiple-leading-hashes-for-block-comment",
+            "group": "pedantic",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E271": {
+            "name": "multiple-spaces-after-keyword",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E272": {
+            "name": "multiple-spaces-before-keyword",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E273": {
+            "name": "tab-after-keyword",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E274": {
+            "name": "tab-before-keyword",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E275": {
+            "name": "missing-whitespace-after-keyword",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E301": {
+            "name": "blank-line-between-methods",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E302": {
+            "name": "blank-lines-top-level",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E303": {
+            "name": "too-many-blank-lines",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E304": {
+            "name": "blank-line-after-decorator",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E305": {
+            "name": "blank-lines-after-function-or-class",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E306": {
+            "name": "blank-lines-before-nested-definition",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E401": {
+            "name": "multiple-imports-on-one-line",
+            "group": "pedantic",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E402": {
+            "name": "module-import-not-at-top-of-file",
+            "group": "pedantic",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E501": {
+            "name": "line-too-long",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E502": {
+            "name": "redundant-backslash",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "E701": {
+            "name": "multiple-statements-on-one-line-colon",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E702": {
+            "name": "multiple-statements-on-one-line-semicolon",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E703": {
+            "name": "useless-semicolon",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E711": {
+            "name": "none-comparison",
+            "group": "pedantic",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E712": {
+            "name": "true-false-comparison",
+            "group": "pedantic",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E713": {
+            "name": "not-in-test",
+            "group": "pedantic",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E714": {
+            "name": "not-is-test",
+            "group": "pedantic",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E721": {
+            "name": "type-comparison",
+            "group": "pedantic",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E722": {
+            "name": "bare-except",
+            "group": "suspicious",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E731": {
+            "name": "lambda-assignment",
+            "group": "pedantic",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E741": {
+            "name": "ambiguous-variable-name",
+            "group": "pedantic",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E742": {
+            "name": "ambiguous-class-name",
+            "group": "pedantic",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E743": {
+            "name": "ambiguous-function-name",
+            "group": "pedantic",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "E902": {
+            "name": "io-error",
+            "group": "correctness",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "EM101": {
+            "name": "raw-string-in-exception",
+            "group": "pedantic",
+            "linter": "flake8-errmsg",
+            "preview": false
+        },
+        "EM102": {
+            "name": "f-string-in-exception",
+            "group": "pedantic",
+            "linter": "flake8-errmsg",
+            "preview": false
+        },
+        "EM103": {
+            "name": "dot-format-in-exception",
+            "group": "pedantic",
+            "linter": "flake8-errmsg",
+            "preview": false
+        },
+        "ERA001": {
+            "name": "commented-out-code",
+            "group": "pedantic",
+            "linter": "eradicate",
+            "preview": false
+        },
+        "EXE001": {
+            "name": "shebang-not-executable",
+            "group": "suspicious",
+            "linter": "flake8-executable",
+            "preview": false
+        },
+        "EXE002": {
+            "name": "shebang-missing-executable-file",
+            "group": "correctness",
+            "linter": "flake8-executable",
+            "preview": false
+        },
+        "EXE003": {
+            "name": "shebang-missing-python",
+            "group": "pedantic",
+            "linter": "flake8-executable",
+            "preview": false
+        },
+        "EXE004": {
+            "name": "shebang-leading-whitespace",
+            "group": "correctness",
+            "linter": "flake8-executable",
+            "preview": false
+        },
+        "EXE005": {
+            "name": "shebang-not-first-line",
+            "group": "suspicious",
+            "linter": "flake8-executable",
+            "preview": false
+        },
+        "F401": {
+            "name": "unused-import",
+            "group": "suspicious",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F402": {
+            "name": "import-shadowed-by-loop-var",
+            "group": "suspicious",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F403": {
+            "name": "undefined-local-with-import-star",
+            "group": "restriction",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F404": {
+            "name": "late-future-import",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F405": {
+            "name": "undefined-local-with-import-star-usage",
+            "group": "restriction",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F406": {
+            "name": "undefined-local-with-nested-import-star-usage",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F407": {
+            "name": "future-feature-not-defined",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F501": {
+            "name": "percent-format-invalid-format",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F502": {
+            "name": "percent-format-expected-mapping",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F503": {
+            "name": "percent-format-expected-sequence",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F504": {
+            "name": "percent-format-extra-named-arguments",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F505": {
+            "name": "percent-format-missing-argument",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F506": {
+            "name": "percent-format-mixed-positional-and-named",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F507": {
+            "name": "percent-format-positional-count-mismatch",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F508": {
+            "name": "percent-format-star-requires-sequence",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F509": {
+            "name": "percent-format-unsupported-format-character",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F521": {
+            "name": "string-dot-format-invalid-format",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F522": {
+            "name": "string-dot-format-extra-named-arguments",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F523": {
+            "name": "string-dot-format-extra-positional-arguments",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F524": {
+            "name": "string-dot-format-missing-arguments",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F525": {
+            "name": "string-dot-format-mixing-automatic",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F541": {
+            "name": "f-string-missing-placeholders",
+            "group": "complexity",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F601": {
+            "name": "multi-value-repeated-key-literal",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F602": {
+            "name": "multi-value-repeated-key-variable",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F621": {
+            "name": "expressions-in-star-assignment",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F622": {
+            "name": "multiple-starred-expressions",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F631": {
+            "name": "assert-tuple",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F632": {
+            "name": "is-literal",
+            "group": "suspicious",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F633": {
+            "name": "invalid-print-syntax",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F634": {
+            "name": "if-tuple",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F701": {
+            "name": "break-outside-loop",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F702": {
+            "name": "continue-outside-loop",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F704": {
+            "name": "yield-outside-function",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F706": {
+            "name": "return-outside-function",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F707": {
+            "name": "default-except-not-last",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F722": {
+            "name": "forward-annotation-syntax-error",
+            "group": "pedantic",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F811": {
+            "name": "redefined-while-unused",
+            "group": "suspicious",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F821": {
+            "name": "undefined-name",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F822": {
+            "name": "undefined-export",
+            "group": "suspicious",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F823": {
+            "name": "undefined-local",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F841": {
+            "name": "unused-variable",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F842": {
+            "name": "unused-annotation",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "F901": {
+            "name": "raise-not-implemented",
+            "group": "correctness",
+            "linter": "Pyflakes",
+            "preview": false
+        },
+        "FA100": {
+            "name": "future-rewritable-type-annotation",
+            "group": "style",
+            "linter": "flake8-future-annotations",
+            "preview": false
+        },
+        "FA102": {
+            "name": "future-required-type-annotation",
+            "group": "correctness",
+            "linter": "flake8-future-annotations",
+            "preview": false
+        },
+        "FAST001": {
+            "name": "fast-api-redundant-response-model",
+            "group": "complexity",
+            "linter": "FastAPI",
+            "preview": false
+        },
+        "FAST002": {
+            "name": "fast-api-non-annotated-dependency",
+            "group": "style",
+            "linter": "FastAPI",
+            "preview": false
+        },
+        "FAST003": {
+            "name": "fast-api-unused-path-parameter",
+            "group": "suspicious",
+            "linter": "FastAPI",
+            "preview": false
+        },
+        "FBT001": {
+            "name": "boolean-type-hint-positional-argument",
+            "group": "pedantic",
+            "linter": "flake8-boolean-trap",
+            "preview": false
+        },
+        "FBT002": {
+            "name": "boolean-default-value-positional-argument",
+            "group": "pedantic",
+            "linter": "flake8-boolean-trap",
+            "preview": false
+        },
+        "FBT003": {
+            "name": "boolean-positional-value-in-call",
+            "group": "pedantic",
+            "linter": "flake8-boolean-trap",
+            "preview": false
+        },
+        "FIX001": {
+            "name": "line-contains-fixme",
+            "group": "pedantic",
+            "linter": "flake8-fixme",
+            "preview": false
+        },
+        "FIX002": {
+            "name": "line-contains-todo",
+            "group": "pedantic",
+            "linter": "flake8-fixme",
+            "preview": false
+        },
+        "FIX003": {
+            "name": "line-contains-xxx",
+            "group": "pedantic",
+            "linter": "flake8-fixme",
+            "preview": false
+        },
+        "FIX004": {
+            "name": "line-contains-hack",
+            "group": "pedantic",
+            "linter": "flake8-fixme",
+            "preview": false
+        },
+        "FLY002": {
+            "name": "static-join-to-f-string",
+            "group": "complexity",
+            "linter": "flynt",
+            "preview": false
+        },
+        "FURB101": {
+            "name": "read-whole-file",
+            "group": "pedantic",
+            "linter": "refurb",
+            "preview": true
+        },
+        "FURB103": {
+            "name": "write-whole-file",
+            "group": "pedantic",
+            "linter": "refurb",
+            "preview": true
+        },
+        "FURB105": {
+            "name": "print-empty-string",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB110": {
+            "name": "if-exp-instead-of-or-operator",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB113": {
+            "name": "repeated-append",
+            "group": "performance",
+            "linter": "refurb",
+            "preview": true
+        },
+        "FURB116": {
+            "name": "f-string-number-format",
+            "group": "pedantic",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB118": {
+            "name": "reimplemented-operator",
+            "group": "pedantic",
+            "linter": "refurb",
+            "preview": true
+        },
+        "FURB122": {
+            "name": "for-loop-writes",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB129": {
+            "name": "readlines-in-for",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB131": {
+            "name": "delete-full-slice",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": true
+        },
+        "FURB132": {
+            "name": "check-and-remove-from-set",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB136": {
+            "name": "if-expr-min-max",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB140": {
+            "name": "reimplemented-starmap",
+            "group": "pedantic",
+            "linter": "refurb",
+            "preview": true
+        },
+        "FURB142": {
+            "name": "for-loop-set-mutations",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": true
+        },
+        "FURB145": {
+            "name": "slice-copy",
+            "group": "style",
+            "linter": "refurb",
+            "preview": true
+        },
+        "FURB148": {
+            "name": "unnecessary-enumerate",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": true
+        },
+        "FURB152": {
+            "name": "math-constant",
+            "group": "correctness",
+            "linter": "refurb",
+            "preview": true
+        },
+        "FURB154": {
+            "name": "repeated-global",
+            "group": "formatting",
+            "linter": "refurb",
+            "preview": true
+        },
+        "FURB156": {
+            "name": "hardcoded-string-charset",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": true
+        },
+        "FURB157": {
+            "name": "verbose-decimal-constructor",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB161": {
+            "name": "bit-count",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB162": {
+            "name": "fromisoformat-replace-z",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB163": {
+            "name": "redundant-log-base",
+            "group": "correctness",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB164": {
+            "name": "unnecessary-from-float",
+            "group": "pedantic",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB166": {
+            "name": "int-on-sliced-str",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB167": {
+            "name": "regex-flag-alias",
+            "group": "style",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB168": {
+            "name": "isinstance-type-none",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB169": {
+            "name": "type-none-comparison",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB171": {
+            "name": "single-item-membership-test",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB177": {
+            "name": "implicit-cwd",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB180": {
+            "name": "meta-class-abc-meta",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": true
+        },
+        "FURB181": {
+            "name": "hashlib-digest-hex",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB187": {
+            "name": "list-reverse-copy",
+            "group": "pedantic",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB188": {
+            "name": "slice-to-remove-prefix-or-suffix",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "FURB189": {
+            "name": "subclass-builtin",
+            "group": "suspicious",
+            "linter": "refurb",
+            "preview": true
+        },
+        "FURB192": {
+            "name": "sorted-min-max",
+            "group": "complexity",
+            "linter": "refurb",
+            "preview": false
+        },
+        "G001": {
+            "name": "logging-string-format",
+            "group": "pedantic",
+            "linter": "flake8-logging-format",
+            "preview": false
+        },
+        "G002": {
+            "name": "logging-percent-format",
+            "group": "pedantic",
+            "linter": "flake8-logging-format",
+            "preview": false
+        },
+        "G003": {
+            "name": "logging-string-concat",
+            "group": "pedantic",
+            "linter": "flake8-logging-format",
+            "preview": false
+        },
+        "G004": {
+            "name": "logging-f-string",
+            "group": "pedantic",
+            "linter": "flake8-logging-format",
+            "preview": false
+        },
+        "G010": {
+            "name": "logging-warn",
+            "group": "suspicious",
+            "linter": "flake8-logging-format",
+            "preview": false
+        },
+        "G101": {
+            "name": "logging-extra-attr-clash",
+            "group": "correctness",
+            "linter": "flake8-logging-format",
+            "preview": false
+        },
+        "G201": {
+            "name": "logging-exc-info",
+            "group": "complexity",
+            "linter": "flake8-logging-format",
+            "preview": false
+        },
+        "G202": {
+            "name": "logging-redundant-exc-info",
+            "group": "style",
+            "linter": "flake8-logging-format",
+            "preview": false
+        },
+        "I001": {
+            "name": "unsorted-imports",
+            "group": "style",
+            "linter": "isort",
+            "preview": false
+        },
+        "I002": {
+            "name": "missing-required-import",
+            "group": "pedantic",
+            "linter": "isort",
+            "preview": false
+        },
+        "ICN001": {
+            "name": "unconventional-import-alias",
+            "group": "pedantic",
+            "linter": "flake8-import-conventions",
+            "preview": false
+        },
+        "ICN002": {
+            "name": "banned-import-alias",
+            "group": "pedantic",
+            "linter": "flake8-import-conventions",
+            "preview": false
+        },
+        "ICN003": {
+            "name": "banned-import-from",
+            "group": "pedantic",
+            "linter": "flake8-import-conventions",
+            "preview": false
+        },
+        "INP001": {
+            "name": "implicit-namespace-package",
+            "group": "pedantic",
+            "linter": "flake8-no-pep420",
+            "preview": false
+        },
+        "INT001": {
+            "name": "f-string-in-get-text-func-call",
+            "group": "suspicious",
+            "linter": "flake8-gettext",
+            "preview": false
+        },
+        "INT002": {
+            "name": "format-in-get-text-func-call",
+            "group": "suspicious",
+            "linter": "flake8-gettext",
+            "preview": false
+        },
+        "INT003": {
+            "name": "printf-in-get-text-func-call",
+            "group": "suspicious",
+            "linter": "flake8-gettext",
+            "preview": false
+        },
+        "ISC001": {
+            "name": "single-line-implicit-string-concatenation",
+            "group": "restriction",
+            "linter": "flake8-implicit-str-concat",
+            "preview": false
+        },
+        "ISC002": {
+            "name": "multi-line-implicit-string-concatenation",
+            "group": "formatting",
+            "linter": "flake8-implicit-str-concat",
+            "preview": false
+        },
+        "ISC003": {
+            "name": "explicit-string-concatenation",
+            "group": "restriction",
+            "linter": "flake8-implicit-str-concat",
+            "preview": false
+        },
+        "ISC004": {
+            "name": "implicit-string-concatenation-in-collection-literal",
+            "group": "suspicious",
+            "linter": "flake8-implicit-str-concat",
+            "preview": false
+        },
+        "LOG001": {
+            "name": "direct-logger-instantiation",
+            "group": "correctness",
+            "linter": "flake8-logging",
+            "preview": false
+        },
+        "LOG002": {
+            "name": "invalid-get-logger-argument",
+            "group": "suspicious",
+            "linter": "flake8-logging",
+            "preview": false
+        },
+        "LOG004": {
+            "name": "log-exception-outside-except-handler",
+            "group": "pedantic",
+            "linter": "flake8-logging",
+            "preview": false
+        },
+        "LOG007": {
+            "name": "exception-without-exc-info",
+            "group": "pedantic",
+            "linter": "flake8-logging",
+            "preview": false
+        },
+        "LOG009": {
+            "name": "undocumented-warn",
+            "group": "suspicious",
+            "linter": "flake8-logging",
+            "preview": false
+        },
+        "LOG014": {
+            "name": "exc-info-outside-except-handler",
+            "group": "suspicious",
+            "linter": "flake8-logging",
+            "preview": false
+        },
+        "LOG015": {
+            "name": "root-logger-call",
+            "group": "style",
+            "linter": "flake8-logging",
+            "preview": false
+        },
+        "N801": {
+            "name": "invalid-class-name",
+            "group": "pedantic",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "N802": {
+            "name": "invalid-function-name",
+            "group": "pedantic",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "N803": {
+            "name": "invalid-argument-name",
+            "group": "pedantic",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "N804": {
+            "name": "invalid-first-argument-name-for-class-method",
+            "group": "pedantic",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "N805": {
+            "name": "invalid-first-argument-name-for-method",
+            "group": "pedantic",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "N806": {
+            "name": "non-lowercase-variable-in-function",
+            "group": "pedantic",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "N807": {
+            "name": "dunder-function-name",
+            "group": "pedantic",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "N811": {
+            "name": "constant-imported-as-non-constant",
+            "group": "pedantic",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "N812": {
+            "name": "lowercase-imported-as-non-lowercase",
+            "group": "pedantic",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "N813": {
+            "name": "camelcase-imported-as-lowercase",
+            "group": "pedantic",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "N814": {
+            "name": "camelcase-imported-as-constant",
+            "group": "pedantic",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "N815": {
+            "name": "mixed-case-variable-in-class-scope",
+            "group": "pedantic",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "N816": {
+            "name": "mixed-case-variable-in-global-scope",
+            "group": "pedantic",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "N817": {
+            "name": "camelcase-imported-as-acronym",
+            "group": "pedantic",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "N818": {
+            "name": "error-suffix-on-exception-name",
+            "group": "pedantic",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "N999": {
+            "name": "invalid-module-name",
+            "group": "style",
+            "linter": "pep8-naming",
+            "preview": false
+        },
+        "NPY001": {
+            "name": "numpy-deprecated-type-alias",
+            "group": "suspicious",
+            "linter": "NumPy-specific rules",
+            "preview": false
+        },
+        "NPY002": {
+            "name": "numpy-legacy-random",
+            "group": "suspicious",
+            "linter": "NumPy-specific rules",
+            "preview": false
+        },
+        "NPY003": {
+            "name": "numpy-deprecated-function",
+            "group": "suspicious",
+            "linter": "NumPy-specific rules",
+            "preview": false
+        },
+        "NPY201": {
+            "name": "numpy2-deprecation",
+            "group": "suspicious",
+            "linter": "NumPy-specific rules",
+            "preview": false
+        },
+        "PD002": {
+            "name": "pandas-use-of-inplace-argument",
+            "group": "pedantic",
+            "linter": "pandas-vet",
+            "preview": false
+        },
+        "PD003": {
+            "name": "pandas-use-of-dot-is-null",
+            "group": "style",
+            "linter": "pandas-vet",
+            "preview": false
+        },
+        "PD004": {
+            "name": "pandas-use-of-dot-not-null",
+            "group": "style",
+            "linter": "pandas-vet",
+            "preview": false
+        },
+        "PD007": {
+            "name": "pandas-use-of-dot-ix",
+            "group": "pedantic",
+            "linter": "pandas-vet",
+            "preview": false
+        },
+        "PD008": {
+            "name": "pandas-use-of-dot-at",
+            "group": "pedantic",
+            "linter": "pandas-vet",
+            "preview": false
+        },
+        "PD009": {
+            "name": "pandas-use-of-dot-iat",
+            "group": "pedantic",
+            "linter": "pandas-vet",
+            "preview": false
+        },
+        "PD010": {
+            "name": "pandas-use-of-dot-pivot-or-unstack",
+            "group": "pedantic",
+            "linter": "pandas-vet",
+            "preview": false
+        },
+        "PD011": {
+            "name": "pandas-use-of-dot-values",
+            "group": "pedantic",
+            "linter": "pandas-vet",
+            "preview": false
+        },
+        "PD012": {
+            "name": "pandas-use-of-dot-read-table",
+            "group": "complexity",
+            "linter": "pandas-vet",
+            "preview": false
+        },
+        "PD013": {
+            "name": "pandas-use-of-dot-stack",
+            "group": "pedantic",
+            "linter": "pandas-vet",
+            "preview": false
+        },
+        "PD015": {
+            "name": "pandas-use-of-pd-merge",
+            "group": "style",
+            "linter": "pandas-vet",
+            "preview": false
+        },
+        "PD101": {
+            "name": "pandas-nunique-constant-series-check",
+            "group": "pedantic",
+            "linter": "pandas-vet",
+            "preview": false
+        },
+        "PERF101": {
+            "name": "unnecessary-list-cast",
+            "group": "performance",
+            "linter": "Perflint",
+            "preview": false
+        },
+        "PERF102": {
+            "name": "incorrect-dict-iterator",
+            "group": "complexity",
+            "linter": "Perflint",
+            "preview": false
+        },
+        "PERF203": {
+            "name": "try-except-in-loop",
+            "group": "pedantic",
+            "linter": "Perflint",
+            "preview": false
+        },
+        "PERF401": {
+            "name": "manual-list-comprehension",
+            "group": "pedantic",
+            "linter": "Perflint",
+            "preview": false
+        },
+        "PERF402": {
+            "name": "manual-list-copy",
+            "group": "complexity",
+            "linter": "Perflint",
+            "preview": false
+        },
+        "PERF403": {
+            "name": "manual-dict-comprehension",
+            "group": "pedantic",
+            "linter": "Perflint",
+            "preview": false
+        },
+        "PGH003": {
+            "name": "blanket-type-ignore",
+            "group": "restriction",
+            "linter": "pygrep-hooks",
+            "preview": false
+        },
+        "PGH004": {
+            "name": "blanket-noqa",
+            "group": "pedantic",
+            "linter": "pygrep-hooks",
+            "preview": false
+        },
+        "PGH005": {
+            "name": "invalid-mock-access",
+            "group": "suspicious",
+            "linter": "pygrep-hooks",
+            "preview": false
+        },
+        "PIE790": {
+            "name": "unnecessary-placeholder",
+            "group": "style",
+            "linter": "flake8-pie",
+            "preview": false
+        },
+        "PIE794": {
+            "name": "duplicate-class-field-definition",
+            "group": "correctness",
+            "linter": "flake8-pie",
+            "preview": false
+        },
+        "PIE796": {
+            "name": "non-unique-enums",
+            "group": "suspicious",
+            "linter": "flake8-pie",
+            "preview": false
+        },
+        "PIE800": {
+            "name": "unnecessary-spread",
+            "group": "complexity",
+            "linter": "flake8-pie",
+            "preview": false
+        },
+        "PIE804": {
+            "name": "unnecessary-dict-kwargs",
+            "group": "style",
+            "linter": "flake8-pie",
+            "preview": false
+        },
+        "PIE807": {
+            "name": "reimplemented-container-builtin",
+            "group": "complexity",
+            "linter": "flake8-pie",
+            "preview": false
+        },
+        "PIE808": {
+            "name": "unnecessary-range-start",
+            "group": "complexity",
+            "linter": "flake8-pie",
+            "preview": false
+        },
+        "PIE810": {
+            "name": "multiple-starts-ends-with",
+            "group": "complexity",
+            "linter": "flake8-pie",
+            "preview": false
+        },
+        "PLC0105": {
+            "name": "type-name-incorrect-variance",
+            "group": "style",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLC0131": {
+            "name": "type-bivariance",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLC0132": {
+            "name": "type-param-name-mismatch",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLC0205": {
+            "name": "single-string-slots",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLC0206": {
+            "name": "dict-index-missing-items",
+            "group": "complexity",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLC0207": {
+            "name": "missing-maxsplit-arg",
+            "group": "performance",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLC0208": {
+            "name": "iteration-over-set",
+            "group": "performance",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLC0414": {
+            "name": "useless-import-alias",
+            "group": "complexity",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLC0415": {
+            "name": "import-outside-top-level",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLC1802": {
+            "name": "len-test",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLC1901": {
+            "name": "compare-to-empty-string",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLC2401": {
+            "name": "non-ascii-name",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLC2403": {
+            "name": "non-ascii-import-name",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLC2701": {
+            "name": "import-private-name",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLC2801": {
+            "name": "unnecessary-dunder-call",
+            "group": "complexity",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLC3002": {
+            "name": "unnecessary-direct-lambda-call",
+            "group": "complexity",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0100": {
+            "name": "yield-in-init",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0101": {
+            "name": "return-in-init",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0115": {
+            "name": "nonlocal-and-global",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0116": {
+            "name": "continue-in-finally",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0117": {
+            "name": "nonlocal-without-binding",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0118": {
+            "name": "load-before-global-declaration",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0237": {
+            "name": "non-slot-assignment",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0241": {
+            "name": "duplicate-bases",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0302": {
+            "name": "unexpected-special-method-signature",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0303": {
+            "name": "invalid-length-return-type",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0304": {
+            "name": "invalid-bool-return-type",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0305": {
+            "name": "invalid-index-return-type",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0307": {
+            "name": "invalid-str-return-type",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0308": {
+            "name": "invalid-bytes-return-type",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0309": {
+            "name": "invalid-hash-return-type",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0604": {
+            "name": "invalid-all-object",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0605": {
+            "name": "invalid-all-format",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0643": {
+            "name": "potential-index-error",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE0704": {
+            "name": "misplaced-bare-raise",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE1132": {
+            "name": "repeated-keyword-argument",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE1141": {
+            "name": "dict-iter-missing-items",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLE1142": {
+            "name": "await-outside-async",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE1205": {
+            "name": "logging-too-many-args",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE1206": {
+            "name": "logging-too-few-args",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE1300": {
+            "name": "bad-string-format-character",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE1307": {
+            "name": "bad-string-format-type",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE1310": {
+            "name": "bad-str-strip-call",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE1507": {
+            "name": "invalid-envvar-value",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE1519": {
+            "name": "singledispatch-method",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE1520": {
+            "name": "singledispatchmethod-function",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE1700": {
+            "name": "yield-from-in-async-function",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE2502": {
+            "name": "bidirectional-unicode",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE2510": {
+            "name": "invalid-character-backspace",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE2512": {
+            "name": "invalid-character-sub",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE2513": {
+            "name": "invalid-character-esc",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE2514": {
+            "name": "invalid-character-nul",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE2515": {
+            "name": "invalid-character-zero-width-space",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLE4703": {
+            "name": "modified-iterating-set",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLR0124": {
+            "name": "comparison-with-itself",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR0133": {
+            "name": "comparison-of-constant",
+            "group": "complexity",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR0202": {
+            "name": "no-classmethod-decorator",
+            "group": "style",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLR0203": {
+            "name": "no-staticmethod-decorator",
+            "group": "style",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLR0206": {
+            "name": "property-with-parameters",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR0402": {
+            "name": "manual-from-import",
+            "group": "complexity",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR0904": {
+            "name": "too-many-public-methods",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLR0911": {
+            "name": "too-many-return-statements",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR0912": {
+            "name": "too-many-branches",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR0913": {
+            "name": "too-many-arguments",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR0914": {
+            "name": "too-many-locals",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLR0915": {
+            "name": "too-many-statements",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR0916": {
+            "name": "too-many-boolean-expressions",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLR0917": {
+            "name": "too-many-positional-arguments",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR1702": {
+            "name": "too-many-nested-blocks",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLR1704": {
+            "name": "redefined-argument-from-local",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR1708": {
+            "name": "stop-iteration-return",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR1711": {
+            "name": "useless-return",
+            "group": "complexity",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR1712": {
+            "name": "swap-with-temporary-variable",
+            "group": "complexity",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLR1714": {
+            "name": "repeated-equality-comparison",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR1716": {
+            "name": "boolean-chained-comparison",
+            "group": "style",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR1722": {
+            "name": "sys-exit-alias",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR1730": {
+            "name": "if-stmt-min-max",
+            "group": "complexity",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR1733": {
+            "name": "unnecessary-dict-index-lookup",
+            "group": "complexity",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR1736": {
+            "name": "unnecessary-list-index-lookup",
+            "group": "complexity",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR2004": {
+            "name": "magic-value-comparison",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR2044": {
+            "name": "empty-comment",
+            "group": "style",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR5501": {
+            "name": "collapsible-else-if",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLR6104": {
+            "name": "non-augmented-assignment",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLR6201": {
+            "name": "literal-membership",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLR6301": {
+            "name": "no-self-use",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLW0108": {
+            "name": "unnecessary-lambda",
+            "group": "style",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0120": {
+            "name": "useless-else-on-loop",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0127": {
+            "name": "self-assigning-variable",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0128": {
+            "name": "redeclared-assigned-name",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0129": {
+            "name": "assert-on-string-literal",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0131": {
+            "name": "named-expr-without-context",
+            "group": "complexity",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0133": {
+            "name": "useless-exception-statement",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0177": {
+            "name": "nan-comparison",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0211": {
+            "name": "bad-staticmethod-argument",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0244": {
+            "name": "redefined-slots-in-subclass",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLW0245": {
+            "name": "super-without-brackets",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0406": {
+            "name": "import-self",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0602": {
+            "name": "global-variable-not-assigned",
+            "group": "style",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0603": {
+            "name": "global-statement",
+            "group": "restriction",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0604": {
+            "name": "global-at-module-level",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0642": {
+            "name": "self-or-cls-assignment",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0711": {
+            "name": "binary-op-exception",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW0717": {
+            "name": "too-many-statements-in-try-clause",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLW1501": {
+            "name": "bad-open-mode",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW1507": {
+            "name": "shallow-copy-environ",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW1508": {
+            "name": "invalid-envvar-default",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW1509": {
+            "name": "subprocess-popen-preexec-fn",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW1510": {
+            "name": "subprocess-run-without-check",
+            "group": "suspicious",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW1514": {
+            "name": "unspecified-encoding",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLW1641": {
+            "name": "eq-without-hash",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW2101": {
+            "name": "useless-with-lock",
+            "group": "correctness",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW2901": {
+            "name": "redefined-loop-name",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PLW3201": {
+            "name": "bad-dunder-method-name",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": true
+        },
+        "PLW3301": {
+            "name": "nested-min-max",
+            "group": "pedantic",
+            "linter": "Pylint",
+            "preview": false
+        },
+        "PT001": {
+            "name": "pytest-fixture-incorrect-parentheses-style",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT002": {
+            "name": "pytest-fixture-positional-args",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT003": {
+            "name": "pytest-extraneous-scope-function",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT006": {
+            "name": "pytest-parametrize-names-wrong-type",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT007": {
+            "name": "pytest-parametrize-values-wrong-type",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT008": {
+            "name": "pytest-patch-with-lambda",
+            "group": "complexity",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT009": {
+            "name": "pytest-unittest-assertion",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT010": {
+            "name": "pytest-raises-without-exception",
+            "group": "correctness",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT011": {
+            "name": "pytest-raises-too-broad",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT012": {
+            "name": "pytest-raises-with-multiple-statements",
+            "group": "suspicious",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT013": {
+            "name": "pytest-incorrect-pytest-import",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT014": {
+            "name": "pytest-duplicate-parametrize-test-cases",
+            "group": "correctness",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT015": {
+            "name": "pytest-assert-always-false",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT016": {
+            "name": "pytest-fail-without-message",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT017": {
+            "name": "pytest-assert-in-except",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT018": {
+            "name": "pytest-composite-assertion",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT019": {
+            "name": "pytest-fixture-param-without-value",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT020": {
+            "name": "pytest-deprecated-yield-fixture",
+            "group": "suspicious",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT021": {
+            "name": "pytest-fixture-finalizer-callback",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT022": {
+            "name": "pytest-useless-yield-fixture",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT023": {
+            "name": "pytest-incorrect-mark-parentheses-style",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT024": {
+            "name": "pytest-unnecessary-asyncio-mark-on-fixture",
+            "group": "correctness",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT025": {
+            "name": "pytest-erroneous-use-fixtures-on-fixture",
+            "group": "correctness",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT026": {
+            "name": "pytest-use-fixtures-without-parameters",
+            "group": "correctness",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT027": {
+            "name": "pytest-unittest-raises-assertion",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT028": {
+            "name": "pytest-parameter-with-default-argument",
+            "group": "suspicious",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT029": {
+            "name": "pytest-warns-without-warning",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": true
+        },
+        "PT030": {
+            "name": "pytest-warns-too-broad",
+            "group": "pedantic",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PT031": {
+            "name": "pytest-warns-with-multiple-statements",
+            "group": "suspicious",
+            "linter": "flake8-pytest-style",
+            "preview": false
+        },
+        "PTH100": {
+            "name": "os-path-abspath",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH101": {
+            "name": "os-chmod",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH102": {
+            "name": "os-mkdir",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH103": {
+            "name": "os-makedirs",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH104": {
+            "name": "os-rename",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH105": {
+            "name": "os-replace",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH106": {
+            "name": "os-rmdir",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH107": {
+            "name": "os-remove",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH108": {
+            "name": "os-unlink",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH109": {
+            "name": "os-getcwd",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH110": {
+            "name": "os-path-exists",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH111": {
+            "name": "os-path-expanduser",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH112": {
+            "name": "os-path-isdir",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH113": {
+            "name": "os-path-isfile",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH114": {
+            "name": "os-path-islink",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH115": {
+            "name": "os-readlink",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH116": {
+            "name": "os-stat",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH117": {
+            "name": "os-path-isabs",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH118": {
+            "name": "os-path-join",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH119": {
+            "name": "os-path-basename",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH120": {
+            "name": "os-path-dirname",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH121": {
+            "name": "os-path-samefile",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH122": {
+            "name": "os-path-splitext",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH123": {
+            "name": "builtin-open",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH124": {
+            "name": "py-path",
+            "group": "suspicious",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH201": {
+            "name": "path-constructor-current-directory",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH202": {
+            "name": "os-path-getsize",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH203": {
+            "name": "os-path-getatime",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH204": {
+            "name": "os-path-getmtime",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH205": {
+            "name": "os-path-getctime",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH206": {
+            "name": "os-sep-split",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH207": {
+            "name": "glob",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH208": {
+            "name": "os-listdir",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH210": {
+            "name": "invalid-pathlib-with-suffix",
+            "group": "correctness",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PTH211": {
+            "name": "os-symlink",
+            "group": "pedantic",
+            "linter": "flake8-use-pathlib",
+            "preview": false
+        },
+        "PYI001": {
+            "name": "unprefixed-type-param",
+            "group": "style",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI002": {
+            "name": "complex-if-statement-in-stub",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI003": {
+            "name": "unrecognized-version-info-check",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI004": {
+            "name": "patch-version-comparison",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI005": {
+            "name": "wrong-tuple-length-version-comparison",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI006": {
+            "name": "bad-version-info-comparison",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI007": {
+            "name": "unrecognized-platform-check",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI008": {
+            "name": "unrecognized-platform-name",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI009": {
+            "name": "pass-statement-stub-body",
+            "group": "style",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI010": {
+            "name": "non-empty-stub-body",
+            "group": "correctness",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI011": {
+            "name": "typed-argument-default-in-stub",
+            "group": "pedantic",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI012": {
+            "name": "pass-in-class-body",
+            "group": "correctness",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI013": {
+            "name": "ellipsis-in-non-empty-class-body",
+            "group": "correctness",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI014": {
+            "name": "argument-default-in-stub",
+            "group": "pedantic",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI015": {
+            "name": "assignment-default-in-stub",
+            "group": "style",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI016": {
+            "name": "duplicate-union-member",
+            "group": "correctness",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI017": {
+            "name": "complex-assignment-in-stub",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI018": {
+            "name": "unused-private-type-var",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI019": {
+            "name": "custom-type-var-for-self",
+            "group": "complexity",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI020": {
+            "name": "quoted-annotation-in-stub",
+            "group": "style",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI021": {
+            "name": "docstring-in-stub",
+            "group": "pedantic",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI024": {
+            "name": "collections-named-tuple",
+            "group": "pedantic",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI025": {
+            "name": "unaliased-collections-abc-set-import",
+            "group": "style",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI026": {
+            "name": "type-alias-without-annotation",
+            "group": "style",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI029": {
+            "name": "str-or-repr-defined-in-stub",
+            "group": "style",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI030": {
+            "name": "unnecessary-literal-union",
+            "group": "complexity",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI032": {
+            "name": "any-eq-ne-annotation",
+            "group": "style",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI033": {
+            "name": "legacy-type-comment",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI034": {
+            "name": "non-self-return-type",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI035": {
+            "name": "unassigned-special-variable-in-stub",
+            "group": "correctness",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI036": {
+            "name": "bad-exit-annotation",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI041": {
+            "name": "redundant-numeric-union",
+            "group": "complexity",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI042": {
+            "name": "snake-case-type-alias",
+            "group": "style",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI043": {
+            "name": "t-suffixed-type-alias",
+            "group": "style",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI044": {
+            "name": "future-annotations-in-stub",
+            "group": "correctness",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI045": {
+            "name": "iter-method-return-iterable",
+            "group": "correctness",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI046": {
+            "name": "unused-private-protocol",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI047": {
+            "name": "unused-private-type-alias",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI048": {
+            "name": "stub-body-multiple-statements",
+            "group": "correctness",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI049": {
+            "name": "unused-private-typed-dict",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI050": {
+            "name": "no-return-argument-annotation-in-stub",
+            "group": "style",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI051": {
+            "name": "redundant-literal-union",
+            "group": "pedantic",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI052": {
+            "name": "unannotated-assignment-in-stub",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI053": {
+            "name": "string-or-bytes-too-long",
+            "group": "pedantic",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI054": {
+            "name": "numeric-literal-too-long",
+            "group": "pedantic",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI055": {
+            "name": "unnecessary-type-union",
+            "group": "complexity",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI056": {
+            "name": "unsupported-method-call-on-all",
+            "group": "pedantic",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI057": {
+            "name": "byte-string-usage",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI058": {
+            "name": "generator-return-from-iter-method",
+            "group": "style",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI059": {
+            "name": "generic-not-last-base-class",
+            "group": "correctness",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI061": {
+            "name": "redundant-none-literal",
+            "group": "style",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI062": {
+            "name": "duplicate-literal-member",
+            "group": "suspicious",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI063": {
+            "name": "pep484-style-positional-only-parameter",
+            "group": "style",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI064": {
+            "name": "redundant-final-literal",
+            "group": "complexity",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "PYI066": {
+            "name": "bad-version-info-order",
+            "group": "style",
+            "linter": "flake8-pyi",
+            "preview": false
+        },
+        "Q000": {
+            "name": "bad-quotes-inline-string",
+            "group": "formatting",
+            "linter": "flake8-quotes",
+            "preview": false
+        },
+        "Q001": {
+            "name": "bad-quotes-multiline-string",
+            "group": "formatting",
+            "linter": "flake8-quotes",
+            "preview": false
+        },
+        "Q002": {
+            "name": "bad-quotes-docstring",
+            "group": "formatting",
+            "linter": "flake8-quotes",
+            "preview": false
+        },
+        "Q003": {
+            "name": "avoidable-escaped-quote",
+            "group": "formatting",
+            "linter": "flake8-quotes",
+            "preview": false
+        },
+        "Q004": {
+            "name": "unnecessary-escaped-quote",
+            "group": "formatting",
+            "linter": "flake8-quotes",
+            "preview": false
+        },
+        "RET501": {
+            "name": "unnecessary-return-none",
+            "group": "style",
+            "linter": "flake8-return",
+            "preview": false
+        },
+        "RET502": {
+            "name": "implicit-return-value",
+            "group": "pedantic",
+            "linter": "flake8-return",
+            "preview": false
+        },
+        "RET503": {
+            "name": "implicit-return",
+            "group": "pedantic",
+            "linter": "flake8-return",
+            "preview": false
+        },
+        "RET504": {
+            "name": "unnecessary-assign",
+            "group": "pedantic",
+            "linter": "flake8-return",
+            "preview": false
+        },
+        "RET505": {
+            "name": "superfluous-else-return",
+            "group": "pedantic",
+            "linter": "flake8-return",
+            "preview": false
+        },
+        "RET506": {
+            "name": "superfluous-else-raise",
+            "group": "pedantic",
+            "linter": "flake8-return",
+            "preview": false
+        },
+        "RET507": {
+            "name": "superfluous-else-continue",
+            "group": "pedantic",
+            "linter": "flake8-return",
+            "preview": false
+        },
+        "RET508": {
+            "name": "superfluous-else-break",
+            "group": "pedantic",
+            "linter": "flake8-return",
+            "preview": false
+        },
+        "RSE102": {
+            "name": "unnecessary-paren-on-raise-exception",
+            "group": "pedantic",
+            "linter": "flake8-raise",
+            "preview": false
+        },
+        "RUF001": {
+            "name": "ambiguous-unicode-character-string",
+            "group": "security",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF002": {
+            "name": "ambiguous-unicode-character-docstring",
+            "group": "security",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF003": {
+            "name": "ambiguous-unicode-character-comment",
+            "group": "security",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF005": {
+            "name": "collection-literal-concatenation",
+            "group": "pedantic",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF006": {
+            "name": "asyncio-dangling-task",
+            "group": "pedantic",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF007": {
+            "name": "zip-instead-of-pairwise",
+            "group": "complexity",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF008": {
+            "name": "mutable-dataclass-default",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF009": {
+            "name": "function-call-in-dataclass-default-argument",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF010": {
+            "name": "explicit-f-string-type-conversion",
+            "group": "complexity",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF012": {
+            "name": "mutable-class-default",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF013": {
+            "name": "implicit-optional",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF015": {
+            "name": "unnecessary-iterable-allocation-for-first-element",
+            "group": "performance",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF016": {
+            "name": "invalid-index-type",
+            "group": "correctness",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF017": {
+            "name": "quadratic-list-summation",
+            "group": "performance",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF018": {
+            "name": "assignment-in-assert",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF019": {
+            "name": "unnecessary-key-check",
+            "group": "complexity",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF020": {
+            "name": "never-union",
+            "group": "correctness",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF021": {
+            "name": "parenthesize-chained-operators",
+            "group": "pedantic",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF022": {
+            "name": "unsorted-dunder-all",
+            "group": "style",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF023": {
+            "name": "unsorted-dunder-slots",
+            "group": "style",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF024": {
+            "name": "mutable-fromkeys-value",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF026": {
+            "name": "default-factory-kwarg",
+            "group": "correctness",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF027": {
+            "name": "missing-f-string-syntax",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF028": {
+            "name": "invalid-formatter-suppression-comment",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF029": {
+            "name": "unused-async",
+            "group": "pedantic",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF030": {
+            "name": "assert-with-print-message",
+            "group": "correctness",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF031": {
+            "name": "incorrectly-parenthesized-tuple-in-subscript",
+            "group": "pedantic",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF032": {
+            "name": "decimal-from-float-literal",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF033": {
+            "name": "post-init-default",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF034": {
+            "name": "useless-if-else",
+            "group": "correctness",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF036": {
+            "name": "none-not-at-end-of-union",
+            "group": "style",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF037": {
+            "name": "unnecessary-empty-iterable-within-deque-call",
+            "group": "complexity",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF038": {
+            "name": "redundant-bool-literal",
+            "group": "complexity",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF039": {
+            "name": "unraw-re-pattern",
+            "group": "pedantic",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF040": {
+            "name": "invalid-assert-message-literal-argument",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF041": {
+            "name": "unnecessary-nested-literal",
+            "group": "style",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF043": {
+            "name": "pytest-raises-ambiguous-pattern",
+            "group": "style",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF045": {
+            "name": "implicit-class-var-in-dataclass",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF046": {
+            "name": "unnecessary-cast-to-int",
+            "group": "complexity",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF047": {
+            "name": "needless-else",
+            "group": "style",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF048": {
+            "name": "map-int-version-parsing",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF049": {
+            "name": "dataclass-enum",
+            "group": "correctness",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF050": {
+            "name": "unnecessary-if",
+            "group": "complexity",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF051": {
+            "name": "if-key-in-dict-del",
+            "group": "complexity",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF052": {
+            "name": "used-dummy-variable",
+            "group": "pedantic",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF053": {
+            "name": "class-with-mixed-type-vars",
+            "group": "correctness",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF054": {
+            "name": "indented-form-feed",
+            "group": "correctness",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF055": {
+            "name": "unnecessary-regular-expression",
+            "group": "complexity",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF056": {
+            "name": "falsy-dict-get-fallback",
+            "group": "complexity",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF057": {
+            "name": "unnecessary-round",
+            "group": "complexity",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF058": {
+            "name": "starmap-zip",
+            "group": "complexity",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF059": {
+            "name": "unused-unpacked-variable",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF060": {
+            "name": "in-empty-collection",
+            "group": "correctness",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF061": {
+            "name": "legacy-form-pytest-raises",
+            "group": "style",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF063": {
+            "name": "access-annotations-from-class-dict",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF064": {
+            "name": "non-octal-permissions",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF065": {
+            "name": "logging-eager-conversion",
+            "group": "performance",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF066": {
+            "name": "property-without-return",
+            "group": "correctness",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF067": {
+            "name": "non-empty-init-module",
+            "group": "pedantic",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF068": {
+            "name": "duplicate-entry-in-dunder-all",
+            "group": "correctness",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF069": {
+            "name": "float-equality-comparison",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF070": {
+            "name": "unnecessary-assign-before-yield",
+            "group": "pedantic",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF071": {
+            "name": "os-path-commonprefix",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF072": {
+            "name": "useless-finally",
+            "group": "complexity",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF073": {
+            "name": "f-string-percent-format",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF074": {
+            "name": "incorrect-decorator-order",
+            "group": "correctness",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF075": {
+            "name": "fallible-context-manager",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF077": {
+            "name": "method-receiver-default",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF100": {
+            "name": "unused-noqa",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF101": {
+            "name": "redirected-noqa",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF102": {
+            "name": "invalid-rule-code",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF103": {
+            "name": "invalid-suppression-comment",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF104": {
+            "name": "unmatched-suppression-comment",
+            "group": "suspicious",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF105": {
+            "name": "noqa-comments",
+            "group": "pedantic",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF106": {
+            "name": "rule-codes-in-suppression-comments",
+            "group": "style",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "RUF200": {
+            "name": "invalid-pyproject-toml",
+            "group": "correctness",
+            "linter": "Ruff-specific rules",
+            "preview": false
+        },
+        "RUF201": {
+            "name": "rule-codes-in-selectors",
+            "group": "pedantic",
+            "linter": "Ruff-specific rules",
+            "preview": true
+        },
+        "S101": {
+            "name": "assert",
+            "group": "restriction",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S102": {
+            "name": "exec-builtin",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S103": {
+            "name": "bad-file-permissions",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S104": {
+            "name": "hardcoded-bind-all-interfaces",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S105": {
+            "name": "hardcoded-password-string",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S106": {
+            "name": "hardcoded-password-func-arg",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S107": {
+            "name": "hardcoded-password-default",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S108": {
+            "name": "hardcoded-temp-file",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S110": {
+            "name": "try-except-pass",
+            "group": "suspicious",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S112": {
+            "name": "try-except-continue",
+            "group": "suspicious",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S113": {
+            "name": "request-without-timeout",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S201": {
+            "name": "flask-debug-true",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S202": {
+            "name": "tarfile-unsafe-members",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S301": {
+            "name": "suspicious-pickle-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S302": {
+            "name": "suspicious-marshal-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S303": {
+            "name": "suspicious-insecure-hash-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S304": {
+            "name": "suspicious-insecure-cipher-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S305": {
+            "name": "suspicious-insecure-cipher-mode-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S306": {
+            "name": "suspicious-mktemp-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S307": {
+            "name": "suspicious-eval-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S308": {
+            "name": "suspicious-mark-safe-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S310": {
+            "name": "suspicious-url-open-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S311": {
+            "name": "suspicious-non-cryptographic-random-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S312": {
+            "name": "suspicious-telnet-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S313": {
+            "name": "suspicious-xmlc-element-tree-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S314": {
+            "name": "suspicious-xml-element-tree-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S315": {
+            "name": "suspicious-xml-expat-reader-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S316": {
+            "name": "suspicious-xml-expat-builder-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S317": {
+            "name": "suspicious-xml-sax-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S318": {
+            "name": "suspicious-xml-mini-dom-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S319": {
+            "name": "suspicious-xml-pull-dom-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S321": {
+            "name": "suspicious-ftp-lib-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S323": {
+            "name": "suspicious-unverified-context-usage",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S324": {
+            "name": "hashlib-insecure-hash-function",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S401": {
+            "name": "suspicious-telnetlib-import",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": true
+        },
+        "S402": {
+            "name": "suspicious-ftplib-import",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": true
+        },
+        "S403": {
+            "name": "suspicious-pickle-import",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": true
+        },
+        "S404": {
+            "name": "suspicious-subprocess-import",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": true
+        },
+        "S405": {
+            "name": "suspicious-xml-etree-import",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": true
+        },
+        "S406": {
+            "name": "suspicious-xml-sax-import",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": true
+        },
+        "S407": {
+            "name": "suspicious-xml-expat-import",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": true
+        },
+        "S408": {
+            "name": "suspicious-xml-minidom-import",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": true
+        },
+        "S409": {
+            "name": "suspicious-xml-pulldom-import",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": true
+        },
+        "S411": {
+            "name": "suspicious-xmlrpc-import",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": true
+        },
+        "S412": {
+            "name": "suspicious-httpoxy-import",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": true
+        },
+        "S413": {
+            "name": "suspicious-pycrypto-import",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": true
+        },
+        "S415": {
+            "name": "suspicious-pyghmi-import",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": true
+        },
+        "S501": {
+            "name": "request-with-no-cert-validation",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S502": {
+            "name": "ssl-insecure-version",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S503": {
+            "name": "ssl-with-bad-defaults",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S504": {
+            "name": "ssl-with-no-version",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S505": {
+            "name": "weak-cryptographic-key",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S506": {
+            "name": "unsafe-yaml-load",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S507": {
+            "name": "ssh-no-host-key-verification",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S508": {
+            "name": "snmp-insecure-version",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S509": {
+            "name": "snmp-weak-cryptography",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S601": {
+            "name": "paramiko-call",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S602": {
+            "name": "subprocess-popen-with-shell-equals-true",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S603": {
+            "name": "subprocess-without-shell-equals-true",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S604": {
+            "name": "call-with-shell-equals-true",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S605": {
+            "name": "start-process-with-a-shell",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S606": {
+            "name": "start-process-with-no-shell",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S607": {
+            "name": "start-process-with-partial-path",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S608": {
+            "name": "hardcoded-sql-expression",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S609": {
+            "name": "unix-command-wildcard-injection",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S610": {
+            "name": "django-extra",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S611": {
+            "name": "django-raw-sql",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S612": {
+            "name": "logging-config-insecure-listen",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S701": {
+            "name": "jinja2-autoescape-false",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S702": {
+            "name": "mako-templates",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "S704": {
+            "name": "unsafe-markup-use",
+            "group": "security",
+            "linter": "flake8-bandit",
+            "preview": false
+        },
+        "SIM101": {
+            "name": "duplicate-isinstance-call",
+            "group": "complexity",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM102": {
+            "name": "collapsible-if",
+            "group": "complexity",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM103": {
+            "name": "needless-bool",
+            "group": "complexity",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM105": {
+            "name": "suppressible-exception",
+            "group": "pedantic",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM107": {
+            "name": "return-in-try-except-finally",
+            "group": "correctness",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM108": {
+            "name": "if-else-block-instead-of-if-exp",
+            "group": "pedantic",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM109": {
+            "name": "compare-with-tuple",
+            "group": "pedantic",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM110": {
+            "name": "reimplemented-builtin",
+            "group": "complexity",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM112": {
+            "name": "uncapitalized-environment-variables",
+            "group": "pedantic",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM113": {
+            "name": "enumerate-for-loop",
+            "group": "complexity",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM114": {
+            "name": "if-with-same-arms",
+            "group": "suspicious",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM115": {
+            "name": "open-file-with-context-handler",
+            "group": "suspicious",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM116": {
+            "name": "if-else-block-instead-of-dict-lookup",
+            "group": "pedantic",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM117": {
+            "name": "multiple-with-statements",
+            "group": "complexity",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM118": {
+            "name": "in-dict-keys",
+            "group": "complexity",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM201": {
+            "name": "negate-equal-op",
+            "group": "complexity",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM202": {
+            "name": "negate-not-equal-op",
+            "group": "complexity",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM208": {
+            "name": "double-negation",
+            "group": "complexity",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM210": {
+            "name": "if-expr-with-true-false",
+            "group": "complexity",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM211": {
+            "name": "if-expr-with-false-true",
+            "group": "complexity",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM212": {
+            "name": "if-expr-with-twisted-arms",
+            "group": "pedantic",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM220": {
+            "name": "expr-and-not-expr",
+            "group": "correctness",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM221": {
+            "name": "expr-or-not-expr",
+            "group": "correctness",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM222": {
+            "name": "expr-or-true",
+            "group": "correctness",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM223": {
+            "name": "expr-and-false",
+            "group": "correctness",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM300": {
+            "name": "yoda-conditions",
+            "group": "pedantic",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM401": {
+            "name": "if-else-block-instead-of-dict-get",
+            "group": "complexity",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM905": {
+            "name": "split-static-string",
+            "group": "complexity",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM910": {
+            "name": "dict-get-with-none-default",
+            "group": "pedantic",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SIM911": {
+            "name": "zip-dict-keys-and-values",
+            "group": "complexity",
+            "linter": "flake8-simplify",
+            "preview": false
+        },
+        "SLF001": {
+            "name": "private-member-access",
+            "group": "pedantic",
+            "linter": "flake8-self",
+            "preview": false
+        },
+        "SLOT000": {
+            "name": "no-slots-in-str-subclass",
+            "group": "pedantic",
+            "linter": "flake8-slots",
+            "preview": false
+        },
+        "SLOT001": {
+            "name": "no-slots-in-tuple-subclass",
+            "group": "pedantic",
+            "linter": "flake8-slots",
+            "preview": false
+        },
+        "SLOT002": {
+            "name": "no-slots-in-namedtuple-subclass",
+            "group": "pedantic",
+            "linter": "flake8-slots",
+            "preview": false
+        },
+        "T100": {
+            "name": "debugger",
+            "group": "correctness",
+            "linter": "flake8-debugger",
+            "preview": false
+        },
+        "T201": {
+            "name": "print",
+            "group": "restriction",
+            "linter": "flake8-print",
+            "preview": false
+        },
+        "T203": {
+            "name": "p-print",
+            "group": "restriction",
+            "linter": "flake8-print",
+            "preview": false
+        },
+        "TC001": {
+            "name": "typing-only-first-party-import",
+            "group": "pedantic",
+            "linter": "flake8-type-checking",
+            "preview": false
+        },
+        "TC002": {
+            "name": "typing-only-third-party-import",
+            "group": "pedantic",
+            "linter": "flake8-type-checking",
+            "preview": false
+        },
+        "TC003": {
+            "name": "typing-only-standard-library-import",
+            "group": "pedantic",
+            "linter": "flake8-type-checking",
+            "preview": false
+        },
+        "TC004": {
+            "name": "runtime-import-in-type-checking-block",
+            "group": "correctness",
+            "linter": "flake8-type-checking",
+            "preview": false
+        },
+        "TC005": {
+            "name": "empty-type-checking-block",
+            "group": "suspicious",
+            "linter": "flake8-type-checking",
+            "preview": false
+        },
+        "TC006": {
+            "name": "runtime-cast-value",
+            "group": "pedantic",
+            "linter": "flake8-type-checking",
+            "preview": false
+        },
+        "TC007": {
+            "name": "unquoted-type-alias",
+            "group": "correctness",
+            "linter": "flake8-type-checking",
+            "preview": false
+        },
+        "TC008": {
+            "name": "quoted-type-alias",
+            "group": "pedantic",
+            "linter": "flake8-type-checking",
+            "preview": true
+        },
+        "TC010": {
+            "name": "runtime-string-union",
+            "group": "correctness",
+            "linter": "flake8-type-checking",
+            "preview": false
+        },
+        "TD001": {
+            "name": "invalid-todo-tag",
+            "group": "pedantic",
+            "linter": "flake8-todos",
+            "preview": false
+        },
+        "TD002": {
+            "name": "missing-todo-author",
+            "group": "pedantic",
+            "linter": "flake8-todos",
+            "preview": false
+        },
+        "TD003": {
+            "name": "missing-todo-link",
+            "group": "pedantic",
+            "linter": "flake8-todos",
+            "preview": false
+        },
+        "TD004": {
+            "name": "missing-todo-colon",
+            "group": "pedantic",
+            "linter": "flake8-todos",
+            "preview": false
+        },
+        "TD005": {
+            "name": "missing-todo-description",
+            "group": "pedantic",
+            "linter": "flake8-todos",
+            "preview": false
+        },
+        "TD006": {
+            "name": "invalid-todo-capitalization",
+            "group": "pedantic",
+            "linter": "flake8-todos",
+            "preview": false
+        },
+        "TD007": {
+            "name": "missing-space-after-todo-colon",
+            "group": "pedantic",
+            "linter": "flake8-todos",
+            "preview": false
+        },
+        "TID251": {
+            "name": "banned-api",
+            "group": "restriction",
+            "linter": "flake8-tidy-imports",
+            "preview": false
+        },
+        "TID252": {
+            "name": "relative-imports",
+            "group": "restriction",
+            "linter": "flake8-tidy-imports",
+            "preview": false
+        },
+        "TID253": {
+            "name": "banned-module-level-imports",
+            "group": "restriction",
+            "linter": "flake8-tidy-imports",
+            "preview": false
+        },
+        "TID254": {
+            "name": "lazy-import-mismatch",
+            "group": "restriction",
+            "linter": "flake8-tidy-imports",
+            "preview": true
+        },
+        "TID255": {
+            "name": "lazy-import-immediately-resolved",
+            "group": "correctness",
+            "linter": "flake8-tidy-imports",
+            "preview": true
+        },
+        "TRY002": {
+            "name": "raise-vanilla-class",
+            "group": "style",
+            "linter": "tryceratops",
+            "preview": false
+        },
+        "TRY003": {
+            "name": "raise-vanilla-args",
+            "group": "pedantic",
+            "linter": "tryceratops",
+            "preview": false
+        },
+        "TRY004": {
+            "name": "type-check-without-type-error",
+            "group": "style",
+            "linter": "tryceratops",
+            "preview": false
+        },
+        "TRY201": {
+            "name": "verbose-raise",
+            "group": "complexity",
+            "linter": "tryceratops",
+            "preview": false
+        },
+        "TRY203": {
+            "name": "useless-try-except",
+            "group": "complexity",
+            "linter": "tryceratops",
+            "preview": false
+        },
+        "TRY300": {
+            "name": "try-consider-else",
+            "group": "pedantic",
+            "linter": "tryceratops",
+            "preview": false
+        },
+        "TRY301": {
+            "name": "raise-within-try",
+            "group": "pedantic",
+            "linter": "tryceratops",
+            "preview": false
+        },
+        "TRY400": {
+            "name": "error-instead-of-exception",
+            "group": "pedantic",
+            "linter": "tryceratops",
+            "preview": false
+        },
+        "TRY401": {
+            "name": "verbose-log-message",
+            "group": "complexity",
+            "linter": "tryceratops",
+            "preview": false
+        },
+        "UP001": {
+            "name": "useless-metaclass-type",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP003": {
+            "name": "type-of-primitive",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP004": {
+            "name": "useless-object-inheritance",
+            "group": "complexity",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP005": {
+            "name": "deprecated-unittest-alias",
+            "group": "suspicious",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP006": {
+            "name": "non-pep585-annotation",
+            "group": "suspicious",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP007": {
+            "name": "non-pep604-annotation-union",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP008": {
+            "name": "super-call-with-parameters",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP009": {
+            "name": "utf8-encoding-declaration",
+            "group": "complexity",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP010": {
+            "name": "unnecessary-future-import",
+            "group": "complexity",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP011": {
+            "name": "lru-cache-without-parameters",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP012": {
+            "name": "unnecessary-encode-utf8",
+            "group": "complexity",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP013": {
+            "name": "convert-typed-dict-functional-to-class",
+            "group": "pedantic",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP014": {
+            "name": "convert-named-tuple-functional-to-class",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP015": {
+            "name": "redundant-open-modes",
+            "group": "pedantic",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP017": {
+            "name": "datetime-timezone-utc",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP018": {
+            "name": "native-literals",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP019": {
+            "name": "typing-text-str-alias",
+            "group": "suspicious",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP020": {
+            "name": "open-alias",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP021": {
+            "name": "replace-universal-newlines",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP022": {
+            "name": "replace-stdout-stderr",
+            "group": "complexity",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP023": {
+            "name": "deprecated-c-element-tree",
+            "group": "suspicious",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP024": {
+            "name": "os-error-alias",
+            "group": "suspicious",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP025": {
+            "name": "unicode-kind-prefix",
+            "group": "complexity",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP026": {
+            "name": "deprecated-mock-import",
+            "group": "suspicious",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP028": {
+            "name": "yield-in-for-loop",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP029": {
+            "name": "unnecessary-builtin-import",
+            "group": "suspicious",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP030": {
+            "name": "format-literals",
+            "group": "complexity",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP031": {
+            "name": "printf-string-formatting",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP032": {
+            "name": "f-string",
+            "group": "complexity",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP033": {
+            "name": "lru-cache-with-maxsize-none",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP034": {
+            "name": "extraneous-parentheses",
+            "group": "complexity",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP035": {
+            "name": "deprecated-import",
+            "group": "suspicious",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP036": {
+            "name": "outdated-version-block",
+            "group": "suspicious",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP037": {
+            "name": "quoted-annotation",
+            "group": "correctness",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP039": {
+            "name": "unnecessary-class-parentheses",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP040": {
+            "name": "non-pep695-type-alias",
+            "group": "complexity",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP041": {
+            "name": "timeout-error-alias",
+            "group": "suspicious",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP042": {
+            "name": "replace-str-enum",
+            "group": "suspicious",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP043": {
+            "name": "unnecessary-default-type-args",
+            "group": "complexity",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP044": {
+            "name": "non-pep646-unpack",
+            "group": "complexity",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP045": {
+            "name": "non-pep604-annotation-optional",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP046": {
+            "name": "non-pep695-generic-class",
+            "group": "complexity",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP047": {
+            "name": "non-pep695-generic-function",
+            "group": "complexity",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP048": {
+            "name": "while-one",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": true
+        },
+        "UP049": {
+            "name": "private-type-parameter",
+            "group": "style",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP050": {
+            "name": "useless-class-metaclass-type",
+            "group": "correctness",
+            "linter": "pyupgrade",
+            "preview": false
+        },
+        "UP051": {
+            "name": "deprecated-abc-decorator",
+            "group": "suspicious",
+            "linter": "pyupgrade",
+            "preview": true
+        },
+        "UP052": {
+            "name": "context-manager-iterator",
+            "group": "suspicious",
+            "linter": "pyupgrade",
+            "preview": true
+        },
+        "W191": {
+            "name": "tab-indentation",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "W291": {
+            "name": "trailing-whitespace",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "W292": {
+            "name": "missing-newline-at-end-of-file",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "W293": {
+            "name": "blank-line-with-whitespace",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "W391": {
+            "name": "too-many-newlines-at-end-of-file",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": true
+        },
+        "W505": {
+            "name": "doc-line-too-long",
+            "group": "formatting",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "W605": {
+            "name": "invalid-escape-sequence",
+            "group": "correctness",
+            "linter": "pycodestyle",
+            "preview": false
+        },
+        "YTT101": {
+            "name": "sys-version-slice3",
+            "group": "suspicious",
+            "linter": "flake8-2020",
+            "preview": false
+        },
+        "YTT102": {
+            "name": "sys-version2",
+            "group": "suspicious",
+            "linter": "flake8-2020",
+            "preview": false
+        },
+        "YTT103": {
+            "name": "sys-version-cmp-str3",
+            "group": "suspicious",
+            "linter": "flake8-2020",
+            "preview": false
+        },
+        "YTT201": {
+            "name": "sys-version-info0-eq3",
+            "group": "suspicious",
+            "linter": "flake8-2020",
+            "preview": false
+        },
+        "YTT202": {
+            "name": "six-py3",
+            "group": "suspicious",
+            "linter": "flake8-2020",
+            "preview": false
+        },
+        "YTT203": {
+            "name": "sys-version-info1-cmp-int",
+            "group": "suspicious",
+            "linter": "flake8-2020",
+            "preview": false
+        },
+        "YTT204": {
+            "name": "sys-version-info-minor-cmp-int",
+            "group": "suspicious",
+            "linter": "flake8-2020",
+            "preview": false
+        },
+        "YTT301": {
+            "name": "sys-version0",
+            "group": "suspicious",
+            "linter": "flake8-2020",
+            "preview": false
+        },
+        "YTT302": {
+            "name": "sys-version-cmp-str10",
+            "group": "suspicious",
+            "linter": "flake8-2020",
+            "preview": false
+        },
+        "YTT303": {
+            "name": "sys-version-slice1",
+            "group": "suspicious",
+            "linter": "flake8-2020",
+            "preview": false
+        }
+    }
+}

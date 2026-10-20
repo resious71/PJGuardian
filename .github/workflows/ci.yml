@@ -1,0 +1,72 @@
+# PJGuardian CI (P33 5절). 상태와 방침은 docs/ci_status.md.
+# - 액션은 주 버전 태그로 고정했다(작성 PC에서 인터넷 없이 만들어 커밋 SHA로 고정하지 못함 — 공개 뒤 SHA 고정을 검토).
+# - bin/에는 체크섬 매니페스트만 있고 실행 파일(ruff·ESLint·git·p4)이 없으므로 PHP 시험은 --exclude-needs-bin으로 돈다
+#   (실제 도구가 필요한 시험은 "건너뜀(needs-bin)"으로 이름과 개수가 출력된다).
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: PHP ${{ matrix.php }} / Node 24 (ubuntu)
+    runs-on: ubuntu-latest
+    # Linux에서 한 번도 돌려 본 적이 없다(docs/unverified.md). 첫 실행이 실패할 수 있어 처음에는 실패해도 전체 결과를 막지 않는다.
+    # 사용자가 이 작업의 통과(녹색)를 확인하면 아래 continue-on-error 줄을 지운다(docs/ci_status.md).
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.2', '8.3']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: pdo_sqlite, zip, mbstring, openssl, fileinfo, intl, dom
+          tools: composer
+          coverage: none
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Composer downloads
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: composer-${{ runner.os }}-${{ matrix.php }}-${{ hashFiles('composer.lock') }}
+          restore-keys: composer-${{ runner.os }}-${{ matrix.php }}-
+
+      - name: Composer install
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Test-only Node dependencies (tests/tools)
+        run: npm ci --prefix tests/tools --no-audit --no-fund
+
+      - name: Environment check (informational)
+        run: php tools/check_env.php || true
+
+      - name: Documentation links
+        run: php tools/check_doc_links.php
+
+      - name: Secret and personal-data scan (repository files)
+        run: php tools/scan_release.php --git=.
+
+      - name: JavaScript tests
+        run: node --test "tests/js/*.test.mjs"
+
+      - name: PHP tests (without bin/ tools)
+        run: php tests/run.php --exclude-needs-bin

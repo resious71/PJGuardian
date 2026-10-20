@@ -1,0 +1,30 @@
+PJGuardian
+Copyright (c) 2026 resious71
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This product includes third-party software. Full license texts, copyright
+notices, versions and sources are in THIRD_PARTY_NOTICES.
+
+Included in this repository (browser assets):
+  - Chart.js 4.5.1 and @kurkle/color 0.3.4 (MIT)
+      Copyright (c) 2014-2024 Chart.js Contributors; Copyright (c) 2018-2024 Jukka Kurkela
+  - CodeMirror 6 bundle (15 packages, MIT)
+      Copyright (C) 2016-2024 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
+  - fflate 0.8.3 (MIT)
+      Copyright (c) 2026 Arjun Barrett
+  - Lucide icons, lucide-static 1.50.0 (ISC; icons derived from Feather are MIT)
+      Copyright (c) 2026 Lucide Icons and Contributors; Copyright (c) 2013-present Cole Bemis
+
+Not in this repository, added to the deployment bundle by `composer install`:
+  - onelogin/php-saml 4.3.2 (MIT)
+      Copyright (c) 2010-2022 OneLogin, Inc.; Copyright (c) 2023 IAM Digital Services, SL.
+  - robrichards/xmlseclibs 3.1.5 (BSD-3-Clause)
+      Copyright (c) 2007-2024, Robert Richards
+  - PHPMailer 7.1.1 (LGPL-2.1-only), used unmodified
+      Source: https://github.com/PHPMailer/PHPMailer
+
+External tools placed by the operator in bin/ (not in this repository; only
+checksum manifests are included): ruff (MIT), ESLint and its dependencies
+(MIT and other permissive licenses), MinGit (GPL-2.0). The Perforce p4 client
+is proprietary and is never redistributed by this project.

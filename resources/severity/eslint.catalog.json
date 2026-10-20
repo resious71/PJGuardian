@@ -1,0 +1,3003 @@
+{
+    "tool": "eslint",
+    "tool_version": "10.11.0",
+    "note": "도구가 제공하는 규칙 목록과 분류군(ruff: category, ESLint: meta.type). 손으로 고치지 않는다 — php tools/severity_coverage.php --write-catalog가 만든다",
+    "rules": {
+        "@typescript-eslint/adjacent-overload-signatures": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require that function overload signatures be consecutive"
+        },
+        "@typescript-eslint/array-type": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require consistently using either `T[]` or `Array<T>` for arrays"
+        },
+        "@typescript-eslint/await-thenable": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow awaiting a value that is not a Thenable"
+        },
+        "@typescript-eslint/ban-ts-comment": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow `@ts-<directive>` comments or require descriptions after directives"
+        },
+        "@typescript-eslint/ban-tslint-comment": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow `// tslint:<rule-flag>` comments"
+        },
+        "@typescript-eslint/class-literal-property-style": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce that literals on classes are exposed in a consistent style"
+        },
+        "@typescript-eslint/class-methods-use-this": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce that class methods utilize `this`"
+        },
+        "@typescript-eslint/consistent-generic-constructors": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce specifying generic type arguments on type annotation or constructor name of a constructor call"
+        },
+        "@typescript-eslint/consistent-indexed-object-style": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require or disallow the `Record` type"
+        },
+        "@typescript-eslint/consistent-return": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require `return` statements to either always or never specify values"
+        },
+        "@typescript-eslint/consistent-type-assertions": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce consistent usage of type assertions"
+        },
+        "@typescript-eslint/consistent-type-definitions": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce type definitions to consistently use either `interface` or `type`"
+        },
+        "@typescript-eslint/consistent-type-exports": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce consistent usage of type exports"
+        },
+        "@typescript-eslint/consistent-type-imports": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce consistent usage of type imports"
+        },
+        "@typescript-eslint/default-param-last": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce default parameters to be last"
+        },
+        "@typescript-eslint/dot-notation": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce dot notation whenever possible"
+        },
+        "@typescript-eslint/explicit-function-return-type": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require explicit return types on functions and class methods"
+        },
+        "@typescript-eslint/explicit-member-accessibility": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require explicit accessibility modifiers on class properties and methods"
+        },
+        "@typescript-eslint/explicit-module-boundary-types": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require explicit return and argument types on exported functions' and classes' public class methods"
+        },
+        "@typescript-eslint/init-declarations": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require or disallow initialization in variable declarations"
+        },
+        "@typescript-eslint/max-params": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce a maximum number of parameters in function definitions"
+        },
+        "@typescript-eslint/member-ordering": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require a consistent member declaration order"
+        },
+        "@typescript-eslint/method-signature-style": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce using a particular method signature syntax"
+        },
+        "@typescript-eslint/naming-convention": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce naming conventions for everything across a codebase"
+        },
+        "@typescript-eslint/no-array-constructor": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow generic `Array` constructors"
+        },
+        "@typescript-eslint/no-array-delete": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow using the `delete` operator on array values"
+        },
+        "@typescript-eslint/no-base-to-string": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require `.toString()` and `.toLocaleString()` to only be called on objects which provide useful information when stringified"
+        },
+        "@typescript-eslint/no-confusing-non-null-assertion": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow non-null assertion in locations that may be confusing"
+        },
+        "@typescript-eslint/no-confusing-void-expression": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require expressions of type void to appear in statement position"
+        },
+        "@typescript-eslint/no-deprecated": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow using code marked as `@deprecated`"
+        },
+        "@typescript-eslint/no-dupe-class-members": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow duplicate class members"
+        },
+        "@typescript-eslint/no-duplicate-enum-values": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow duplicate enum member values"
+        },
+        "@typescript-eslint/no-duplicate-type-constituents": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow duplicate constituents of union or intersection types"
+        },
+        "@typescript-eslint/no-dynamic-delete": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow using the `delete` operator on computed key expressions"
+        },
+        "@typescript-eslint/no-empty-function": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow empty functions"
+        },
+        "@typescript-eslint/no-empty-interface": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow the declaration of empty interfaces"
+        },
+        "@typescript-eslint/no-empty-object-type": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow accidentally using the \"empty object\" type"
+        },
+        "@typescript-eslint/no-explicit-any": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow the `any` type"
+        },
+        "@typescript-eslint/no-extra-non-null-assertion": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow extra non-null assertions"
+        },
+        "@typescript-eslint/no-extraneous-class": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow classes used as namespaces"
+        },
+        "@typescript-eslint/no-floating-promises": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require Promise-like statements to be handled appropriately"
+        },
+        "@typescript-eslint/no-for-in-array": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow iterating over an array with a for-in loop"
+        },
+        "@typescript-eslint/no-generated-empty-object-type": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow type operations that resolve to the \"empty object\" type"
+        },
+        "@typescript-eslint/no-implied-eval": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow the use of `eval()`-like functions"
+        },
+        "@typescript-eslint/no-import-type-side-effects": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce the use of top-level import type qualifier when an import only has specifiers with inline type qualifiers"
+        },
+        "@typescript-eslint/no-inferrable-types": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow explicit type declarations for variables or parameters initialized to a number, string, or boolean"
+        },
+        "@typescript-eslint/no-invalid-this": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow `this` keywords outside of classes or class-like objects"
+        },
+        "@typescript-eslint/no-invalid-void-type": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow `void` type outside of generic or return types"
+        },
+        "@typescript-eslint/no-loop-func": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow function declarations that contain unsafe references inside loop statements"
+        },
+        "@typescript-eslint/no-loss-of-precision": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow literal numbers that lose precision"
+        },
+        "@typescript-eslint/no-magic-numbers": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow magic numbers"
+        },
+        "@typescript-eslint/no-meaningless-void-operator": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow the `void` operator except when used to discard a value"
+        },
+        "@typescript-eslint/no-misused-new": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Enforce valid definition of `new` and `constructor`"
+        },
+        "@typescript-eslint/no-misused-promises": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow Promises in places not designed to handle them"
+        },
+        "@typescript-eslint/no-misused-spread": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow using the spread operator when it might cause unexpected behavior"
+        },
+        "@typescript-eslint/no-mixed-enums": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow enums from having both number and string members"
+        },
+        "@typescript-eslint/no-namespace": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow TypeScript namespaces"
+        },
+        "@typescript-eslint/no-non-null-asserted-nullish-coalescing": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow non-null assertions in the left operand of a nullish coalescing operator"
+        },
+        "@typescript-eslint/no-non-null-asserted-optional-chain": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow non-null assertions after an optional chain expression"
+        },
+        "@typescript-eslint/no-non-null-assertion": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow non-null assertions using the `!` postfix operator"
+        },
+        "@typescript-eslint/no-redeclare": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow variable redeclaration"
+        },
+        "@typescript-eslint/no-redundant-type-constituents": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow members of unions and intersections that do nothing or override type information"
+        },
+        "@typescript-eslint/no-require-imports": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow invocation of `require()`"
+        },
+        "@typescript-eslint/no-restricted-imports": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow specified modules when loaded by `import`"
+        },
+        "@typescript-eslint/no-restricted-types": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow certain types"
+        },
+        "@typescript-eslint/no-shadow": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow variable declarations from shadowing variables declared in the outer scope"
+        },
+        "@typescript-eslint/no-this-alias": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow aliasing `this`"
+        },
+        "@typescript-eslint/no-type-alias": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow type aliases"
+        },
+        "@typescript-eslint/no-unnecessary-boolean-literal-compare": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow unnecessary equality comparisons against boolean literals"
+        },
+        "@typescript-eslint/no-unnecessary-condition": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow conditionals where the type is always truthy or always falsy"
+        },
+        "@typescript-eslint/no-unnecessary-parameter-property-assignment": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow unnecessary assignment of constructor property parameter"
+        },
+        "@typescript-eslint/no-unnecessary-qualifier": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow unnecessary namespace qualifiers"
+        },
+        "@typescript-eslint/no-unnecessary-template-expression": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow unnecessary template expressions"
+        },
+        "@typescript-eslint/no-unnecessary-type-arguments": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow type arguments that are equal to the default"
+        },
+        "@typescript-eslint/no-unnecessary-type-assertion": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow type assertions that do not change the type of an expression"
+        },
+        "@typescript-eslint/no-unnecessary-type-constraint": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow unnecessary constraints on generic types"
+        },
+        "@typescript-eslint/no-unnecessary-type-conversion": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow conversion idioms when they do not change the type or value of the expression"
+        },
+        "@typescript-eslint/no-unnecessary-type-parameters": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow type parameters that aren't used multiple times"
+        },
+        "@typescript-eslint/no-unsafe-argument": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow calling a function with a value with type `any`"
+        },
+        "@typescript-eslint/no-unsafe-assignment": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow assigning a value with type `any` to variables and properties"
+        },
+        "@typescript-eslint/no-unsafe-call": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow calling a value with type `any`"
+        },
+        "@typescript-eslint/no-unsafe-declaration-merging": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow unsafe declaration merging"
+        },
+        "@typescript-eslint/no-unsafe-enum-assignment": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow assigning non-enum values to enum typed locations"
+        },
+        "@typescript-eslint/no-unsafe-enum-comparison": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow comparing an enum value with a non-enum value"
+        },
+        "@typescript-eslint/no-unsafe-function-type": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow using the unsafe built-in Function type"
+        },
+        "@typescript-eslint/no-unsafe-member-access": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow member access on a value with type `any`"
+        },
+        "@typescript-eslint/no-unsafe-return": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow returning a value with type `any` from a function"
+        },
+        "@typescript-eslint/no-unsafe-type-assertion": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow type assertions that narrow a type"
+        },
+        "@typescript-eslint/no-unsafe-unary-minus": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require unary negation to take a number"
+        },
+        "@typescript-eslint/no-unused-expressions": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow unused expressions"
+        },
+        "@typescript-eslint/no-unused-private-class-members": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow unused private class members"
+        },
+        "@typescript-eslint/no-unused-vars": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow unused variables"
+        },
+        "@typescript-eslint/no-use-before-define": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow the use of variables before they are defined"
+        },
+        "@typescript-eslint/no-useless-constructor": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow unnecessary constructors"
+        },
+        "@typescript-eslint/no-useless-default-assignment": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow default values that will never be used"
+        },
+        "@typescript-eslint/no-useless-empty-export": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow empty exports that don't change anything in a module file"
+        },
+        "@typescript-eslint/no-var-requires": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow `require` statements except in import statements"
+        },
+        "@typescript-eslint/no-wrapper-object-types": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow using confusing built-in primitive class wrappers"
+        },
+        "@typescript-eslint/non-nullable-type-assertion-style": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce non-null assertions over explicit type assertions"
+        },
+        "@typescript-eslint/only-throw-error": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow throwing non-`Error` values as exceptions"
+        },
+        "@typescript-eslint/parameter-properties": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require or disallow parameter properties in class constructors"
+        },
+        "@typescript-eslint/prefer-as-const": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Enforce the use of `as const` over literal type"
+        },
+        "@typescript-eslint/prefer-destructuring": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require destructuring from arrays and/or objects"
+        },
+        "@typescript-eslint/prefer-enum-initializers": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require each enum member value to be explicitly initialized"
+        },
+        "@typescript-eslint/prefer-find": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce the use of Array.prototype.find() over Array.prototype.filter() followed by [0] when looking for a single result"
+        },
+        "@typescript-eslint/prefer-for-of": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce the use of `for-of` loop over the standard `for` loop where possible"
+        },
+        "@typescript-eslint/prefer-function-type": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce using function types instead of interfaces with call signatures"
+        },
+        "@typescript-eslint/prefer-includes": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce `includes` method over `indexOf` method"
+        },
+        "@typescript-eslint/prefer-literal-enum-member": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require all enum members to be literal values"
+        },
+        "@typescript-eslint/prefer-namespace-keyword": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Require using `namespace` keyword over `module` keyword to declare custom TypeScript modules"
+        },
+        "@typescript-eslint/prefer-nullish-coalescing": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce using the nullish coalescing operator instead of logical assignments or chaining"
+        },
+        "@typescript-eslint/prefer-optional-chain": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce using concise optional chain expressions instead of chained logical ands, negated logical ors, or empty objects"
+        },
+        "@typescript-eslint/prefer-promise-reject-errors": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require using Error objects as Promise rejection reasons"
+        },
+        "@typescript-eslint/prefer-readonly": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require private members to be marked as `readonly` if they're never modified outside of the constructor"
+        },
+        "@typescript-eslint/prefer-readonly-parameter-types": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require function parameters to be typed as `readonly` to prevent accidental mutation of inputs"
+        },
+        "@typescript-eslint/prefer-reduce-type-parameter": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce using type parameter when calling `Array#reduce` instead of using a type assertion"
+        },
+        "@typescript-eslint/prefer-regexp-exec": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce `RegExp#exec` over `String#match` if no global flag is provided"
+        },
+        "@typescript-eslint/prefer-return-this-type": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce that `this` is used when only `this` type is returned"
+        },
+        "@typescript-eslint/prefer-string-starts-ends-with": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce using `String#startsWith` and `String#endsWith` over other equivalent methods of checking substrings"
+        },
+        "@typescript-eslint/prefer-ts-expect-error": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce using `@ts-expect-error` over `@ts-ignore`"
+        },
+        "@typescript-eslint/promise-function-async": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require any function or method that returns a Promise to be marked async"
+        },
+        "@typescript-eslint/related-getter-setter-pairs": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce that `get()` types should be assignable to their equivalent `set()` type"
+        },
+        "@typescript-eslint/require-array-sort-compare": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require `Array#sort` and `Array#toSorted` calls to always provide a `compareFunction`"
+        },
+        "@typescript-eslint/require-await": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow async functions which do not return promises and have no `await` expression"
+        },
+        "@typescript-eslint/restrict-plus-operands": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require both operands of addition to be the same type and be `bigint`, `number`, or `string`"
+        },
+        "@typescript-eslint/restrict-template-expressions": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce template literal expressions to be of `string` type"
+        },
+        "@typescript-eslint/return-await": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce consistent awaiting of returned promises"
+        },
+        "@typescript-eslint/sort-type-constituents": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce constituents of a type union/intersection to be sorted alphabetically"
+        },
+        "@typescript-eslint/strict-boolean-expressions": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow certain types in boolean expressions"
+        },
+        "@typescript-eslint/strict-void-return": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow passing a value-returning function in a position accepting a void function"
+        },
+        "@typescript-eslint/switch-exhaustiveness-check": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require switch-case statements to be exhaustive"
+        },
+        "@typescript-eslint/triple-slash-reference": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow certain triple slash directives in favor of ES6-style import declarations"
+        },
+        "@typescript-eslint/typedef": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require type annotations in certain places"
+        },
+        "@typescript-eslint/unbound-method": {
+            "group": "problem",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce unbound methods are called with their expected scope"
+        },
+        "@typescript-eslint/unified-signatures": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow two overloads that could be unified into one with a union or an optional/rest parameter"
+        },
+        "@typescript-eslint/use-unknown-in-catch-callback-variable": {
+            "group": "suggestion",
+            "plugin": "@typescript-eslint",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce typing arguments in Promise rejection callbacks as `unknown`"
+        },
+        "accessor-pairs": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce getter and setter pairs in objects and classes"
+        },
+        "array-bracket-newline": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce linebreaks after opening and before closing array brackets"
+        },
+        "array-bracket-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent spacing inside array brackets"
+        },
+        "array-callback-return": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce `return` statements in callbacks of array methods"
+        },
+        "array-element-newline": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce line breaks after each array element"
+        },
+        "arrow-body-style": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require braces around arrow function bodies"
+        },
+        "arrow-parens": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require parentheses around arrow function arguments"
+        },
+        "arrow-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent spacing before and after the arrow in arrow functions"
+        },
+        "block-scoped-var": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce the use of variables within the scope they are defined"
+        },
+        "block-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow or enforce spaces inside of blocks after opening block and before closing block"
+        },
+        "brace-style": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent brace style for blocks"
+        },
+        "callback-return": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require `return` statements after callbacks"
+        },
+        "camelcase": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce camelcase naming convention"
+        },
+        "capitalized-comments": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce or disallow capitalization of the first letter of a comment"
+        },
+        "class-methods-use-this": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce that class methods utilize `this`"
+        },
+        "comma-dangle": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require or disallow trailing commas"
+        },
+        "comma-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent spacing before and after commas"
+        },
+        "comma-style": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent comma style"
+        },
+        "complexity": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce a maximum cyclomatic complexity allowed in a program"
+        },
+        "computed-property-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent spacing inside computed property brackets"
+        },
+        "consistent-return": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require `return` statements to either always or never specify values"
+        },
+        "consistent-this": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce consistent naming when capturing the current execution context"
+        },
+        "constructor-super": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Require `super()` calls in constructors"
+        },
+        "curly": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce consistent brace style for all control statements"
+        },
+        "default-case": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require `default` cases in `switch` statements"
+        },
+        "default-case-last": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce `default` clauses in `switch` statements to be last"
+        },
+        "default-param-last": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce default parameters to be last"
+        },
+        "dot-location": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent newlines before and after dots"
+        },
+        "dot-notation": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce dot notation whenever possible"
+        },
+        "eol-last": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require or disallow newline at the end of files"
+        },
+        "eqeqeq": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require the use of `===` and `!==`"
+        },
+        "for-direction": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Enforce `for` loop update clause moving the counter in the right direction"
+        },
+        "func-call-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require or disallow spacing between function identifiers and their invocations"
+        },
+        "func-name-matching": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require function names to match the name of the variable or property to which they are assigned"
+        },
+        "func-names": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require or disallow named `function` expressions"
+        },
+        "func-style": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce the consistent use of either `function` declarations or expressions assigned to variables"
+        },
+        "function-call-argument-newline": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce line breaks between arguments of a function call"
+        },
+        "function-paren-newline": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent line breaks inside function parentheses"
+        },
+        "generator-star-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent spacing around `*` operators in generator functions"
+        },
+        "getter-return": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Enforce `return` statements in getters"
+        },
+        "global-require": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require `require()` calls to be placed at top-level module scope"
+        },
+        "grouped-accessor-pairs": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require grouped accessor pairs in object literals and classes"
+        },
+        "guard-for-in": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require `for-in` loops to include an `if` statement"
+        },
+        "handle-callback-err": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require error handling in callbacks"
+        },
+        "id-blacklist": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow specified identifiers"
+        },
+        "id-denylist": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow specified identifiers"
+        },
+        "id-length": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce minimum and maximum identifier lengths"
+        },
+        "id-match": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require identifiers to match a specified regular expression"
+        },
+        "implicit-arrow-linebreak": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce the location of arrow function bodies"
+        },
+        "indent": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent indentation"
+        },
+        "indent-legacy": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent indentation"
+        },
+        "init-declarations": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require or disallow initialization in variable declarations"
+        },
+        "jsx-quotes": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce the consistent use of either double or single quotes in JSX attributes"
+        },
+        "key-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent spacing between keys and values in object literal properties"
+        },
+        "keyword-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent spacing before and after keywords"
+        },
+        "line-comment-position": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce position of line comments"
+        },
+        "linebreak-style": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent linebreak style"
+        },
+        "lines-around-comment": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require empty lines around comments"
+        },
+        "lines-around-directive": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require or disallow newlines around directives"
+        },
+        "lines-between-class-members": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require or disallow an empty line between class members"
+        },
+        "logical-assignment-operators": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require or disallow logical assignment operator shorthand"
+        },
+        "max-classes-per-file": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce a maximum number of classes per file"
+        },
+        "max-depth": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce a maximum depth that blocks can be nested"
+        },
+        "max-len": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce a maximum line length"
+        },
+        "max-lines": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce a maximum number of lines per file"
+        },
+        "max-lines-per-function": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce a maximum number of lines of code in a function"
+        },
+        "max-nested-callbacks": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce a maximum depth that callbacks can be nested"
+        },
+        "max-params": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce a maximum number of parameters in function definitions"
+        },
+        "max-statements": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce a maximum number of statements allowed in function blocks"
+        },
+        "max-statements-per-line": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce a maximum number of statements allowed per line"
+        },
+        "multiline-comment-style": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce a particular style for multiline comments"
+        },
+        "multiline-ternary": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce newlines between operands of ternary expressions"
+        },
+        "new-cap": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require constructor names to begin with a capital letter"
+        },
+        "new-parens": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce or disallow parentheses when invoking a constructor with no arguments"
+        },
+        "newline-after-var": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require or disallow an empty line after variable declarations"
+        },
+        "newline-before-return": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require an empty line before `return` statements"
+        },
+        "newline-per-chained-call": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require a newline after each call in a method chain"
+        },
+        "no-alert": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow the use of `alert`, `confirm`, and `prompt`"
+        },
+        "no-array-constructor": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow `Array` constructors"
+        },
+        "no-async-promise-executor": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow using an async function as a Promise executor"
+        },
+        "no-await-in-loop": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow `await` inside of loops"
+        },
+        "no-bitwise": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow bitwise operators"
+        },
+        "no-buffer-constructor": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow use of the `Buffer()` constructor"
+        },
+        "no-caller": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow the use of `arguments.caller` or `arguments.callee`"
+        },
+        "no-case-declarations": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow lexical declarations in case clauses"
+        },
+        "no-catch-shadow": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow `catch` clause parameters from shadowing variables in the outer scope"
+        },
+        "no-class-assign": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow reassigning class members"
+        },
+        "no-compare-neg-zero": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow comparing against `-0`"
+        },
+        "no-cond-assign": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow assignment operators in conditional expressions"
+        },
+        "no-confusing-arrow": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow arrow functions where they could be confused with comparisons"
+        },
+        "no-console": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow the use of `console`"
+        },
+        "no-const-assign": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow reassigning `const`, `using`, and `await using` variables"
+        },
+        "no-constant-binary-expression": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow expressions where the operation doesn't affect the value"
+        },
+        "no-constant-condition": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow constant expressions in conditions"
+        },
+        "no-constructor-return": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow returning value from constructor"
+        },
+        "no-continue": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow `continue` statements"
+        },
+        "no-control-regex": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow control characters in regular expressions"
+        },
+        "no-debugger": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow the use of `debugger`"
+        },
+        "no-delete-var": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow deleting variables"
+        },
+        "no-div-regex": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow equal signs explicitly at the beginning of regular expressions"
+        },
+        "no-dupe-args": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow duplicate arguments in `function` definitions"
+        },
+        "no-dupe-class-members": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow duplicate class members"
+        },
+        "no-dupe-else-if": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow duplicate conditions in if-else-if chains"
+        },
+        "no-dupe-keys": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow duplicate keys in object literals"
+        },
+        "no-duplicate-case": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow duplicate case labels"
+        },
+        "no-duplicate-imports": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow duplicate module imports"
+        },
+        "no-else-return": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow `else` blocks after `return` statements in `if` statements"
+        },
+        "no-empty": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow empty block statements"
+        },
+        "no-empty-character-class": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow empty character classes in regular expressions"
+        },
+        "no-empty-function": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow empty functions"
+        },
+        "no-empty-pattern": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow empty destructuring patterns"
+        },
+        "no-empty-static-block": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow empty static blocks"
+        },
+        "no-eq-null": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow `null` comparisons without type-checking operators"
+        },
+        "no-eval": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow the use of `eval()`"
+        },
+        "no-ex-assign": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow reassigning exceptions in `catch` clauses"
+        },
+        "no-extend-native": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow extending native types"
+        },
+        "no-extra-bind": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow unnecessary calls to `.bind()`"
+        },
+        "no-extra-boolean-cast": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow unnecessary boolean casts"
+        },
+        "no-extra-label": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow unnecessary labels"
+        },
+        "no-extra-parens": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow unnecessary parentheses"
+        },
+        "no-extra-semi": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow unnecessary semicolons"
+        },
+        "no-fallthrough": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow fallthrough of `case` statements"
+        },
+        "no-floating-decimal": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow leading or trailing decimal points in numeric literals"
+        },
+        "no-func-assign": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow reassigning `function` declarations"
+        },
+        "no-global-assign": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow assignments to native objects or read-only global variables"
+        },
+        "no-implicit-coercion": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow shorthand type conversions"
+        },
+        "no-implicit-globals": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow declarations in the global scope"
+        },
+        "no-implied-eval": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow the use of `eval()`-like methods"
+        },
+        "no-import-assign": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow assigning to imported bindings"
+        },
+        "no-inline-comments": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow inline comments after code"
+        },
+        "no-inner-declarations": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow variable or `function` declarations in nested blocks"
+        },
+        "no-invalid-regexp": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow invalid regular expression strings in `RegExp` constructors"
+        },
+        "no-invalid-this": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow use of `this` in contexts where the value of `this` is `undefined`"
+        },
+        "no-irregular-whitespace": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow irregular whitespace"
+        },
+        "no-iterator": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow the use of the `__iterator__` property"
+        },
+        "no-label-var": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow labels that share a name with a variable"
+        },
+        "no-labels": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow labeled statements"
+        },
+        "no-lone-blocks": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow unnecessary nested blocks"
+        },
+        "no-lonely-if": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow `if` statements as the only statement in `else` blocks"
+        },
+        "no-loop-func": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow function declarations that contain unsafe references inside loop statements"
+        },
+        "no-loss-of-precision": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow literal numbers that lose precision"
+        },
+        "no-magic-numbers": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow magic numbers"
+        },
+        "no-misleading-character-class": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow characters which are made with multiple code points in character class syntax"
+        },
+        "no-mixed-operators": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow mixed binary operators"
+        },
+        "no-mixed-requires": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow `require` calls to be mixed with regular variable declarations"
+        },
+        "no-mixed-spaces-and-tabs": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow mixed spaces and tabs for indentation"
+        },
+        "no-multi-assign": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow use of chained assignment expressions"
+        },
+        "no-multi-spaces": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow multiple spaces"
+        },
+        "no-multi-str": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow multiline strings"
+        },
+        "no-multiple-empty-lines": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow multiple empty lines"
+        },
+        "no-native-reassign": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow assignments to native objects or read-only global variables"
+        },
+        "no-negated-condition": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow negated conditions"
+        },
+        "no-negated-in-lhs": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow negating the left operand in `in` expressions"
+        },
+        "no-nested-ternary": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow nested ternary expressions"
+        },
+        "no-new": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow `new` operators outside of assignments or comparisons"
+        },
+        "no-new-func": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow `new` operators with the `Function` object"
+        },
+        "no-new-native-nonconstructor": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow `new` operators with global non-constructor functions"
+        },
+        "no-new-object": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow `Object` constructors"
+        },
+        "no-new-require": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow `new` operators with calls to `require`"
+        },
+        "no-new-symbol": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow `new` operators with the `Symbol` object"
+        },
+        "no-new-wrappers": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow `new` operators with the `String`, `Number`, and `Boolean` objects"
+        },
+        "no-nonoctal-decimal-escape": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow `\\8` and `\\9` escape sequences in string literals"
+        },
+        "no-obj-calls": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow calling global object properties as functions"
+        },
+        "no-object-constructor": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow calls to the `Object` constructor without an argument"
+        },
+        "no-octal": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow octal literals"
+        },
+        "no-octal-escape": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow octal escape sequences in string literals"
+        },
+        "no-param-reassign": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow reassigning function parameters"
+        },
+        "no-path-concat": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow string concatenation with `__dirname` and `__filename`"
+        },
+        "no-plusplus": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow the unary operators `++` and `--`"
+        },
+        "no-process-env": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow the use of `process.env`"
+        },
+        "no-process-exit": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow the use of `process.exit()`"
+        },
+        "no-promise-executor-return": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow returning values from Promise executor functions"
+        },
+        "no-proto": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow the use of the `__proto__` property"
+        },
+        "no-prototype-builtins": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow calling some `Object.prototype` methods directly on objects"
+        },
+        "no-redeclare": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow variable redeclaration"
+        },
+        "no-regex-spaces": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow multiple spaces in regular expressions"
+        },
+        "no-restricted-exports": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow specified names in exports"
+        },
+        "no-restricted-globals": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow specified global variables"
+        },
+        "no-restricted-imports": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow specified modules when loaded by `import`"
+        },
+        "no-restricted-modules": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow specified modules when loaded by `require`"
+        },
+        "no-restricted-properties": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow certain properties on certain objects"
+        },
+        "no-restricted-syntax": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow specified syntax"
+        },
+        "no-return-assign": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow assignment operators in `return` statements"
+        },
+        "no-return-await": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow unnecessary `return await`"
+        },
+        "no-script-url": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow `javascript:` URLs"
+        },
+        "no-self-assign": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow assignments where both sides are exactly the same"
+        },
+        "no-self-compare": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow comparisons where both sides are exactly the same"
+        },
+        "no-sequences": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow comma operators"
+        },
+        "no-setter-return": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow returning values from setters"
+        },
+        "no-shadow": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow variable declarations from shadowing variables declared in the outer scope"
+        },
+        "no-shadow-restricted-names": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow identifiers from shadowing restricted names"
+        },
+        "no-spaced-func": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow spacing between function identifiers and their applications (deprecated)"
+        },
+        "no-sparse-arrays": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow sparse arrays"
+        },
+        "no-sync": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow synchronous methods"
+        },
+        "no-tabs": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow all tabs"
+        },
+        "no-template-curly-in-string": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow template literal placeholder syntax in regular strings"
+        },
+        "no-ternary": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow ternary operators"
+        },
+        "no-this-before-super": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow `this`/`super` before calling `super()` in constructors"
+        },
+        "no-throw-literal": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow throwing literals as exceptions"
+        },
+        "no-trailing-spaces": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow trailing whitespace at the end of lines"
+        },
+        "no-unassigned-vars": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow `let` or `var` variables that are read but never assigned"
+        },
+        "no-undef": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow the use of undeclared variables unless mentioned in `/*global */` comments"
+        },
+        "no-undef-init": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow initializing variables to `undefined`"
+        },
+        "no-undefined": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow the use of `undefined` as an identifier"
+        },
+        "no-underscore-dangle": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow dangling underscores in identifiers"
+        },
+        "no-unexpected-multiline": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow confusing multiline expressions"
+        },
+        "no-unmodified-loop-condition": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow unmodified loop conditions"
+        },
+        "no-unneeded-ternary": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow ternary operators when simpler alternatives exist"
+        },
+        "no-unreachable": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow unreachable code after `return`, `throw`, `continue`, and `break` statements"
+        },
+        "no-unreachable-loop": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow loops with a body that allows only one iteration"
+        },
+        "no-unsafe-finally": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow control flow statements in `finally` blocks"
+        },
+        "no-unsafe-negation": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow negating the left operand of relational operators"
+        },
+        "no-unsafe-optional-chaining": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow use of optional chaining in contexts where the `undefined` value is not allowed"
+        },
+        "no-unused-expressions": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow unused expressions"
+        },
+        "no-unused-labels": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow unused labels"
+        },
+        "no-unused-private-class-members": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow unused private class members"
+        },
+        "no-unused-vars": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow unused variables"
+        },
+        "no-use-before-define": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow the use of variables before they are defined"
+        },
+        "no-useless-assignment": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow variable assignments when the value is not used"
+        },
+        "no-useless-backreference": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow useless backreferences in regular expressions"
+        },
+        "no-useless-call": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow unnecessary calls to `.call()` and `.apply()`"
+        },
+        "no-useless-catch": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow unnecessary `catch` clauses"
+        },
+        "no-useless-computed-key": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow unnecessary computed property keys in objects and classes"
+        },
+        "no-useless-concat": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow unnecessary concatenation of literals or template literals"
+        },
+        "no-useless-constructor": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow unnecessary constructors"
+        },
+        "no-useless-escape": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow unnecessary escape characters"
+        },
+        "no-useless-rename": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow renaming import, export, and destructured assignments to the same name"
+        },
+        "no-useless-return": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow redundant return statements"
+        },
+        "no-var": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require `let` or `const` instead of `var`"
+        },
+        "no-void": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow `void` operators"
+        },
+        "no-warning-comments": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow specified warning terms in comments"
+        },
+        "no-whitespace-before-property": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Disallow whitespace before properties"
+        },
+        "no-with": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow `with` statements"
+        },
+        "nonblock-statement-body-position": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce the location of single-line statements"
+        },
+        "object-curly-newline": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent line breaks after opening and before closing braces"
+        },
+        "object-curly-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent spacing inside braces"
+        },
+        "object-property-newline": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce placing object properties on separate lines"
+        },
+        "object-shorthand": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require or disallow method and property shorthand syntax for object literals"
+        },
+        "one-var": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce variables to be declared either together or separately in functions"
+        },
+        "one-var-declaration-per-line": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require or disallow newlines around variable declarations"
+        },
+        "operator-assignment": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require or disallow assignment operator shorthand where possible"
+        },
+        "operator-linebreak": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent linebreak style for operators"
+        },
+        "padded-blocks": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require or disallow padding within blocks"
+        },
+        "padding-line-between-statements": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require or disallow padding lines between statements"
+        },
+        "prefer-arrow-callback": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require using arrow functions for callbacks"
+        },
+        "prefer-const": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require `const` declarations for variables that are never reassigned after declared"
+        },
+        "prefer-destructuring": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require destructuring from arrays and/or objects"
+        },
+        "prefer-exponentiation-operator": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow the use of `Math.pow` in favor of the `**` operator"
+        },
+        "prefer-named-capture-group": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce using named capture group in regular expression"
+        },
+        "prefer-numeric-literals": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow `parseInt()` and `Number.parseInt()` in favor of binary, octal, and hexadecimal literals"
+        },
+        "prefer-object-has-own": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow use of `Object.prototype.hasOwnProperty.call()` and prefer use of `Object.hasOwn()`"
+        },
+        "prefer-object-spread": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow using `Object.assign` with an object literal as the first argument and prefer the use of object spread instead"
+        },
+        "prefer-promise-reject-errors": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require using Error objects as Promise rejection reasons"
+        },
+        "prefer-reflect": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require `Reflect` methods where applicable"
+        },
+        "prefer-regex-literals": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow use of the `RegExp` constructor in favor of regular expression literals"
+        },
+        "prefer-rest-params": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require rest parameters instead of `arguments`"
+        },
+        "prefer-spread": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require spread operators instead of `.apply()`"
+        },
+        "prefer-template": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require template literals instead of string concatenation"
+        },
+        "preserve-caught-error": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Disallow losing originally caught error when re-throwing custom errors"
+        },
+        "quote-props": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require quotes around object literal property names"
+        },
+        "quotes": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce the consistent use of either backticks, double, or single quotes"
+        },
+        "radix": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce the use of the radix argument when using `parseInt()`"
+        },
+        "require-atomic-updates": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow assignments that can lead to race conditions due to usage of `await` or `yield`"
+        },
+        "require-await": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Disallow async functions which have no `await` expression"
+        },
+        "require-unicode-regexp": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce the use of `u` or `v` flag on regular expressions"
+        },
+        "require-yield": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Require generator functions to contain `yield`"
+        },
+        "rest-spread-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce spacing between rest and spread operators and their expressions"
+        },
+        "semi": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require or disallow semicolons instead of ASI"
+        },
+        "semi-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent spacing before and after semicolons"
+        },
+        "semi-style": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce location of semicolons"
+        },
+        "sort-imports": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Enforce sorted `import` declarations within modules"
+        },
+        "sort-keys": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require object keys to be sorted"
+        },
+        "sort-vars": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require variables within the same declaration block to be sorted"
+        },
+        "space-before-blocks": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent spacing before blocks"
+        },
+        "space-before-function-paren": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent spacing before `function` definition opening parenthesis"
+        },
+        "space-in-parens": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent spacing inside parentheses"
+        },
+        "space-infix-ops": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require spacing around infix operators"
+        },
+        "space-unary-ops": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent spacing before or after unary operators"
+        },
+        "spaced-comment": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce consistent spacing after the `//` or `/*` in a comment"
+        },
+        "strict": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require or disallow strict mode directives"
+        },
+        "switch-colon-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Enforce spacing around colons of switch statements"
+        },
+        "symbol-description": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require symbol descriptions"
+        },
+        "template-curly-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require or disallow spacing around embedded expressions of template strings"
+        },
+        "template-tag-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require or disallow spacing between template tags and their literals"
+        },
+        "unicode-bom": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require or disallow Unicode byte order mark (BOM)"
+        },
+        "use-isnan": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Require calls to `isNaN()` when checking for `NaN`"
+        },
+        "valid-typeof": {
+            "group": "problem",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": true,
+            "name": "Enforce comparing `typeof` expressions against valid strings"
+        },
+        "vars-on-top": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require `var` declarations be placed at the top of their containing scope"
+        },
+        "wrap-iife": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require parentheses around immediate `function` invocations"
+        },
+        "wrap-regex": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require parenthesis around regex literals"
+        },
+        "yield-star-spacing": {
+            "group": "layout",
+            "plugin": "",
+            "deprecated": true,
+            "recommended": false,
+            "name": "Require or disallow spacing around the `*` in `yield*` expressions"
+        },
+        "yoda": {
+            "group": "suggestion",
+            "plugin": "",
+            "deprecated": false,
+            "recommended": false,
+            "name": "Require or disallow \"Yoda\" conditions"
+        }
+    }
+}

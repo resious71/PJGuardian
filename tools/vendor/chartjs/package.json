@@ -1,0 +1,13 @@
+{
+  "name": "pjguardian-chartjs-bundle",
+  "private": true,
+  "description": "빌드 전용(P20). tools/build_vendor.mjs가 이 폴더에서 npm ci 후 esbuild로 public/assets/vendor/chartjs/chart.js 하나를 만든다. node_modules는 배포·커밋하지 않는다(docs/vendor_build.md).",
+  "license": "UNLICENSED",
+  "type": "module",
+  "dependencies": {
+    "chart.js": "4.5.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

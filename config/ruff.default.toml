@@ -1,0 +1,6 @@
+# PJGuardian 서버 기본 ruff 설정 (명세 5.3)
+# 업로드된 pyproject.toml([tool.ruff]), ruff.toml, .ruff.toml이 없거나 거부되면 이 설정으로 분석한다.
+# 이 파일을 바꾸면 설정 해시가 바뀌어 "버전/설정 변경" 배지가 표시된다 (명세 8).
+
+[lint]
+select = ["E", "F"]

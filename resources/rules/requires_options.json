@@ -1,0 +1,19 @@
+{
+  "_comment": "옵션(설정) 없이는 아무것도 검사하지 않는 규칙(P22B). 관리자 화면에서 켤 수 없다(이유 requires_options) — 이 단계는 규칙 옵션을 편집하지 않는다. 조사: 실제 도구(ruff 0.16.10, ESLint 10.11.0 + @typescript-eslint 8.71.0)로 옵션 없이 켜고 걸릴 만한 코드에서 메시지 0개 확인(docs/results/P22B.md 0절). 활성 버전에 없는 키는 무시한다.",
+  "ruff": {
+    "TID251": "banned-api: 금지할 API 목록(lint.flake8-tidy-imports.banned-api)이 비어 있으면 검사하지 않음",
+    "TID253": "banned-module-level-imports: 목록이 비어 있으면 검사하지 않음",
+    "ICN003": "banned-import-from: 목록(lint.flake8-import-conventions.banned-from)이 비어 있으면 검사하지 않음"
+  },
+  "eslint": {
+    "id-denylist": "금지할 이름 목록이 옵션",
+    "id-match": "기본 패턴 ^.+$는 모든 이름과 맞아 검사하지 않음",
+    "no-restricted-exports": "금지할 내보내기 이름이 옵션",
+    "no-restricted-globals": "금지할 전역 이름이 옵션",
+    "no-restricted-imports": "금지할 모듈이 옵션",
+    "no-restricted-properties": "금지할 속성이 옵션",
+    "no-restricted-syntax": "금지할 구문 선택자가 옵션",
+    "@typescript-eslint/no-restricted-imports": "금지할 모듈이 옵션",
+    "@typescript-eslint/no-restricted-types": "금지할 타입이 옵션"
+  }
+}

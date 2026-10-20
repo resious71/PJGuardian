@@ -1,0 +1,1176 @@
+{
+  "format": 1,
+  "note": "보강 자료. 도구 값 채우기(summary·description·docs_url)는 sources(공식 문서 https) 필수. guide(P32B)는 직접 쓴 쉬운 설명 — tools/rules_guide_check.mjs가 실제 도구로 확인해 checked를 적은 것만 보인다. 형식·절차는 docs/rules.md 5절",
+  "rules": {
+    "no-unused-vars": {
+      "guide": {
+        "bad": "function total(items) {\n  const count = items.length;\n  return items.reduce((a, b) => a + b, 0);\n}\ntotal([1, 2]);\n",
+        "good": "function total(items) {\n  return items.reduce((a, b) => a + b, 0);\n}\ntotal([1, 2]);\n",
+        "ko": {
+          "summary": "선언했지만 한 번도 읽지 않는 변수·함수·매개변수가 있습니다. 대개 지우는 것을 잊었거나 다른 이름을 쓰려던 실수입니다.",
+          "fix": "쓰지 않는 선언을 지웁니다. 써야 하는 값이었다면 의도한 곳에서 그 변수를 쓰도록 고칩니다."
+        },
+        "en": {
+          "summary": "A variable, function, or parameter is declared but never read. Usually it is a leftover or a typo for another name.",
+          "fix": "Remove the unused declaration. If the value was meant to be used, use the variable where it was intended."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/no-explicit-any": {
+      "guide": {
+        "bad": "export function parse(input: any): number {\n  return Number(input);\n}\n",
+        "good": "export function parse(input: unknown): number {\n  return Number(input);\n}\n",
+        "ko": {
+          "summary": "타입을 `any`로 적었습니다. `any`는 타입 검사를 꺼 버려서 잘못된 값이 그대로 흘러가도 컴파일러가 알려 주지 못합니다.",
+          "fix": "실제 타입을 적거나, 무엇이 올지 모르면 `unknown`을 쓰고 쓰기 전에 타입을 확인합니다."
+        },
+        "en": {
+          "summary": "A type is written as `any`. `any` turns off type checking, so the compiler cannot warn when a wrong value flows through.",
+          "fix": "Write the real type, or use `unknown` when the type is not known and narrow it before use."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "constructor-super": {
+      "guide": {
+        "bad": "class Base {}\nexport class User extends Base {\n  constructor(name) {\n    this.name = name;\n  }\n}\n",
+        "good": "class Base {}\nexport class User extends Base {\n  constructor(name) {\n    super();\n    this.name = name;\n  }\n}\n",
+        "ko": {
+          "summary": "다른 클래스를 상속(`extends`)한 클래스의 생성자에서 `super()`를 부르지 않았거나, 여러 번 불렀거나, 상속하지 않았는데 불렀습니다. 이 상태로 객체를 만들면 실행 중 오류가 납니다.",
+          "fix": "상속한 클래스의 생성자에서는 모든 실행 경로에서 `super()`를 정확히 한 번 부릅니다. 상속하지 않는 클래스라면 `super()`를 지웁니다."
+        },
+        "en": {
+          "summary": "A constructor of a class that `extends` another class does not call `super()`, calls it more than once, or calls it without a parent class. Creating such an object throws at run time.",
+          "fix": "In a derived class, call `super()` exactly once on every code path of the constructor. If the class has no parent, remove the `super()` call."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "for-direction": {
+      "guide": {
+        "bad": "export function countdown(n) {\n  for (let i = n; i >= 0; i++) {\n    report(i);\n  }\n}\nfunction report() {}\n",
+        "good": "export function countdown(n) {\n  for (let i = n; i >= 0; i--) {\n    report(i);\n  }\n}\nfunction report() {}\n",
+        "ko": {
+          "summary": "`for` 반복문의 조건과 증감 방향이 서로 맞지 않습니다. 예를 들어 `i >= 0`인 동안 도는데 `i++`로 늘리면 조건이 끝나지 않아 무한 반복이 됩니다.",
+          "fix": "조건이 끝나는 방향으로 증감식을 고칩니다(줄여 가며 비교하면 `i--`, 늘려 가며 비교하면 `i++`)."
+        },
+        "en": {
+          "summary": "The update clause of a `for` loop moves the counter away from the loop condition. For example, counting up with `i++` while the condition is `i >= 0` never ends.",
+          "fix": "Change the update so the counter moves toward the end condition (use `i--` when counting down, `i++` when counting up)."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "getter-return": {
+      "guide": {
+        "bad": "export const box = {\n  _size: 0,\n  get size() {\n    this._size;\n  },\n};\n",
+        "good": "export const box = {\n  _size: 0,\n  get size() {\n    return this._size;\n  },\n};\n",
+        "ko": {
+          "summary": "게터(`get`)에 값을 돌려주는 `return`이 없거나 일부 경로에만 있습니다. 그러면 속성을 읽을 때 의도와 달리 `undefined`가 나옵니다.",
+          "fix": "모든 경로에서 `return 값;`으로 값을 돌려주도록 고칩니다."
+        },
+        "en": {
+          "summary": "A getter (`get`) has no `return` with a value, or only some code paths return one. Reading the property then gives `undefined` instead of the intended value.",
+          "fix": "Make every code path of the getter end with `return value;`."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-async-promise-executor": {
+      "guide": {
+        "bad": "export function load(url) {\n  return new Promise(async (resolve) => {\n    const res = await fetchData(url);\n    resolve(res);\n  });\n}\nasync function fetchData() {}\n",
+        "good": "export async function load(url) {\n  const res = await fetchData(url);\n  return res;\n}\nasync function fetchData() {}\n",
+        "ko": {
+          "summary": "`new Promise(...)`에 넘기는 실행 함수가 `async` 함수입니다. 그 안에서 오류가 나도 만든 Promise가 거부되지 않아 오류를 놓치게 되고, 대개 Promise로 감쌀 필요도 없습니다.",
+          "fix": "실행 함수에서 `async`를 빼거나, Promise로 감싸지 말고 바깥 함수를 `async` 함수로 만들어 `await`를 직접 씁니다."
+        },
+        "en": {
+          "summary": "The executor passed to `new Promise(...)` is an `async` function. If it throws, the created Promise is not rejected, so the error is lost; usually the wrapper is not needed at all.",
+          "fix": "Remove `async` from the executor, or drop the `new Promise` wrapper and make the outer function `async` and use `await` directly."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-case-declarations": {
+      "guide": {
+        "bad": "export function label(kind) {\n  switch (kind) {\n    case 'a':\n      const text = 'Apple';\n      return text;\n    default:\n      return '';\n  }\n}\n",
+        "good": "export function label(kind) {\n  switch (kind) {\n    case 'a': {\n      const text = 'Apple';\n      return text;\n    }\n    default:\n      return '';\n  }\n}\n",
+        "ko": {
+          "summary": "`case` 절 안에서 바로 `let`·`const`·`function`·`class`를 선언했습니다. 이 선언은 `switch` 전체에서 보여서 다른 `case`에서 초기화 전에 쓰는 오류가 생길 수 있습니다.",
+          "fix": "그 `case`의 내용을 중괄호 `{ }`로 감싸 선언이 그 블록 안에만 있도록 합니다."
+        },
+        "en": {
+          "summary": "A `let`, `const`, `function`, or `class` is declared directly inside a `case` clause. It is visible across the whole `switch`, so another `case` may use it before it is initialized.",
+          "fix": "Wrap the body of that `case` in braces `{ }` so the declaration stays inside its own block."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-class-assign": {
+      "guide": {
+        "bad": "class Logger {}\nLogger = null;\nexport default Logger;\n",
+        "good": "class Logger {}\nlet logger = new Logger();\nlogger = null;\nexport default logger;\n",
+        "ko": {
+          "summary": "클래스 선언으로 만든 이름에 다른 값을 대입했습니다. 이후 그 클래스를 쓰려는 코드가 바뀐 값을 받게 되므로 대개 실수입니다.",
+          "fix": "클래스 이름은 그대로 두고, 바뀌는 값은 별도의 변수에 담습니다."
+        },
+        "en": {
+          "summary": "A name created by a class declaration is reassigned. Code that later uses the class gets the new value instead, which is almost always a mistake.",
+          "fix": "Leave the class name alone and keep values that change in a separate variable."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-cond-assign": {
+      "guide": {
+        "bad": "export function isAdmin(user) {\n  if (user.role = 'admin') {\n    return true;\n  }\n  return false;\n}\n",
+        "good": "export function isAdmin(user) {\n  if (user.role === 'admin') {\n    return true;\n  }\n  return false;\n}\n",
+        "ko": {
+          "summary": "`if`·`while` 같은 조건식 안에 대입(`=`)이 있습니다. 비교(`===`)를 쓰려다 `=`를 잘못 쓴 경우가 많고, 이때 값이 바뀌어 버립니다.",
+          "fix": "비교하려던 것이면 `===`로 고칩니다. 정말 대입하면서 검사하려면 대입을 괄호로 한 번 더 감싸 의도를 드러내거나 대입을 조건 밖으로 뺍니다."
+        },
+        "en": {
+          "summary": "A condition of `if`, `while`, and similar statements contains an assignment (`=`). Often `=` was typed where a comparison (`===`) was meant, and the value gets overwritten.",
+          "fix": "Use `===` if you meant to compare. If the assignment is intended, wrap it in an extra pair of parentheses or move it out of the condition."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-const-assign": {
+      "guide": {
+        "bad": "export function total(prices) {\n  const sum = 0;\n  for (const p of prices) sum += p;\n  return sum;\n}\n",
+        "good": "export function total(prices) {\n  let sum = 0;\n  for (const p of prices) sum += p;\n  return sum;\n}\n",
+        "ko": {
+          "summary": "`const`로 선언한 변수에 다시 값을 대입했습니다. 실행하면 `TypeError`가 납니다.",
+          "fix": "값이 바뀌어야 하는 변수는 `let`으로 선언합니다. 바뀌면 안 되는 값이라면 대입하는 코드를 고칩니다."
+        },
+        "en": {
+          "summary": "A variable declared with `const` is assigned again. This throws a `TypeError` at run time.",
+          "fix": "Declare the variable with `let` if it needs to change, or fix the code that reassigns it."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-constant-binary-expression": {
+      "guide": {
+        "bad": "export function price(base, tax) {\n  return base + tax ?? 0;\n}\n",
+        "good": "export function price(base, tax) {\n  return base + (tax ?? 0);\n}\n",
+        "ko": {
+          "summary": "연산 결과가 항상 같아서 연산자가 아무 역할을 하지 않는 식입니다. 예를 들어 `a + b ?? 0`에서 `a + b`는 절대 `null`이 아니므로 `?? 0`이 쓰이지 않습니다. 대개 괄호 위치나 연산자 우선순위를 잘못 생각한 실수입니다.",
+          "fix": "의도한 순서대로 괄호를 넣거나, 의미 없는 비교·연산을 지웁니다."
+        },
+        "en": {
+          "summary": "An expression whose result is always the same, so the operator has no effect. For example, in `a + b ?? 0` the sum is never `null`, so `?? 0` is never used. This is usually a mistake about parentheses or operator precedence.",
+          "fix": "Add parentheses to express the intended order, or remove the comparison or operator that does nothing."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-constant-condition": {
+      "guide": {
+        "bad": "export function save(data) {\n  if ('force') {\n    return write(data);\n  }\n  return null;\n}\nfunction write() {}\n",
+        "good": "export function save(data, force) {\n  if (force) {\n    return write(data);\n  }\n  return null;\n}\nfunction write() {}\n",
+        "ko": {
+          "summary": "조건식의 결과가 항상 참이거나 항상 거짓입니다. 한쪽 분기는 절대 실행되지 않으므로 디버깅용 코드가 남았거나 조건을 잘못 쓴 경우가 많습니다.",
+          "fix": "실제로 검사하려던 값으로 조건을 고치거나, 필요 없는 조건문을 지웁니다(`while (true)` 같은 무한 반복은 기본 설정에서 허용됩니다)."
+        },
+        "en": {
+          "summary": "A condition always evaluates to true or always to false, so one branch can never run. Often leftover debug code or a wrongly written condition.",
+          "fix": "Rewrite the condition to test the value you meant, or remove the unneeded branch (`while (true)` loops are allowed by default)."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-debugger": {
+      "guide": {
+        "bad": "export function compute(a, b) {\n  debugger;\n  return a * b;\n}\n",
+        "good": "export function compute(a, b) {\n  return a * b;\n}\n",
+        "ko": {
+          "summary": "`debugger` 문이 남아 있습니다. 개발 도구가 열려 있으면 실행이 이 줄에서 멈추므로 운영 코드에 남기면 안 됩니다.",
+          "fix": "`debugger` 줄을 지웁니다. 디버깅에는 개발 도구의 중단점을 씁니다."
+        },
+        "en": {
+          "summary": "A `debugger` statement is left in the code. When developer tools are open, execution stops here, so it should not ship.",
+          "fix": "Delete the `debugger` line and use breakpoints in the developer tools instead."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-dupe-class-members": {
+      "guide": {
+        "bad": "export class Cart {\n  add(item) {\n    this.items.push(item);\n  }\n  add(item, count) {\n    this.items.push({ item, count });\n  }\n}\n",
+        "good": "export class Cart {\n  add(item, count = 1) {\n    this.items.push({ item, count });\n  }\n}\n",
+        "ko": {
+          "summary": "클래스 안에 같은 이름의 멤버가 두 번 있습니다. 뒤에 쓴 것이 앞의 것을 조용히 덮어써서 앞의 코드는 쓰이지 않습니다.",
+          "fix": "하나로 합치거나 서로 다른 이름을 붙입니다."
+        },
+        "en": {
+          "summary": "A class defines a member with the same name twice. The later one silently replaces the earlier one, so the first is never used.",
+          "fix": "Merge them into one member or give them different names."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-dupe-else-if": {
+      "guide": {
+        "bad": "export function grade(score) {\n  if (score >= 90) return 'A';\n  else if (score >= 80) return 'B';\n  else if (score >= 90) return 'S';\n  return 'C';\n}\n",
+        "good": "export function grade(score) {\n  if (score >= 100) return 'S';\n  else if (score >= 90) return 'A';\n  else if (score >= 80) return 'B';\n  return 'C';\n}\n",
+        "ko": {
+          "summary": "`if`–`else if` 사슬에 앞 조건과 같은(또는 앞 조건에 이미 포함되는) 조건이 있습니다. 그 분기는 절대 실행되지 않습니다.",
+          "fix": "조건을 의도한 값으로 고치거나 순서를 바꿉니다. 필요 없는 분기라면 지웁니다."
+        },
+        "en": {
+          "summary": "An `if`/`else if` chain repeats a condition that an earlier branch already covers, so that branch can never run.",
+          "fix": "Correct the condition or reorder the branches; remove the branch if it is not needed."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-dupe-keys": {
+      "guide": {
+        "bad": "export const config = {\n  port: 8080,\n  host: 'localhost',\n  port: 9090,\n};\n",
+        "good": "export const config = {\n  port: 8080,\n  host: 'localhost',\n};\n",
+        "ko": {
+          "summary": "객체 리터럴에 같은 키가 두 번 있습니다. 뒤의 값이 앞의 값을 덮어써서 혼란과 실수를 부릅니다.",
+          "fix": "중복된 키 중 하나를 지우거나, 서로 다른 키였다면 이름을 고칩니다."
+        },
+        "en": {
+          "summary": "An object literal has the same key twice. The later value overwrites the earlier one, which is confusing and usually a mistake.",
+          "fix": "Remove one of the duplicates, or rename it if it was meant to be a different key."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-duplicate-case": {
+      "guide": {
+        "bad": "export function color(code) {\n  switch (code) {\n    case 1: return 'red';\n    case 2: return 'green';\n    case 1: return 'blue';\n    default: return 'none';\n  }\n}\n",
+        "good": "export function color(code) {\n  switch (code) {\n    case 1: return 'red';\n    case 2: return 'green';\n    case 3: return 'blue';\n    default: return 'none';\n  }\n}\n",
+        "ko": {
+          "summary": "`switch` 안에 같은 `case` 값이 두 번 있습니다. 뒤의 `case`는 절대 실행되지 않습니다.",
+          "fix": "중복된 `case`의 값을 의도한 값으로 고치거나 지웁니다."
+        },
+        "en": {
+          "summary": "A `switch` has the same `case` value twice. The later `case` can never run.",
+          "fix": "Change the duplicate `case` to the value you meant, or remove it."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-empty": {
+      "guide": {
+        "bad": "export function parse(text) {\n  try {\n    return JSON.parse(text);\n  } catch (err) {\n  }\n  return null;\n}\n",
+        "good": "export function parse(text) {\n  try {\n    return JSON.parse(text);\n  } catch {\n    // Invalid JSON: fall back to null below.\n  }\n  return null;\n}\n",
+        "ko": {
+          "summary": "비어 있는 블록(`{}`)이 있습니다. 특히 빈 `catch`는 오류를 조용히 삼켜서 문제를 찾기 어렵게 만듭니다.",
+          "fix": "블록에서 할 일을 쓰거나(오류 기록 등), 일부러 비워 둔 것이라면 그 이유를 주석으로 블록 안에 적습니다."
+        },
+        "en": {
+          "summary": "A block statement (`{}`) is empty. An empty `catch` in particular silently swallows errors and hides problems.",
+          "fix": "Put the intended handling in the block (for example, log the error), or add a comment inside explaining why it is left empty on purpose."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-ex-assign": {
+      "guide": {
+        "bad": "export function run(task) {\n  try {\n    return task();\n  } catch (err) {\n    err = new Error('task failed');\n    throw err;\n  }\n}\n",
+        "good": "export function run(task) {\n  try {\n    return task();\n  } catch (err) {\n    throw new Error('task failed', { cause: err });\n  }\n}\n",
+        "ko": {
+          "summary": "`catch (err)`의 오류 변수에 다른 값을 대입했습니다. 원래 오류 정보가 사라져 원인을 찾기 어려워집니다.",
+          "fix": "오류 변수는 그대로 두고 새 값은 다른 변수에 담습니다. 새 오류를 던질 때는 `cause`에 원래 오류를 넣습니다."
+        },
+        "en": {
+          "summary": "The error parameter of `catch (err)` is reassigned. The original error is lost, which makes the cause hard to find.",
+          "fix": "Leave the parameter unchanged and use a new variable. When throwing a new error, pass the original as `cause`."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-extra-boolean-cast": {
+      "guide": {
+        "bad": "export function show(items) {\n  if (!!items.length) {\n    return 'list';\n  }\n  return 'empty';\n}\n",
+        "good": "export function show(items) {\n  if (items.length) {\n    return 'list';\n  }\n  return 'empty';\n}\n",
+        "ko": {
+          "summary": "`if` 조건처럼 이미 참·거짓으로 판단되는 곳에서 `!!`나 `Boolean()`으로 한 번 더 바꿨습니다. 결과는 같고 코드만 복잡해집니다.",
+          "fix": "`!!`나 `Boolean(...)`을 지우고 값을 그대로 씁니다."
+        },
+        "en": {
+          "summary": "A value is converted with `!!` or `Boolean()` in a place that already treats it as true or false, such as an `if` condition. The result is the same, only noisier.",
+          "fix": "Remove the `!!` or `Boolean(...)` and use the value directly."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-fallthrough": {
+      "guide": {
+        "bad": "export function level(role) {\n  let n = 0;\n  switch (role) {\n    case 'admin':\n      n = 2;\n    case 'user':\n      n = 1;\n      break;\n  }\n  return n;\n}\n",
+        "good": "export function level(role) {\n  let n = 0;\n  switch (role) {\n    case 'admin':\n      n = 2;\n      break;\n    case 'user':\n      n = 1;\n      break;\n  }\n  return n;\n}\n",
+        "ko": {
+          "summary": "`case`가 `break`·`return` 없이 끝나서 다음 `case`까지 이어서 실행됩니다. 대개 `break`를 빠뜨린 실수입니다.",
+          "fix": "각 `case` 끝에 `break`나 `return`을 넣습니다. 일부러 이어지게 한 것이라면 다음 `case` 바로 앞에 `// falls through` 주석을 적습니다."
+        },
+        "en": {
+          "summary": "A `case` ends without `break` or `return`, so execution continues into the next `case`. Usually a forgotten `break`.",
+          "fix": "End each `case` with `break` or `return`. If falling through is intended, put a `// falls through` comment right before the next `case`."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-func-assign": {
+      "guide": {
+        "bad": "function format(value) {\n  return String(value);\n}\nformat = (value) => value.toFixed(2);\nexport { format };\n",
+        "good": "function format(value) {\n  return String(value);\n}\nconst formatMoney = (value) => value.toFixed(2);\nexport { format, formatMoney };\n",
+        "ko": {
+          "summary": "함수 선언으로 만든 이름에 다른 값을 대입했습니다. 원래 함수를 쓰려던 코드가 엉뚱한 값을 받게 됩니다.",
+          "fix": "함수 이름에 대입하지 말고 새 이름의 변수나 함수를 만듭니다."
+        },
+        "en": {
+          "summary": "A name created by a function declaration is reassigned. Code that expects the original function gets something else.",
+          "fix": "Do not assign to the function name; create a new variable or function with its own name."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-global-assign": {
+      "guide": {
+        "bad": "export function safeParse(text) {\n  JSON = { parse: () => null };\n  return JSON.parse(text);\n}\n",
+        "good": "const fallbackJson = { parse: () => null };\nexport function safeParse(text) {\n  return fallbackJson.parse(text);\n}\n",
+        "ko": {
+          "summary": "`JSON`, `Math`, `undefined` 같은 읽기 전용 전역 값에 대입했습니다. 같은 전역을 쓰는 다른 코드 전체의 동작이 바뀌거나, 엄격 모드에서는 오류가 납니다.",
+          "fix": "전역 값을 바꾸지 말고 자신의 변수를 만들어 씁니다."
+        },
+        "en": {
+          "summary": "A read-only global such as `JSON`, `Math`, or `undefined` is assigned. This changes behavior for all other code using it, or throws in strict mode.",
+          "fix": "Do not modify the global; create your own variable instead."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-import-assign": {
+      "guide": {
+        "bad": "import settings from './settings.js';\n\nexport function enableDebug() {\n  settings = { ...settings, debug: true };\n  return settings;\n}\n",
+        "good": "import settings from './settings.js';\n\nexport function enableDebug() {\n  return { ...settings, debug: true };\n}\n",
+        "ko": {
+          "summary": "`import`로 가져온 이름에 값을 대입했습니다. 가져온 바인딩은 읽기 전용이라 실행하면 오류가 납니다.",
+          "fix": "가져온 값을 바꾸지 말고 복사해 새 변수에 담아 씁니다."
+        },
+        "en": {
+          "summary": "A name brought in by `import` is assigned. Imported bindings are read-only, so this throws at run time.",
+          "fix": "Do not reassign the import; copy it into a new variable and change that."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-invalid-regexp": {
+      "guide": {
+        "bad": "export const pattern = new RegExp('[a-z');\n",
+        "good": "export const pattern = new RegExp('[a-z]');\n",
+        "ko": {
+          "summary": "`RegExp(...)`에 넘긴 정규식 문자열의 문법이 잘못되었습니다. 이 줄이 실행되면 `SyntaxError`가 납니다.",
+          "fix": "괄호 짝이나 특수 문자 이스케이프를 확인해 올바른 정규식으로 고칩니다."
+        },
+        "en": {
+          "summary": "The pattern string passed to `RegExp(...)` is not a valid regular expression. The line throws a `SyntaxError` when it runs.",
+          "fix": "Fix the pattern, for example unclosed brackets or unescaped special characters."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-loss-of-precision": {
+      "guide": {
+        "bad": "export const MAX_ID = 9007199254740993;\n",
+        "good": "export const MAX_ID = 9007199254740993n;\n",
+        "ko": {
+          "summary": "숫자 리터럴이 JavaScript 숫자로 정확히 표현되지 않아 실행할 때 다른 값으로 바뀝니다. 예를 들어 `9007199254740993`은 실제로 `9007199254740992`가 됩니다.",
+          "fix": "정확한 큰 정수가 필요하면 `BigInt`(`123n`)나 문자열을 쓰고, 아니라면 표현 가능한 자릿수로 줄입니다."
+        },
+        "en": {
+          "summary": "A number literal cannot be represented exactly as a JavaScript number, so it becomes a different value at run time. For example, `9007199254740993` turns into `9007199254740992`.",
+          "fix": "Use a `BigInt` (`123n`) or a string when the exact large integer matters; otherwise shorten it to a representable value."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-new-native-nonconstructor": {
+      "guide": {
+        "bad": "export const id = new Symbol('id');\n",
+        "good": "export const id = Symbol('id');\n",
+        "ko": {
+          "summary": "`Symbol`이나 `BigInt`처럼 생성자가 아닌 내장 함수를 `new`로 호출했습니다. 실행하면 `TypeError`가 납니다.",
+          "fix": "`new` 없이 함수로 호출합니다(`Symbol('id')`, `BigInt(10)`)."
+        },
+        "en": {
+          "summary": "A built-in that is not a constructor, such as `Symbol` or `BigInt`, is called with `new`. This throws a `TypeError`.",
+          "fix": "Call it as a plain function without `new` (`Symbol('id')`, `BigInt(10)`)."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-obj-calls": {
+      "guide": {
+        "bad": "export function parse(text) {\n  return JSON(text);\n}\n",
+        "good": "export function parse(text) {\n  return JSON.parse(text);\n}\n",
+        "ko": {
+          "summary": "`Math`, `JSON`, `Reflect`처럼 함수가 아닌 전역 객체를 함수처럼 호출했습니다. 실행하면 `TypeError`가 납니다.",
+          "fix": "객체 자체가 아니라 그 안의 메서드를 호출합니다(`JSON.parse(...)`, `Math.max(...)`)."
+        },
+        "en": {
+          "summary": "A global object that is not a function, such as `Math`, `JSON`, or `Reflect`, is called like a function. This throws a `TypeError`.",
+          "fix": "Call a method of the object instead (`JSON.parse(...)`, `Math.max(...)`)."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-prototype-builtins": {
+      "guide": {
+        "bad": "export function has(obj, key) {\n  return obj.hasOwnProperty(key);\n}\n",
+        "good": "export function has(obj, key) {\n  return Object.hasOwn(obj, key);\n}\n",
+        "ko": {
+          "summary": "`hasOwnProperty` 같은 `Object.prototype` 메서드를 객체에서 바로 불렀습니다. 객체가 같은 이름의 속성을 가졌거나 `Object.create(null)`로 만들어졌으면 틀린 결과나 오류가 납니다.",
+          "fix": "`Object.hasOwn(obj, key)`나 `Object.prototype.hasOwnProperty.call(obj, key)`처럼 객체 밖에서 호출합니다."
+        },
+        "en": {
+          "summary": "An `Object.prototype` method such as `hasOwnProperty` is called directly on an object. If the object has its own property with that name or was made with `Object.create(null)`, the call gives a wrong result or throws.",
+          "fix": "Call it from outside the object: `Object.hasOwn(obj, key)` or `Object.prototype.hasOwnProperty.call(obj, key)`."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-redeclare": {
+      "guide": {
+        "bad": "var count = 0;\nvar count = 10;\nexport { count };\n",
+        "good": "var count = 0;\ncount = 10;\nexport { count };\n",
+        "ko": {
+          "summary": "같은 범위에서 같은 이름의 변수를 다시 선언했습니다(`var` 등). 앞의 선언과 겹쳐서 어느 값을 쓰는지 헷갈리게 됩니다.",
+          "fix": "두 번째 선언에서 `var`를 빼고 대입만 하거나, 다른 이름을 씁니다. 가능하면 `let`·`const`를 씁니다."
+        },
+        "en": {
+          "summary": "A variable is declared again with the same name in the same scope (for example with `var`). It overlaps the first declaration and makes it unclear which value is used.",
+          "fix": "Drop the second `var` and just assign, or use a different name. Prefer `let` or `const`."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-self-assign": {
+      "guide": {
+        "bad": "export function update(user, name) {\n  user.name = user.name;\n  return user;\n}\n",
+        "good": "export function update(user, name) {\n  user.name = name;\n  return user;\n}\n",
+        "ko": {
+          "summary": "값을 자기 자신에게 대입했습니다(`x = x`). 아무 효과가 없으므로 다른 값을 넣으려다 잘못 쓴 경우가 많습니다.",
+          "fix": "의도한 값을 대입하도록 고치거나, 필요 없는 줄이면 지웁니다."
+        },
+        "en": {
+          "summary": "A value is assigned to itself (`x = x`). This does nothing, so usually a different value was intended.",
+          "fix": "Assign the value you meant, or delete the line if it is not needed."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-setter-return": {
+      "guide": {
+        "bad": "export const temp = {\n  _c: 0,\n  set celsius(value) {\n    this._c = value;\n    return value;\n  },\n};\n",
+        "good": "export const temp = {\n  _c: 0,\n  set celsius(value) {\n    this._c = value;\n  },\n};\n",
+        "ko": {
+          "summary": "세터(`set`)에서 값을 `return`합니다. 세터가 돌려준 값은 버려지므로 의미가 없고, 대개 코드를 잘못 이해한 것입니다.",
+          "fix": "세터에서 `return 값;`을 지웁니다(값 없이 `return;`으로 빠져나가는 것은 괜찮습니다)."
+        },
+        "en": {
+          "summary": "A setter (`set`) returns a value. The returned value is ignored, so it has no effect and usually reflects a misunderstanding.",
+          "fix": "Remove `return value;` from the setter (a bare `return;` to exit early is fine)."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-sparse-arrays": {
+      "guide": {
+        "bad": "export const steps = ['init', , 'run', 'done'];\n",
+        "good": "export const steps = ['init', 'load', 'run', 'done'];\n",
+        "ko": {
+          "summary": "배열 리터럴 가운데에 빈 칸(`, ,`)이 있습니다. 빈 자리는 `undefined`와도 다르게 동작하고, 대개 값을 빠뜨린 실수입니다.",
+          "fix": "빠진 값을 채우거나 남는 쉼표를 지웁니다. 일부러 비운 자리라면 `undefined`를 명시합니다."
+        },
+        "en": {
+          "summary": "An array literal has an empty slot (`, ,`). Holes behave differently from `undefined` and are usually a missing value.",
+          "fix": "Fill in the missing value or remove the extra comma. If the slot is intentionally empty, write `undefined` explicitly."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-this-before-super": {
+      "guide": {
+        "bad": "class Base {}\nexport class Admin extends Base {\n  constructor() {\n    this.role = 'admin';\n    super();\n  }\n}\n",
+        "good": "class Base {}\nexport class Admin extends Base {\n  constructor() {\n    super();\n    this.role = 'admin';\n  }\n}\n",
+        "ko": {
+          "summary": "상속한 클래스의 생성자에서 `super()`를 부르기 전에 `this`나 `super`를 썼습니다. 실행하면 `ReferenceError`가 납니다.",
+          "fix": "생성자에서 `super()`를 먼저 부르고 그 다음에 `this`를 씁니다."
+        },
+        "en": {
+          "summary": "In a derived class constructor, `this` or `super` is used before `super()` is called. This throws a `ReferenceError`.",
+          "fix": "Call `super()` first in the constructor, then use `this`."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-unassigned-vars": {
+      "guide": {
+        "bad": "export function sum(items) {\n  let total;\n  for (const x of items) {\n    report(x);\n  }\n  return total;\n}\nfunction report() {}\n",
+        "good": "export function sum(items) {\n  let total = 0;\n  for (const x of items) {\n    total += x;\n  }\n  return total;\n}\n",
+        "ko": {
+          "summary": "`let`·`var`로 선언한 변수를 읽기만 하고 한 번도 값을 넣지 않았습니다. 이 변수는 늘 `undefined`이므로 대입을 빠뜨린 실수입니다.",
+          "fix": "변수에 알맞은 값을 대입하거나, 필요 없는 변수라면 지웁니다."
+        },
+        "en": {
+          "summary": "A variable declared with `let` or `var` is read but never assigned, so it is always `undefined`. Usually an assignment is missing.",
+          "fix": "Assign the variable the intended value, or remove it if it is not needed."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-undef": {
+      "guide": {
+        "bad": "export function area(r) {\n  return PI * r * r;\n}\n",
+        "good": "export function area(r) {\n  return Math.PI * r * r;\n}\n",
+        "ko": {
+          "summary": "선언하지 않은 변수를 썼습니다. 오타이거나 `import`를 빠뜨린 경우가 많으며, 실행하면 `ReferenceError`가 납니다.",
+          "fix": "이름의 철자를 확인하고 필요한 선언이나 `import`를 추가합니다. 브라우저·Node.js 전역 변수라면 ESLint 설정의 globals에 등록합니다."
+        },
+        "en": {
+          "summary": "An undeclared variable is used. Usually a typo or a missing `import`; it throws a `ReferenceError` at run time.",
+          "fix": "Check the spelling and add the missing declaration or `import`. If it is a browser or Node.js global, declare it in the ESLint globals setting."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-unexpected-multiline": {
+      "guide": {
+        "bad": "const list = [1, 2, 3]\nconst size = list.length\n[0, 1].forEach((i) => list.push(i))\nexport { size }\n",
+        "good": "const list = [1, 2, 3];\nconst size = list.length;\n[0, 1].forEach((i) => list.push(i));\nexport { size };\n",
+        "ko": {
+          "summary": "세미콜론 없이 줄을 바꿨는데 다음 줄이 `(`·`[`·템플릿 문자열로 시작해 앞줄과 하나의 식으로 이어져 해석됩니다. 보이는 것과 다르게 동작합니다.",
+          "fix": "앞줄 끝에 세미콜론(`;`)을 붙이거나, 이어지는 식이 맞다면 같은 줄에 씁니다."
+        },
+        "en": {
+          "summary": "A line without a semicolon is followed by a line starting with `(`, `[`, or a template literal, so both lines are parsed as one expression. The code does something other than it appears.",
+          "fix": "Add a semicolon (`;`) at the end of the previous line, or put the expression on one line if it really is one."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-unreachable": {
+      "guide": {
+        "bad": "export function check(value) {\n  return value > 0;\n  report(value);\n}\nfunction report() {}\n",
+        "good": "export function check(value) {\n  report(value);\n  return value > 0;\n}\nfunction report() {}\n",
+        "ko": {
+          "summary": "`return`·`throw`·`break`·`continue` 뒤에 있어 절대 실행되지 않는 코드가 있습니다.",
+          "fix": "실행되어야 하는 코드라면 그 문장 앞으로 옮기고, 아니라면 지웁니다."
+        },
+        "en": {
+          "summary": "Code after `return`, `throw`, `break`, or `continue` can never run.",
+          "fix": "Move the code before that statement if it should run, otherwise delete it."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-unsafe-finally": {
+      "guide": {
+        "bad": "export function read(load) {\n  try {\n    return load();\n  } finally {\n    return null;\n  }\n}\n",
+        "good": "export function read(load) {\n  try {\n    return load();\n  } finally {\n    cleanup();\n  }\n}\nfunction cleanup() {}\n",
+        "ko": {
+          "summary": "`finally` 블록 안에 `return`·`throw`·`break`·`continue`가 있습니다. `try`·`catch`에서 돌려준 값이나 던진 오류를 덮어써서 오류가 사라집니다.",
+          "fix": "`finally`에서는 정리 작업만 하고 흐름을 바꾸는 문장은 `try`나 `catch`로 옮깁니다."
+        },
+        "en": {
+          "summary": "A `finally` block contains `return`, `throw`, `break`, or `continue`. It overrides the value or error from `try`/`catch`, so errors get lost.",
+          "fix": "Do only cleanup in `finally` and move flow-control statements into `try` or `catch`."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-unsafe-negation": {
+      "guide": {
+        "bad": "export function missing(key, obj) {\n  return !key in obj;\n}\n",
+        "good": "export function missing(key, obj) {\n  return !(key in obj);\n}\n",
+        "ko": {
+          "summary": "`in`·`instanceof`의 왼쪽 값에만 `!`를 붙였습니다. `!key in obj`는 `(!key) in obj`로 계산되어 의도와 다른 결과가 나옵니다.",
+          "fix": "전체 식을 괄호로 감싸 부정합니다(`!(key in obj)`)."
+        },
+        "en": {
+          "summary": "`!` is applied to only the left operand of `in` or `instanceof`. `!key in obj` is evaluated as `(!key) in obj`, which is not what was intended.",
+          "fix": "Wrap the whole expression in parentheses before negating (`!(key in obj)`)."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-unsafe-optional-chaining": {
+      "guide": {
+        "bad": "export function nameOf(user) {\n  const { name } = user?.profile;\n  return name;\n}\n",
+        "good": "export function nameOf(user) {\n  const { name } = user?.profile ?? {};\n  return name;\n}\n",
+        "ko": {
+          "summary": "`?.`의 결과는 `undefined`일 수 있는데, 그 값을 구조 분해하거나 호출하는 등 `undefined`면 오류가 나는 곳에 썼습니다. `?.`를 쓴 의미가 없어지고 `TypeError`가 납니다.",
+          "fix": "`?? {}`처럼 기본값을 주거나, 이어지는 접근에도 `?.`를 씁니다."
+        },
+        "en": {
+          "summary": "The result of `?.` can be `undefined`, but it is used where `undefined` throws, such as destructuring or a call. This defeats the optional chain and throws a `TypeError`.",
+          "fix": "Provide a fallback such as `?? {}`, or keep using `?.` for the following access."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-unused-private-class-members": {
+      "guide": {
+        "bad": "export class Counter {\n  #step = 1;\n  #count = 0;\n  next() {\n    this.#count += 1;\n    return this.#count;\n  }\n}\n",
+        "good": "export class Counter {\n  #step = 1;\n  #count = 0;\n  next() {\n    this.#count += this.#step;\n    return this.#count;\n  }\n}\n",
+        "ko": {
+          "summary": "클래스의 비공개 멤버(`#이름`)를 선언했지만 한 번도 읽지 않았습니다. 지우는 것을 잊었거나 쓰려던 곳에서 빠뜨린 것입니다.",
+          "fix": "쓰지 않는 비공개 멤버를 지우거나, 쓰려던 곳에서 사용하도록 고칩니다."
+        },
+        "en": {
+          "summary": "A private class member (`#name`) is declared but never read. It is a leftover or was forgotten where it should be used.",
+          "fix": "Remove the unused private member, or use it where it was intended."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-useless-assignment": {
+      "guide": {
+        "bad": "export function label(n) {\n  let text = 'none';\n  text = n > 0 ? 'positive' : 'zero';\n  return text;\n}\n",
+        "good": "export function label(n) {\n  const text = n > 0 ? 'positive' : 'zero';\n  return text;\n}\n",
+        "ko": {
+          "summary": "변수에 넣은 값이 한 번도 쓰이기 전에 다른 값으로 덮어써지거나 버려집니다. 쓸모없는 계산이거나 로직 실수일 수 있습니다.",
+          "fix": "쓰이지 않는 대입을 지우고, 처음부터 실제로 쓰일 값을 넣습니다."
+        },
+        "en": {
+          "summary": "A value assigned to a variable is overwritten or discarded before it is ever used. It is wasted work or a sign of a logic error.",
+          "fix": "Remove the unused assignment and assign the value that is actually used."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-useless-catch": {
+      "guide": {
+        "bad": "export function load(read) {\n  try {\n    return read();\n  } catch (err) {\n    throw err;\n  }\n}\n",
+        "good": "export function load(read) {\n  return read();\n}\n",
+        "ko": {
+          "summary": "`catch`에서 받은 오류를 아무것도 하지 않고 그대로 다시 던집니다. `try`/`catch`가 없는 것과 같아 코드만 길어집니다.",
+          "fix": "`try`/`catch`를 지우거나, `catch`에서 기록·변환 같은 실제 처리를 합니다."
+        },
+        "en": {
+          "summary": "A `catch` clause only rethrows the error it caught. It behaves the same as having no `try`/`catch` and only adds noise.",
+          "fix": "Remove the `try`/`catch`, or do real work in the `catch`, such as logging or wrapping the error."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "no-useless-escape": {
+      "guide": {
+        "bad": "export const message = \"Don\\'t stop\";\nexport const time = /\\d+\\:\\d+/;\n",
+        "good": "export const message = \"Don't stop\";\nexport const time = /\\d+:\\d+/;\n",
+        "ko": {
+          "summary": "문자열이나 정규식에서 이스케이프할 필요가 없는 문자 앞에 역슬래시(`\\`)를 붙였습니다. 결과는 같지만 읽기 어렵고, 다른 이스케이프를 의도한 실수일 수 있습니다.",
+          "fix": "불필요한 `\\`를 지웁니다. 실제 역슬래시 문자가 필요하면 `\\\\`로 씁니다."
+        },
+        "en": {
+          "summary": "A backslash (`\\`) is placed before a character that does not need escaping in a string or regular expression. The result is the same but harder to read, and it may hide a different intended escape.",
+          "fix": "Remove the unnecessary `\\`. If you need a literal backslash, write `\\\\`."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "preserve-caught-error": {
+      "guide": {
+        "bad": "export function readConfig(load) {\n  try {\n    return load();\n  } catch (err) {\n    throw new Error('Cannot read config');\n  }\n}\n",
+        "good": "export function readConfig(load) {\n  try {\n    return load();\n  } catch (err) {\n    throw new Error('Cannot read config', { cause: err });\n  }\n}\n",
+        "ko": {
+          "summary": "`catch`에서 새 오류를 던지면서 원래 잡은 오류를 함께 넘기지 않았습니다. 원래 원인이 사라져 문제를 추적하기 어렵습니다.",
+          "fix": "새 오류를 만들 때 `{ cause: err }`로 원래 오류를 넣습니다."
+        },
+        "en": {
+          "summary": "A new error is thrown from `catch` without attaching the error that was caught. The original cause is lost, which makes problems hard to trace.",
+          "fix": "Pass the original error as `{ cause: err }` when creating the new error."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "require-yield": {
+      "guide": {
+        "bad": "export function* ids() {\n  return [1, 2, 3];\n}\n",
+        "good": "export function* ids() {\n  yield* [1, 2, 3];\n}\n",
+        "ko": {
+          "summary": "제너레이터 함수(`function*`) 안에 `yield`가 하나도 없습니다. 값을 하나씩 내보내려던 것이라면 동작하지 않고, 아니라면 제너레이터일 필요가 없습니다.",
+          "fix": "`yield`로 값을 내보내거나, 제너레이터가 필요 없으면 일반 함수(`function`)로 바꿉니다."
+        },
+        "en": {
+          "summary": "A generator function (`function*`) contains no `yield`. If it was meant to produce values one by one it does not, otherwise it need not be a generator.",
+          "fix": "Produce values with `yield`, or make it a regular `function` if a generator is not needed."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "use-isnan": {
+      "guide": {
+        "bad": "export function invalid(value) {\n  return value === NaN;\n}\n",
+        "good": "export function invalid(value) {\n  return Number.isNaN(value);\n}\n",
+        "ko": {
+          "summary": "`NaN`과 `===`·`==` 등으로 비교했습니다. `NaN`은 자기 자신과도 같지 않으므로 이 비교는 늘 거짓(`!==`는 늘 참)입니다.",
+          "fix": "`Number.isNaN(value)`(또는 `isNaN`)으로 검사합니다."
+        },
+        "en": {
+          "summary": "A value is compared with `NaN` using `===`, `==`, or similar. `NaN` is not equal to anything, even itself, so the comparison is always false (always true for `!==`).",
+          "fix": "Use `Number.isNaN(value)` (or `isNaN`) instead."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "valid-typeof": {
+      "guide": {
+        "bad": "export function isText(value) {\n  return typeof value === 'strnig';\n}\n",
+        "good": "export function isText(value) {\n  return typeof value === 'string';\n}\n",
+        "ko": {
+          "summary": "`typeof` 결과를 존재하지 않는 타입 이름과 비교했습니다(오타 등). 이 비교는 절대 참이 되지 않습니다.",
+          "fix": "`\"string\"`, `\"number\"`, `\"boolean\"`, `\"object\"`, `\"function\"`, `\"undefined\"`, `\"symbol\"`, `\"bigint\"` 중 올바른 이름으로 고칩니다."
+        },
+        "en": {
+          "summary": "A `typeof` result is compared with a type name that does not exist (often a typo). The comparison can never be true.",
+          "fix": "Use a valid name: `\"string\"`, `\"number\"`, `\"boolean\"`, `\"object\"`, `\"function\"`, `\"undefined\"`, `\"symbol\"`, or `\"bigint\"`."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/ban-ts-comment": {
+      "guide": {
+        "bad": "// @ts-ignore\nexport const port: number = readPort();\ndeclare function readPort(): string;\n",
+        "good": "export const port: number = Number(readPort());\ndeclare function readPort(): string;\n",
+        "ko": {
+          "summary": "`// @ts-ignore`, `// @ts-nocheck` 같은 주석으로 타입 검사 오류를 숨겼습니다. 실제 문제를 감추고, 나중에 생긴 다른 오류까지 가릴 수 있습니다.",
+          "fix": "주석을 지우고 타입 오류의 원인을 고칩니다. 꼭 필요하면 이유를 적은 `// @ts-expect-error 설명`을 씁니다(기본 설정은 설명이 붙은 `@ts-expect-error`만 허용합니다)."
+        },
+        "en": {
+          "summary": "A comment such as `// @ts-ignore` or `// @ts-nocheck` hides type-check errors. It conceals the real problem and may later hide other errors too.",
+          "fix": "Remove the comment and fix the cause of the type error. If it is truly needed, use `// @ts-expect-error` followed by a description (by default only `@ts-expect-error` with a description is allowed)."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/no-array-constructor": {
+      "guide": {
+        "bad": "export const sizes = new Array(1, 2, 3);\n",
+        "good": "export const sizes = [1, 2, 3];\n",
+        "ko": {
+          "summary": "`new Array(1, 2, 3)`처럼 `Array` 생성자로 배열을 만들었습니다. 인자가 하나면 길이로 해석되는 등 헷갈리는 동작이 있습니다.",
+          "fix": "배열 리터럴 `[1, 2, 3]`을 씁니다."
+        },
+        "en": {
+          "summary": "An array is created with the `Array` constructor, as in `new Array(1, 2, 3)`. Its behavior is confusing; for example, a single number argument means a length.",
+          "fix": "Use an array literal such as `[1, 2, 3]`."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/no-duplicate-enum-values": {
+      "guide": {
+        "bad": "export enum Status {\n  Active = 'active',\n  Paused = 'paused',\n  Stopped = 'active',\n}\n",
+        "good": "export enum Status {\n  Active = 'active',\n  Paused = 'paused',\n  Stopped = 'stopped',\n}\n",
+        "ko": {
+          "summary": "`enum`의 두 멤버가 같은 값을 가집니다. 서로 구분되지 않아 비교나 분기가 잘못될 수 있으며, 대개 복사해 붙이다 생긴 실수입니다.",
+          "fix": "각 멤버에 서로 다른 값을 줍니다."
+        },
+        "en": {
+          "summary": "Two members of an `enum` have the same value, so they cannot be told apart in comparisons or branches. Usually a copy-and-paste mistake.",
+          "fix": "Give each member a distinct value."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/no-empty-object-type": {
+      "guide": {
+        "bad": "export interface Options {}\n\nexport function start(options: Options) {\n  return options;\n}\n",
+        "good": "export interface Options {\n  verbose?: boolean;\n}\n\nexport function start(options: Options) {\n  return options;\n}\n",
+        "ko": {
+          "summary": "빈 인터페이스나 `{}` 타입을 썼습니다. 이 타입은 \"빈 객체\"가 아니라 `null`·`undefined`를 뺀 모든 값(`0`, `\"\"` 포함)을 받아들이므로 타입 검사가 거의 되지 않습니다.",
+          "fix": "필요한 속성을 적습니다. 아무 객체를 뜻하면 `object`, 아무 값을 뜻하면 `unknown`을 씁니다."
+        },
+        "en": {
+          "summary": "An empty interface or the `{}` type is used. It does not mean \"empty object\": it accepts any non-nullish value, including `0` and `\"\"`, so it checks almost nothing.",
+          "fix": "List the properties you need. Use `object` for \"any object\" or `unknown` for \"any value\"."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/no-extra-non-null-assertion": {
+      "guide": {
+        "bad": "export function first(list?: string[]) {\n  return list!!.at(0);\n}\n",
+        "good": "export function first(list?: string[]) {\n  return list!.at(0);\n}\n",
+        "ko": {
+          "summary": "null 아님 단언(`!`)을 겹쳐 썼거나 `?.`와 함께 불필요하게 썼습니다. 아무 의미가 없고 실수로 보입니다.",
+          "fix": "남는 `!`를 지웁니다."
+        },
+        "en": {
+          "summary": "A non-null assertion (`!`) is repeated or used needlessly together with `?.`. It has no effect and looks like a mistake.",
+          "fix": "Remove the extra `!`."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/no-misused-new": {
+      "guide": {
+        "bad": "export interface Point {\n  x: number;\n  new (x: number): Point;\n}\n",
+        "good": "export interface Point {\n  x: number;\n}\nexport interface PointConstructor {\n  new (x: number): Point;\n}\n",
+        "ko": {
+          "summary": "인터페이스 안에 자기 자신을 돌려주는 `new (...)` 생성 시그니처나 `constructor` 메서드를 적었습니다(클래스 선언에 `new` 메서드를 적은 경우도 같습니다). 인터페이스는 생성할 수 없으므로 생성자를 정의하려던 의도대로 동작하지 않습니다.",
+          "fix": "인스턴스의 모양과 생성 방법을 나눕니다. 인스턴스 인터페이스에서는 생성 시그니처를 빼고, 필요하면 `new (...)`만 담은 별도 인터페이스(예: `PointConstructor`)를 만들거나 클래스의 `constructor`를 씁니다."
+        },
+        "en": {
+          "summary": "An interface declares a `new (...)` construct signature returning itself or a `constructor` method (or a class declares a method named `new`). Interfaces cannot be constructed, so this does not define a constructor as intended.",
+          "fix": "Separate the instance shape from how it is created: drop the construct signature from the instance interface and, if needed, put `new (...)` in a separate interface (for example `PointConstructor`) or use a class `constructor`."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/no-namespace": {
+      "guide": {
+        "bad": "export namespace MathUtil {\n  export const square = (n: number) => n * n;\n}\n",
+        "good": "export const square = (n: number) => n * n;\n",
+        "ko": {
+          "summary": "TypeScript `namespace`(또는 `module`)로 코드를 묶었습니다. 지금은 ES 모듈(`import`/`export`)로 파일 단위로 나누는 방식이 표준입니다.",
+          "fix": "`namespace`를 없애고 필요한 것을 파일에서 바로 `export`한 뒤, 쓰는 쪽에서 `import`합니다."
+        },
+        "en": {
+          "summary": "Code is grouped with a TypeScript `namespace` (or `module`). ES module syntax (`import`/`export`) with one module per file is the standard way now.",
+          "fix": "Remove the `namespace`, `export` the members directly from the file, and `import` them where needed."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/no-non-null-asserted-optional-chain": {
+      "guide": {
+        "bad": "export function city(user?: { city?: string }): string {\n  return user?.city!;\n}\n",
+        "good": "export function city(user?: { city?: string }): string {\n  return user?.city ?? '';\n}\n",
+        "ko": {
+          "summary": "`?.` 뒤에 null 아님 단언(`!`)을 붙였습니다. `?.`는 원래 `undefined`를 돌려줄 수 있는데 `!`로 아니라고 우기므로 안전하지 않습니다.",
+          "fix": "`!`를 지우고 `?? 기본값` 등으로 `undefined`일 때를 처리합니다."
+        },
+        "en": {
+          "summary": "A non-null assertion (`!`) follows an optional chain (`?.`). The chain can return `undefined` by design, so asserting otherwise is unsafe.",
+          "fix": "Remove the `!` and handle the `undefined` case, for example with `?? fallback`."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/no-require-imports": {
+      "guide": {
+        "bad": "const path = require('node:path');\n\nexport const full = path.join('a', 'b');\n",
+        "good": "import path from 'node:path';\n\nexport const full = path.join('a', 'b');\n",
+        "ko": {
+          "summary": "`require()`로 모듈을 불러왔습니다. TypeScript에서는 타입 정보를 제대로 받지 못하고 ES 모듈 방식과 섞여 혼란스럽습니다.",
+          "fix": "`import ... from '...'` 구문으로 바꿉니다."
+        },
+        "en": {
+          "summary": "A module is loaded with `require()`. In TypeScript it loses proper typing and mixes poorly with ES module code.",
+          "fix": "Use `import ... from '...'` instead."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/no-this-alias": {
+      "guide": {
+        "bad": "export class Timer {\n  count = 0;\n  start() {\n    const self = this;\n    return () => self.count++;\n  }\n}\n",
+        "good": "export class Timer {\n  count = 0;\n  start() {\n    return () => this.count++;\n  }\n}\n",
+        "ko": {
+          "summary": "`const self = this`처럼 `this`를 지역 변수에 담았습니다. 화살표 함수를 쓰면 필요 없는 옛 방식이고 `this`가 무엇을 가리키는지 헷갈리게 합니다.",
+          "fix": "화살표 함수를 써서 `this`를 그대로 씁니다."
+        },
+        "en": {
+          "summary": "`this` is stored in a local variable, as in `const self = this`. Arrow functions make this old pattern unnecessary, and it obscures what `this` refers to.",
+          "fix": "Use an arrow function and refer to `this` directly."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/no-unnecessary-type-constraint": {
+      "guide": {
+        "bad": "export function wrap<T extends unknown>(value: T): T[] {\n  return [value];\n}\n",
+        "good": "export function wrap<T>(value: T): T[] {\n  return [value];\n}\n",
+        "ko": {
+          "summary": "제네릭 타입 매개변수에 `extends any`나 `extends unknown`을 붙였습니다. 아무 제약도 없는 것과 같아 의미가 없습니다.",
+          "fix": "`extends any`·`extends unknown`을 지웁니다."
+        },
+        "en": {
+          "summary": "A generic type parameter is constrained with `extends any` or `extends unknown`. That is the same as no constraint, so it does nothing.",
+          "fix": "Remove the `extends any` or `extends unknown`."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/no-unsafe-function-type": {
+      "guide": {
+        "bad": "export function run(callback: Function) {\n  return callback();\n}\n",
+        "good": "export function run(callback: () => void) {\n  return callback();\n}\n",
+        "ko": {
+          "summary": "타입을 `Function`으로 적었습니다. `Function`은 어떤 함수든 받아들여 매개변수와 반환값을 검사하지 못합니다.",
+          "fix": "`(id: string) => void`처럼 매개변수와 반환 타입을 적은 함수 타입을 씁니다."
+        },
+        "en": {
+          "summary": "A type is written as `Function`. `Function` accepts any function-like value, so parameters and return type are not checked.",
+          "fix": "Write a function type that states parameters and return type, such as `(id: string) => void`."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/no-unused-expressions": {
+      "guide": {
+        "bad": "export function init(ready: boolean, start: () => void) {\n  ready && start();\n}\n",
+        "good": "export function init(ready: boolean, start: () => void) {\n  if (ready) start();\n}\n",
+        "ko": {
+          "summary": "계산만 하고 결과를 쓰지 않는 식이 문장으로 놓여 있습니다. 대입이나 호출을 빠뜨린 실수이거나, `a && b()`처럼 읽기 어려운 코드입니다(기본 설정은 이런 단축 평가도 잡습니다).",
+          "fix": "결과를 변수에 담거나, 조건부 실행이라면 `if`문으로 고칩니다. 필요 없는 식이면 지웁니다."
+        },
+        "en": {
+          "summary": "An expression is used as a statement but its result is not used. Either an assignment or call is missing, or it is hard-to-read code such as `a && b()` (short-circuit statements are reported by default).",
+          "fix": "Store the result, or rewrite conditional execution as an `if` statement. Remove the expression if it is not needed."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/no-unused-vars": {
+      "guide": {
+        "bad": "import { readFile, writeFile } from 'node:fs/promises';\n\nexport async function load(file: string) {\n  return readFile(file, 'utf8');\n}\n",
+        "good": "import { readFile } from 'node:fs/promises';\n\nexport async function load(file: string) {\n  return readFile(file, 'utf8');\n}\n",
+        "ko": {
+          "summary": "선언하거나 가져왔지만(`import`) 한 번도 쓰지 않는 변수·함수·타입이 있습니다. 남은 코드이거나 다른 이름을 쓰려던 실수입니다(TypeScript에서 타입으로만 쓰인 경우도 구분해 알려 줍니다).",
+          "fix": "쓰지 않는 선언이나 `import`를 지웁니다. 써야 하는 것이었다면 의도한 곳에서 쓰도록 고칩니다."
+        },
+        "en": {
+          "summary": "A variable, function, type, or `import` is declared but never used. It is a leftover or a typo for another name (values used only as a type are reported separately in TypeScript).",
+          "fix": "Remove the unused declaration or `import`. If it should be used, use it where it was intended."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/no-wrapper-object-types": {
+      "guide": {
+        "bad": "export function greet(name: String): string {\n  return 'Hello ' + name;\n}\n",
+        "good": "export function greet(name: string): string {\n  return 'Hello ' + name;\n}\n",
+        "ko": {
+          "summary": "타입을 `String`, `Number`, `Boolean`처럼 대문자 래퍼 객체 이름으로 적었습니다. 원시값 타입과 다르며 혼란과 타입 오류를 부릅니다.",
+          "fix": "소문자 원시 타입 `string`, `number`, `boolean` 등을 씁니다."
+        },
+        "en": {
+          "summary": "A type is written with an upper-case wrapper object name such as `String`, `Number`, or `Boolean`. These differ from the primitive types and cause confusion.",
+          "fix": "Use the lower-case primitive types `string`, `number`, `boolean`, and so on."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    },
+    "@typescript-eslint/prefer-as-const": {
+      "guide": {
+        "bad": "export const mode = { theme: 'dark' as 'dark' };\n",
+        "good": "export const mode = { theme: 'dark' as const };\n",
+        "ko": {
+          "summary": "리터럴 값에 같은 리터럴 타입을 다시 적었습니다(`'dark' as 'dark'`). 값을 두 번 쓰게 되어 한쪽만 고치는 실수가 생기기 쉽습니다.",
+          "fix": "`as const`를 씁니다(`'dark' as const`)."
+        },
+        "en": {
+          "summary": "A literal value is given the same literal type again (`'dark' as 'dark'`). The value is written twice, so it is easy to change only one of them.",
+          "fix": "Use `as const` instead (`'dark' as const`)."
+        },
+        "checked": {
+          "tool": "eslint",
+          "version": "10.11.0"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "comment": "가이드 이미지 목록(P29) — tools/make_guide_screenshots.mjs가 이 목록으로 가짜 데이터 설치본(tools/guide_demo)에서 1280px로 ko·en 두 벌을 찍는다. 화면이 바뀌면 다시 돌린다(docs/guide_authoring.md).",
+  "viewport": { "width": 1280, "height": 900 },
+  "login": "alex",
+  "images": [
+    { "slug": "projects-list", "audience": "user", "langs": ["ko", "en"], "path": "/projects", "wait": "#main table, #main .empty-state", "clip": { "selector": "#main", "maxHeight": 560 }, "section": "projects" },
+    { "slug": "upload-screen", "audience": "user", "langs": ["ko", "en"], "path": "/upload?project=1", "wait": "#up-start", "clip": { "selector": "#main", "maxHeight": 620 }, "section": "upload" },
+    { "slug": "defect-list", "audience": "user", "langs": ["ko", "en"], "path": "/projects/1", "wait": ".defects-table tbody tr", "clip": { "selector": "section.defects", "maxHeight": 760 }, "section": "defects" },
+    { "slug": "dashboard", "audience": "user", "langs": ["ko", "en"], "path": "/dashboard", "wait": "canvas", "clip": { "selector": "#main", "maxHeight": 720 }, "section": "dashboard" },
+    { "slug": "notification-panel", "audience": "user", "langs": ["ko", "en"], "path": "/projects", "wait": "[data-notif-bell]", "prepare": [{ "click": "[data-notif-bell]" }, { "wait": "#notif-panel .notif-panel__list li" }], "clip": { "x": 640, "y": 0, "width": 640, "height": 520 }, "section": "notifications" },
+    { "slug": "admin-config-settings", "audience": "admin", "login": "demo-admin", "langs": ["ko", "en"], "path": "/admin/config-settings#retention", "wait": "[role=\"tabpanel\"]:not([hidden]) [data-item]", "clip": { "selector": "#main", "maxHeight": 760 }, "section": "settings" },
+    { "slug": "admin-users", "audience": "admin", "login": "demo-admin", "langs": ["ko", "en"], "path": "/admin/users", "wait": "#users-body tr[data-user-id]", "clip": { "selector": "section.card[aria-labelledby=\"users-list-title\"]", "maxHeight": 520 }, "section": "accounts" },
+    { "slug": "admin-repo-hosts", "audience": "admin", "login": "demo-admin", "langs": ["ko", "en"], "path": "/admin/config-settings#repository", "wait": "[data-host-rows] tr", "prepare": [{ "scrollTo": "[data-repo-hosts]" }], "clip": { "selector": "[data-repo-hosts]", "maxHeight": 520 }, "section": "repository" },
+    { "slug": "admin-monitoring", "audience": "admin", "login": "demo-admin", "langs": ["ko", "en"], "path": "/admin/monitoring", "wait": "[data-card=\"app\"] [data-detail] dl", "clip": { "selector": "#main", "maxHeight": 900 }, "section": "monitoring" }
+  ]
+}

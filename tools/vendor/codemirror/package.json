@@ -1,0 +1,18 @@
+{
+  "name": "pjguardian-codemirror-bundle",
+  "private": true,
+  "description": "빌드 전용(P17). tools/build_vendor.mjs가 이 폴더에서 npm ci 후 esbuild로 public/assets/vendor/codemirror/codemirror.js 하나를 만든다. node_modules는 배포·커밋하지 않는다(docs/vendor_build.md).",
+  "license": "UNLICENSED",
+  "type": "module",
+  "dependencies": {
+    "@codemirror/lang-javascript": "6.2.5",
+    "@codemirror/lang-python": "6.2.1",
+    "@codemirror/language": "6.12.4",
+    "@codemirror/state": "6.7.6",
+    "@codemirror/view": "6.43.13",
+    "@lezer/highlight": "1.2.5"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

@@ -1,0 +1,8 @@
+chart.js — Chart.js 4 대시보드용 번들(P20, 선·막대 차트만 등록)
+출처: npm 레지스트리(tools/vendor/chartjs/package-lock.json의 버전과 무결성 값)
+빌드: node tools/build_vendor.mjs chartjs (esbuild 0.28.2, ESM, minify, target es2020)
+크기: 173190 바이트, SHA-256: 302a6658ffae825196c6081bbfc3f0f98003c97bc011d7334e70dbd47d502c97
+
+포함 패키지:
+  @kurkle/color 0.3.4 (MIT)
+  chart.js 4.5.1 (MIT)

@@ -1,0 +1,1127 @@
+{
+  "format": 1,
+  "note": "보강 자료. 도구 값 채우기(summary·description·docs_url)는 sources(공식 문서 https) 필수. guide(P32B)는 직접 쓴 쉬운 설명 — tools/rules_guide_check.mjs가 실제 도구로 확인해 checked를 적은 것만 보인다. 형식·절차는 docs/rules.md 5절",
+  "rules": {
+    "E101": {
+      "guide": {
+        "name": "mixed-spaces-and-tabs",
+        "bad": "def check(a):\n\tif a:\n\t    return 1\n\treturn 0\n",
+        "good": "def check(a):\n    if a:\n        return 1\n    return 0\n",
+        "ko": {
+          "summary": "한 줄의 들여쓰기에 탭과 공백이 섞여 있습니다. 둘을 섞으면 편집기마다 들여쓰기가 다르게 보여 코드 구조를 읽기 어렵습니다.",
+          "fix": "들여쓰기를 공백으로만 통일합니다. 편집기에서 탭을 공백으로 바꾸는 기능을 쓰면 편합니다."
+        },
+        "en": {
+          "summary": "The indentation of a line mixes tabs and spaces. Mixed indentation looks different in each editor and makes the code structure hard to read.",
+          "fix": "Use spaces only for indentation. Most editors can convert tabs to spaces for you."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E401": {
+      "guide": {
+        "name": "multiple-imports-on-one-line",
+        "bad": "import os, sys\n\nprint(os.getcwd(), sys.argv)\n",
+        "good": "import os\nimport sys\n\nprint(os.getcwd(), sys.argv)\n",
+        "ko": {
+          "summary": "한 줄의 `import` 문에서 여러 모듈을 쉼표로 함께 가져왔습니다. PEP 8은 import를 보통 한 줄에 하나씩 쓰도록 권합니다.",
+          "fix": "모듈마다 `import` 줄을 따로 씁니다."
+        },
+        "en": {
+          "summary": "Several modules are imported on one line, separated by commas. PEP 8 recommends putting imports on separate lines.",
+          "fix": "Write a separate `import` line for each module."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E402": {
+      "guide": {
+        "name": "module-import-not-at-top-of-file",
+        "bad": "\"\"\"Report tool.\"\"\"\nDEBUG = True\nimport json\n\nprint(json.dumps({\"debug\": DEBUG}))\n",
+        "good": "\"\"\"Report tool.\"\"\"\nimport json\n\nDEBUG = True\n\nprint(json.dumps({\"debug\": DEBUG}))\n",
+        "ko": {
+          "summary": "`import` 문이 파일 맨 위가 아니라 다른 코드 뒤에 있습니다. PEP 8은 import를 모듈 주석과 docstring 바로 뒤, 전역 변수와 상수보다 앞에 두도록 권합니다.",
+          "fix": "import 문을 파일 위쪽(docstring 바로 아래)으로 옮깁니다. `sys.path`나 `os.environ`을 바꾸는 코드는 import 사이에 있어도 예외로 허용됩니다."
+        },
+        "en": {
+          "summary": "An `import` statement appears after other code instead of at the top of the file. PEP 8 says imports belong right after module comments and docstrings, before module globals and constants.",
+          "fix": "Move the import to the top of the file, just below the docstring. Changes to `sys.path` or `os.environ` between imports are allowed as an exception."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E501": {
+      "guide": {
+        "name": "line-too-long",
+        "bad": "message = \"This line is written to be much longer than the default limit of eighty-eight characters\"\n",
+        "good": "message = (\n    \"This line is written to be much longer than \"\n    \"the default limit of eighty-eight characters\"\n)\n",
+        "ko": {
+          "summary": "한 줄이 허용 길이보다 깁니다. 긴 줄은 읽기 어렵게 만듭니다. 기본 한도는 88자이며 `line-length` 설정으로 바꿀 수 있습니다.",
+          "fix": "괄호 안에서 줄을 나누거나 긴 문자열을 여러 조각으로 나눠 한 줄을 짧게 만듭니다."
+        },
+        "en": {
+          "summary": "A line is longer than the allowed length. Long lines hurt readability. The default limit is 88 characters and can be changed with the `line-length` setting.",
+          "fix": "Break the line inside parentheses, or split a long string into several pieces, so each line stays short."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E701": {
+      "guide": {
+        "name": "multiple-statements-on-one-line-colon",
+        "bad": "def run(ready, start):\n    if ready: start()\n",
+        "good": "def run(ready, start):\n    if ready:\n        start()\n",
+        "ko": {
+          "summary": "`if`, `for`, `while` 같은 문장의 콜론(`:`) 뒤에 실행할 문장을 같은 줄에 붙여 썼습니다. PEP 8은 이렇게 한 줄에 몰아 쓰는 복합 문장을 권하지 않습니다.",
+          "fix": "콜론 뒤의 문장을 다음 줄로 내리고 들여씁니다."
+        },
+        "en": {
+          "summary": "A statement is written on the same line after the colon (`:`) of an `if`, `for`, `while` or similar statement. PEP 8 discourages such compound statements.",
+          "fix": "Move the statement after the colon to its own indented line."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E702": {
+      "guide": {
+        "name": "multiple-statements-on-one-line-semicolon",
+        "bad": "width = 10; height = 20\nprint(width * height)\n",
+        "good": "width = 10\nheight = 20\nprint(width * height)\n",
+        "ko": {
+          "summary": "세미콜론(`;`)으로 여러 문장을 한 줄에 이어 썼습니다. PEP 8은 한 줄에 여러 문장을 쓰지 않도록 권합니다.",
+          "fix": "세미콜론을 없애고 문장마다 줄을 나눕니다."
+        },
+        "en": {
+          "summary": "Several statements are joined on one line with semicolons (`;`). PEP 8 discourages putting multiple statements on one line.",
+          "fix": "Remove the semicolons and put each statement on its own line."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E703": {
+      "guide": {
+        "name": "useless-semicolon",
+        "bad": "total = 0;\nprint(total)\n",
+        "good": "total = 0\nprint(total)\n",
+        "ko": {
+          "summary": "문장 끝에 필요 없는 세미콜론(`;`)이 붙어 있습니다. 파이썬에서는 문장 끝에 세미콜론이 필요 없습니다.",
+          "fix": "줄 끝의 세미콜론을 지웁니다."
+        },
+        "en": {
+          "summary": "A statement ends with an unnecessary semicolon (`;`). Python does not need semicolons at the end of statements.",
+          "fix": "Delete the trailing semicolon."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E711": {
+      "guide": {
+        "name": "none-comparison",
+        "bad": "def describe(value):\n    if value == None:\n        return \"empty\"\n    return str(value)\n",
+        "good": "def describe(value):\n    if value is None:\n        return \"empty\"\n    return str(value)\n",
+        "ko": {
+          "summary": "`None`과 비교할 때 `==`나 `!=`를 썼습니다. PEP 8은 `None` 같은 싱글턴과 비교할 때 항상 `is`나 `is not`을 쓰도록 합니다.",
+          "fix": "`== None`은 `is None`으로, `!= None`은 `is not None`으로 바꿉니다."
+        },
+        "en": {
+          "summary": "A comparison with `None` uses `==` or `!=`. PEP 8 says comparisons to singletons like `None` should always use `is` or `is not`.",
+          "fix": "Replace `== None` with `is None` and `!= None` with `is not None`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E712": {
+      "guide": {
+        "name": "true-false-comparison",
+        "bad": "def start(enabled):\n    if enabled == True:\n        print(\"starting\")\n",
+        "good": "def start(enabled):\n    if enabled:\n        print(\"starting\")\n",
+        "ko": {
+          "summary": "`True`나 `False`와 `==`, `!=`로 비교했습니다. PEP 8은 참·거짓 값을 이렇게 비교하지 않도록 권합니다.",
+          "fix": "`if cond:` 또는 `if not cond:`처럼 값 자체로 판단합니다. 정말로 `True`나 `False` 그 객체인지 확인해야 한다면 `is`나 `is not`을 씁니다."
+        },
+        "en": {
+          "summary": "A value is compared to `True` or `False` with `==` or `!=`. PEP 8 recommends against comparing to boolean literals this way.",
+          "fix": "Test the value directly, as in `if cond:` or `if not cond:`. If you really need to check for the literal `True` or `False`, use `is` or `is not`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E713": {
+      "guide": {
+        "name": "not-in-test",
+        "bad": "def add_user(users, name):\n    if not name in users:\n        users.append(name)\n",
+        "good": "def add_user(users, name):\n    if name not in users:\n        users.append(name)\n",
+        "ko": {
+          "summary": "포함 여부를 `not x in y` 형태로 검사했습니다. `x not in y`로 쓰는 편이 더 읽기 쉽습니다.",
+          "fix": "`not x in y`를 `x not in y`로 바꿉니다."
+        },
+        "en": {
+          "summary": "A membership test is written as `not x in y`. Writing `x not in y` is more readable.",
+          "fix": "Rewrite `not x in y` as `x not in y`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E714": {
+      "guide": {
+        "name": "not-is-test",
+        "bad": "def show(result):\n    if not result is None:\n        print(result)\n",
+        "good": "def show(result):\n    if result is not None:\n        print(result)\n",
+        "ko": {
+          "summary": "객체가 같은지 `not x is y` 형태로 검사했습니다. PEP 8에 따르면 `x is not y`로 쓰는 편이 더 읽기 쉽습니다.",
+          "fix": "`not x is y`를 `x is not y`로 바꿉니다."
+        },
+        "en": {
+          "summary": "An identity test is written as `not x is y`. According to PEP 8, `x is not y` is more readable.",
+          "fix": "Rewrite `not x is y` as `x is not y`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E721": {
+      "guide": {
+        "name": "type-comparison",
+        "bad": "def double(value):\n    if type(value) == int:\n        return value * 2\n    return None\n",
+        "good": "def double(value):\n    if isinstance(value, int):\n        return value * 2\n    return None\n",
+        "ko": {
+          "summary": "`type(x) == 형식`처럼 `==` 같은 비교 연산자로 형식을 비교했습니다. `isinstance`는 그 클래스뿐 아니라 하위 클래스의 객체도 함께 확인해 줍니다.",
+          "fix": "`isinstance(x, 형식)`을 씁니다. 정확히 같은 형식인지만 확인해야 한다면 `is`나 `is not`으로 비교합니다."
+        },
+        "en": {
+          "summary": "Types are compared with `==` or another comparison operator, as in `type(x) == SomeType`. `isinstance` also accepts instances of subclasses.",
+          "fix": "Use `isinstance(x, SomeType)`. If you need an exact type match, compare with `is` or `is not`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E722": {
+      "guide": {
+        "name": "bare-except",
+        "bad": "def to_number(text):\n    try:\n        return int(text)\n    except:\n        return None\n",
+        "good": "def to_number(text):\n    try:\n        return int(text)\n    except ValueError:\n        return None\n",
+        "ko": {
+          "summary": "예외 종류를 적지 않은 `except:`를 썼습니다. 이렇게 하면 `KeyboardInterrupt`, `SystemExit`까지 모두 잡혀서 Ctrl-C로 프로그램을 멈추기 어렵고 다른 문제도 가려질 수 있습니다.",
+          "fix": "`except ValueError:`처럼 처리할 예외를 구체적으로 적습니다. 어떤 오류인지 모를 때에도 `except Exception:`을 써서 시스템 예외는 잡지 않게 합니다."
+        },
+        "en": {
+          "summary": "A bare `except:` is used without an exception type. It catches everything, including `KeyboardInterrupt` and `SystemExit`, which makes the program hard to stop with Ctrl-C and can hide other problems.",
+          "fix": "Name the specific exception to handle, such as `except ValueError:`. If you truly need to catch unknown errors, use `except Exception:` so system exceptions are not caught."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E731": {
+      "guide": {
+        "name": "lambda-assignment",
+        "bad": "square = lambda x: x * x\nprint(square(3))\n",
+        "good": "def square(x):\n    return x * x\n\n\nprint(square(3))\n",
+        "ko": {
+          "summary": "`lambda` 식을 변수에 대입했습니다. PEP 8은 이 경우 `def`로 함수를 정의하도록 합니다. `def`를 쓰면 오류 추적(traceback)이 더 알아보기 쉽고, 변수에 대입하면 다른 식 안에 바로 넣을 수 있다는 lambda의 장점도 사라집니다.",
+          "fix": "`def` 문으로 같은 일을 하는 함수를 정의합니다."
+        },
+        "en": {
+          "summary": "A `lambda` expression is assigned to a variable. PEP 8 says to use a `def` statement instead. A `def` gives clearer tracebacks, and assigning a lambda loses its main benefit of being usable inside another expression.",
+          "fix": "Define the function with a `def` statement instead."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E741": {
+      "guide": {
+        "name": "ambiguous-variable-name",
+        "bad": "l = [3, 1, 2]\nprint(sorted(l))\n",
+        "good": "numbers = [3, 1, 2]\nprint(sorted(numbers))\n",
+        "ko": {
+          "summary": "변수 이름으로 `l`, `O`, `I` 한 글자를 썼습니다. 글꼴에 따라 이 글자들은 숫자 1, 0과 구별되지 않아 코드를 잘못 읽기 쉽습니다.",
+          "fix": "뜻이 드러나는 다른 이름으로 바꿉니다."
+        },
+        "en": {
+          "summary": "A variable is named `l`, `O` or `I`. In some fonts these letters look the same as the digits 1 and 0, which makes the code easy to misread.",
+          "fix": "Rename the variable to a different, more descriptive name."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E742": {
+      "guide": {
+        "name": "ambiguous-class-name",
+        "bad": "class I:\n    pass\n",
+        "good": "class Item:\n    pass\n",
+        "ko": {
+          "summary": "클래스 이름으로 `l`, `O`, `I` 한 글자를 썼습니다. 글꼴에 따라 이 글자들은 숫자 1, 0과 구별되지 않습니다.",
+          "fix": "뜻이 드러나는 다른 클래스 이름으로 바꿉니다."
+        },
+        "en": {
+          "summary": "A class is named `l`, `O` or `I`. In some fonts these letters look the same as the digits 1 and 0.",
+          "fix": "Rename the class to a different, more descriptive name."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "E743": {
+      "guide": {
+        "name": "ambiguous-function-name",
+        "bad": "def l(items):\n    return len(items)\n",
+        "good": "def count(items):\n    return len(items)\n",
+        "ko": {
+          "summary": "함수 이름으로 `l`, `O`, `I` 한 글자를 썼습니다. 글꼴에 따라 이 글자들은 숫자 1, 0과 구별되지 않습니다.",
+          "fix": "뜻이 드러나는 다른 함수 이름으로 바꿉니다."
+        },
+        "en": {
+          "summary": "A function is named `l`, `O` or `I`. In some fonts these letters look the same as the digits 1 and 0.",
+          "fix": "Rename the function to a different, more descriptive name."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F401": {
+      "guide": {
+        "name": "unused-import",
+        "bad": "import os\nimport sys\n\nprint(sys.argv)\n",
+        "good": "import sys\n\nprint(sys.argv)\n",
+        "ko": {
+          "summary": "가져온(import) 모듈이나 이름을 파일 안에서 한 번도 쓰지 않았습니다. 쓰지 않는 import는 읽는 사람을 헷갈리게 하고 불러오는 시간만 늘립니다.",
+          "fix": "쓰지 않는 import 줄을 지웁니다. 다른 모듈에 다시 내보내려는 것이라면 `__all__`에 이름을 넣거나 `import x as x`처럼 같은 이름으로 다시 내보냅니다."
+        },
+        "en": {
+          "summary": "A module or name is imported but never used in the file. Unused imports confuse readers and only add import time.",
+          "fix": "Delete the unused import. If it is meant to be re-exported, list the name in `__all__` or use a redundant alias such as `import x as x`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F402": {
+      "guide": {
+        "name": "import-shadowed-by-loop-var",
+        "bad": "from os import path\n\nfor path in [\"a.txt\", \"b.txt\"]:\n    print(path)\n",
+        "good": "from os import path\n\nfor filename in [\"a.txt\", \"b.txt\"]:\n    print(path.basename(filename))\n",
+        "ko": {
+          "summary": "반복문 변수 이름이 위에서 가져온(import) 이름과 같아서 가져온 것을 덮어씁니다. 그 이름이 무엇을 가리키는지 헷갈리고, 실수일 가능성이 큽니다.",
+          "fix": "반복문 변수에 다른 이름을 붙입니다."
+        },
+        "en": {
+          "summary": "A loop variable has the same name as an import, so it shadows the imported name. This makes it unclear what the name refers to and is often a mistake.",
+          "fix": "Give the loop variable a different name."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F403": {
+      "guide": {
+        "name": "undefined-local-with-import-star",
+        "bad": "from math import *\n\nprint(sqrt(16))\n",
+        "good": "from math import sqrt\n\nprint(sqrt(16))\n",
+        "ko": {
+          "summary": "`from 모듈 import *`로 모든 이름을 한꺼번에 가져왔습니다. 어떤 이름이 어느 모듈에서 왔는지 알기 어렵고 PEP 8도 권하지 않습니다.",
+          "fix": "실제로 쓰는 이름만 `from math import sqrt`처럼 골라서 가져옵니다."
+        },
+        "en": {
+          "summary": "All names are imported at once with `from module import *`. This makes it hard to tell which names exist and where they came from, and PEP 8 discourages it.",
+          "fix": "Import only the names you use, for example `from math import sqrt`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F404": {
+      "guide": {
+        "name": "late-future-import",
+        "bad": "import os\nfrom __future__ import annotations\n\nprint(os.getcwd())\n",
+        "good": "from __future__ import annotations\n\nimport os\n\nprint(os.getcwd())\n",
+        "ko": {
+          "summary": "`from __future__ import`가 파일 맨 앞이 아닌 곳에 있습니다. `__future__` import는 docstring을 빼면 다른 모든 문장보다 앞에 있어야 하며, 그렇지 않으면 `SyntaxError`가 납니다.",
+          "fix": "`__future__` import를 파일 맨 위(docstring이 있으면 그 바로 아래)로 옮깁니다."
+        },
+        "en": {
+          "summary": "A `from __future__ import` is not at the beginning of the file. `__future__` imports must come before every other statement except the docstring; otherwise Python raises a `SyntaxError`.",
+          "fix": "Move the `__future__` import to the very top of the file, just below the docstring if there is one."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F405": {
+      "guide": {
+        "name": "undefined-local-with-import-star-usage",
+        "bad": "from os.path import *\n\nprint(join(\"data\", \"log.txt\"))\n",
+        "good": "from os.path import join\n\nprint(join(\"data\", \"log.txt\"))\n",
+        "ko": {
+          "summary": "파일 안에서 정의하거나 가져오지 않은 이름을 썼는데, `import *`로 들어온 것인지 정말 정의되지 않은 것인지 알 수 없습니다.",
+          "fix": "그 이름이 `import *`로 들어온 것이라면 직접 골라서 가져옵니다. 그렇지 않다면 이름을 정의하거나 가져옵니다."
+        },
+        "en": {
+          "summary": "A name is used that is not defined or explicitly imported in the file, so it is unclear whether it comes from an `import *` or is simply undefined.",
+          "fix": "If the name comes from the wildcard import, import it explicitly. If not, define or import it."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F406": {
+      "guide": {
+        "name": "undefined-local-with-nested-import-star-usage",
+        "bad": "def circle_area(radius):\n    from math import *\n    return pi * radius ** 2\n",
+        "good": "from math import pi\n\n\ndef circle_area(radius):\n    return pi * radius ** 2\n",
+        "ko": {
+          "summary": "함수 안처럼 모듈 최상위가 아닌 곳에서 `import *`를 썼습니다. 가져온 이름이 지역 변수를 덮어쓸 수 있어 헷갈립니다.",
+          "fix": "필요한 이름만 골라서 모듈 최상위에서 가져옵니다. 꼭 `import *`를 써야 한다면 모듈 최상위에 둡니다."
+        },
+        "en": {
+          "summary": "A wildcard import is used outside the module level, for example inside a function. The imported names can shadow local variables, which is confusing.",
+          "fix": "Import the names you need explicitly at module level. If a wildcard import is really necessary, put it at the top level of the module."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F407": {
+      "guide": {
+        "name": "future-feature-not-defined",
+        "bad": "from __future__ import fast_strings\n",
+        "good": "from __future__ import annotations\n",
+        "ko": {
+          "summary": "`__future__` 모듈에 없는 기능을 가져오려고 했습니다. 정의되지 않았거나 지원하지 않는 `__future__` 기능을 가져오면 `SyntaxError`가 납니다.",
+          "fix": "이름에 오타가 없는지 확인하고, 현재 파이썬 버전에 있는 `__future__` 기능만 가져옵니다. 필요 없다면 그 줄을 지웁니다."
+        },
+        "en": {
+          "summary": "The code imports a feature that does not exist in the `__future__` module. Importing an undefined or unsupported `__future__` feature is a `SyntaxError`.",
+          "fix": "Check the name for typos and import only features that exist in your Python version, or delete the line if it is not needed."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F501": {
+      "guide": {
+        "name": "percent-format-invalid-format",
+        "bad": "name = \"world\"\nprint(\"Hello, %\" % name)\n",
+        "good": "name = \"world\"\nprint(\"Hello, %s\" % name)\n",
+        "ko": {
+          "summary": "`%` 형식 문자열이 잘못되었습니다. `%` 뒤에는 `s`, `d` 같은 변환 형식 문자가 와야 합니다.",
+          "fix": "`%s`처럼 `%` 뒤에 알맞은 변환 형식 문자를 붙입니다. 글자 `%` 자체를 출력하려면 `%%`로 씁니다."
+        },
+        "en": {
+          "summary": "A `%`-style format string is invalid. Each `%` must be followed by a conversion type such as `s` or `d`.",
+          "fix": "Add a proper conversion type after `%`, as in `%s`. To print a literal `%`, write `%%`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F502": {
+      "guide": {
+        "name": "percent-format-expected-mapping",
+        "bad": "print(\"%(greeting)s, %(name)s\" % (\"Hello\", \"World\"))\n",
+        "good": "print(\"%(greeting)s, %(name)s\" % {\"greeting\": \"Hello\", \"name\": \"World\"})\n",
+        "ko": {
+          "summary": "`%(이름)s`처럼 이름 있는 자리표시자를 쓰면서 값으로 딕셔너리가 아닌 것(예: 튜플)을 넘겼습니다. 실행하면 `TypeError`가 납니다.",
+          "fix": "값을 `{\"name\": ...}` 같은 딕셔너리로 넘기거나, 자리표시자를 이름 없는 `%s`로 바꿉니다."
+        },
+        "en": {
+          "summary": "The format string uses named placeholders such as `%(name)s`, but the values are not a mapping (for example, a tuple). This raises a `TypeError` at runtime.",
+          "fix": "Pass the values as a dictionary like `{\"name\": ...}`, or switch to unnamed placeholders such as `%s`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F503": {
+      "guide": {
+        "name": "percent-format-expected-sequence",
+        "bad": "print(\"%s, %s\" % {\"greeting\": \"Hello\", \"name\": \"World\"})\n",
+        "good": "print(\"%s, %s\" % (\"Hello\", \"World\"))\n",
+        "ko": {
+          "summary": "이름 없는 자리표시자(`%s`)를 쓰면서 값으로 딕셔너리를 넘겼습니다. 실행하면 `TypeError`가 납니다.",
+          "fix": "값을 튜플로 넘기거나, 자리표시자를 `%(name)s`처럼 이름 있는 형태로 바꿉니다."
+        },
+        "en": {
+          "summary": "The format string uses unnamed placeholders (`%s`), but the values are a dictionary. This raises a `TypeError` at runtime.",
+          "fix": "Pass the values as a tuple, or use named placeholders such as `%(name)s`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F504": {
+      "guide": {
+        "name": "percent-format-extra-named-arguments",
+        "bad": "print(\"Hello, %(name)s\" % {\"greeting\": \"Hi\", \"name\": \"World\"})\n",
+        "good": "print(\"Hello, %(name)s\" % {\"name\": \"World\"})\n",
+        "ko": {
+          "summary": "`%` 형식에 넘긴 딕셔너리에 형식 문자열이 쓰지 않는 키가 있습니다. 필요 없는 값이며 실수일 가능성이 큽니다.",
+          "fix": "쓰지 않는 키를 지우거나, 그 값을 쓰려던 것이라면 형식 문자열에 자리표시자를 더합니다."
+        },
+        "en": {
+          "summary": "The dictionary passed to a `%` format contains keys the format string never uses. They are unnecessary and likely a mistake.",
+          "fix": "Remove the unused keys, or add the missing placeholder if you meant to use them."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F505": {
+      "guide": {
+        "name": "percent-format-missing-argument",
+        "bad": "print(\"%(greeting)s, %(name)s\" % {\"name\": \"World\"})\n",
+        "good": "print(\"%(greeting)s, %(name)s\" % {\"greeting\": \"Hello\", \"name\": \"World\"})\n",
+        "ko": {
+          "summary": "형식 문자열의 이름 있는 자리표시자에 맞는 키가 넘긴 딕셔너리에 없습니다. 실행하면 `KeyError`가 납니다.",
+          "fix": "빠진 키와 값을 딕셔너리에 더하거나, 필요 없는 자리표시자를 지웁니다."
+        },
+        "en": {
+          "summary": "A named placeholder in the format string has no matching key in the dictionary passed. This raises a `KeyError` at runtime.",
+          "fix": "Add the missing key to the dictionary, or remove the placeholder if it is not needed."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F506": {
+      "guide": {
+        "name": "percent-format-mixed-positional-and-named",
+        "bad": "print(\"%s, %(name)s\" % (\"Hello\", {\"name\": \"World\"}))\n",
+        "good": "print(\"%s, %s\" % (\"Hello\", \"World\"))\n",
+        "ko": {
+          "summary": "한 `%` 형식 문자열에 이름 없는 자리표시자(`%s`)와 이름 있는 자리표시자(`%(name)s`)를 섞어 썼습니다. 파이썬은 이를 지원하지 않아 실행하면 `TypeError`가 납니다.",
+          "fix": "모두 이름 없는 자리표시자(값은 튜플)로 쓰거나, 모두 이름 있는 자리표시자(값은 딕셔너리)로 통일합니다."
+        },
+        "en": {
+          "summary": "One `%` format string mixes unnamed (`%s`) and named (`%(name)s`) placeholders. Python does not support this, so it raises a `TypeError` at runtime.",
+          "fix": "Use only unnamed placeholders with a tuple, or only named placeholders with a dictionary."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F507": {
+      "guide": {
+        "name": "percent-format-positional-count-mismatch",
+        "bad": "print(\"%s, %s\" % (\"Hello\", \"World\", \"!\"))\n",
+        "good": "print(\"%s, %s%s\" % (\"Hello\", \"World\", \"!\"))\n",
+        "ko": {
+          "summary": "`%` 형식 문자열의 자리표시자 개수와 넘긴 값의 개수가 다릅니다. 값이 많거나 적으면 실행할 때 `TypeError`가 납니다.",
+          "fix": "자리표시자 개수와 값 개수를 똑같이 맞춥니다."
+        },
+        "en": {
+          "summary": "The number of placeholders in a `%` format string does not match the number of values. Too many or too few values raise a `TypeError` at runtime.",
+          "fix": "Make the number of placeholders and values match."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F508": {
+      "guide": {
+        "name": "percent-format-star-requires-sequence",
+        "bad": "from math import pi\n\nprint(\"%(n).*f\" % {\"n\": (2, pi)})\n",
+        "good": "from math import pi\n\nprint(\"%.*f\" % (2, pi))\n",
+        "ko": {
+          "summary": "`%` 형식에서 `*` 지정자(폭이나 자릿수를 값으로 받는 것)를 쓰면서 값으로 튜플이 아닌 것을 넘겼습니다. 실행하면 `TypeError`가 납니다.",
+          "fix": "`*` 지정자를 쓸 때는 자리표시자에 이름을 붙이지 말고 값을 튜플로 넘깁니다."
+        },
+        "en": {
+          "summary": "A `%` format uses the `*` specifier (which takes the width or precision from the values) with a non-tuple value. This raises a `TypeError` at runtime.",
+          "fix": "When using the `*` specifier, use unnamed placeholders and pass the values as a tuple."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F509": {
+      "guide": {
+        "name": "percent-format-unsupported-format-character",
+        "bad": "name = \"world\"\nprint(\"Hello, %S\" % name)\n",
+        "good": "name = \"world\"\nprint(\"Hello, %s\" % name)\n",
+        "ko": {
+          "summary": "`%` 형식 문자열에 없는 변환 형식 문자를 썼습니다(예: 대문자 `%S`). 실행하면 `ValueError`가 납니다.",
+          "fix": "`%s`, `%d`처럼 올바른 형식 문자로 고칩니다. 글자 `%` 자체를 출력하려면 `%%`로 씁니다."
+        },
+        "en": {
+          "summary": "A `%` format string uses an invalid format character (for example, uppercase `%S`). This raises a `ValueError` at runtime.",
+          "fix": "Use a valid format character such as `%s` or `%d`. To print a literal `%`, write `%%`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F521": {
+      "guide": {
+        "name": "string-dot-format-invalid-format",
+        "bad": "name = \"world\"\nprint(\"Hello, {\".format(name))\n",
+        "good": "name = \"world\"\nprint(\"Hello, {}\".format(name))\n",
+        "ko": {
+          "summary": "`str.format`에 쓴 형식 문자열이 잘못되었습니다(예: 닫히지 않은 `{`). 실행하면 `ValueError`가 납니다.",
+          "fix": "중괄호를 `{}`처럼 짝을 맞춰 씁니다. 글자 `{` 자체를 출력하려면 `{{`로 씁니다."
+        },
+        "en": {
+          "summary": "The format string passed to `str.format` is invalid (for example, an unclosed `{`). This raises a `ValueError` at runtime.",
+          "fix": "Make sure braces are balanced, as in `{}`. To print a literal `{`, write `{{`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F522": {
+      "guide": {
+        "name": "string-dot-format-extra-named-arguments",
+        "bad": "print(\"Hello, {name}\".format(greeting=\"Hi\", name=\"World\"))\n",
+        "good": "print(\"Hello, {name}\".format(name=\"World\"))\n",
+        "ko": {
+          "summary": "`str.format`에 넘긴 키워드 인자 가운데 형식 문자열에서 쓰지 않는 것이 있습니다. 필요 없는 인자이며 실수일 가능성이 큽니다.",
+          "fix": "쓰지 않는 키워드 인자를 지우거나, 쓰려던 것이라면 형식 문자열에 `{이름}`을 더합니다."
+        },
+        "en": {
+          "summary": "A keyword argument passed to `str.format` is not used by the format string. It is redundant and often a mistake.",
+          "fix": "Remove the unused keyword argument, or add a `{name}` placeholder if you meant to use it."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F523": {
+      "guide": {
+        "name": "string-dot-format-extra-positional-arguments",
+        "bad": "print(\"Hello, {0}\".format(\"world\", \"!\"))\n",
+        "good": "print(\"Hello, {0}{1}\".format(\"world\", \"!\"))\n",
+        "ko": {
+          "summary": "`str.format`에 넘긴 위치 인자 가운데 형식 문자열에서 쓰지 않는 것이 있습니다. 필요 없는 인자이며 실수일 가능성이 큽니다.",
+          "fix": "쓰지 않는 인자를 지우거나, 쓰려던 것이라면 형식 문자열에 자리표시자를 더합니다."
+        },
+        "en": {
+          "summary": "A positional argument passed to `str.format` is not used by the format string. It is redundant and often a mistake.",
+          "fix": "Remove the unused argument, or add a placeholder if you meant to use it."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F524": {
+      "guide": {
+        "name": "string-dot-format-missing-arguments",
+        "bad": "print(\"{greeting}, {name}\".format(name=\"World\"))\n",
+        "good": "print(\"{greeting}, {name}\".format(greeting=\"Hello\", name=\"World\"))\n",
+        "ko": {
+          "summary": "`str.format`의 형식 문자열에 있는 자리표시자에 맞는 인자를 넘기지 않았습니다. 실행하면 `KeyError`가 납니다.",
+          "fix": "빠진 인자를 넘기거나, 필요 없는 자리표시자를 지웁니다."
+        },
+        "en": {
+          "summary": "A placeholder in the `str.format` string has no matching argument. This raises a `KeyError` at runtime.",
+          "fix": "Pass the missing argument, or remove the placeholder if it is not needed."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F525": {
+      "guide": {
+        "name": "string-dot-format-mixing-automatic",
+        "bad": "print(\"{0}, {}\".format(\"Hello\", \"World\"))\n",
+        "good": "print(\"{0}, {1}\".format(\"Hello\", \"World\"))\n",
+        "ko": {
+          "summary": "`str.format`의 형식 문자열에 자동 번호(`{}`)와 직접 쓴 번호(`{0}`)를 섞어 썼습니다. 실행하면 `ValueError`가 납니다.",
+          "fix": "모두 `{}`로 쓰거나 모두 `{0}`, `{1}`처럼 번호를 붙여 한 가지로 통일합니다."
+        },
+        "en": {
+          "summary": "The `str.format` string mixes automatic numbering (`{}`) with manual numbering (`{0}`). This raises a `ValueError` at runtime.",
+          "fix": "Use only `{}` or only numbered fields such as `{0}` and `{1}`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F541": {
+      "guide": {
+        "name": "f-string-missing-placeholders",
+        "bad": "print(f\"Saving file...\")\n",
+        "good": "print(\"Saving file...\")\n",
+        "ko": {
+          "summary": "`{}` 자리표시자가 하나도 없는 f-문자열을 썼습니다. 읽는 사람이 값이 들어간다고 오해할 수 있고, 자리표시자를 빠뜨린 실수일 수도 있습니다.",
+          "fix": "앞의 `f`를 지워 일반 문자열로 만들거나, 넣으려던 값이 있다면 `{값}`을 더합니다."
+        },
+        "en": {
+          "summary": "An f-string contains no `{}` placeholders. Readers may expect a value to be inserted, and it may mean a placeholder was forgotten.",
+          "fix": "Remove the `f` prefix to make it a regular string, or add the `{value}` you meant to include."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F601": {
+      "guide": {
+        "name": "multi-value-repeated-key-literal",
+        "bad": "settings = {\n    \"host\": \"localhost\",\n    \"port\": 8000,\n    \"port\": 8080,\n}\n",
+        "good": "settings = {\n    \"host\": \"localhost\",\n    \"port\": 8080,\n}\n",
+        "ko": {
+          "summary": "딕셔너리 리터럴에 같은 키가 여러 번 나오며 서로 다른 값이 붙어 있습니다. 앞의 값은 뒤의 값으로 덮어써지므로 실수일 가능성이 큽니다.",
+          "fix": "중복된 키 중 하나만 남기고 나머지를 지웁니다."
+        },
+        "en": {
+          "summary": "A dictionary literal repeats the same key with different values. Earlier values are overwritten by later ones, so this is likely a mistake.",
+          "fix": "Keep only one entry for the key and remove the others."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F602": {
+      "guide": {
+        "name": "multi-value-repeated-key-variable",
+        "bad": "def build(first, second):\n    return {first: 1, second: 2, second: 3}\n",
+        "good": "def build(first, second):\n    return {first: 1, second: 2}\n",
+        "ko": {
+          "summary": "딕셔너리에서 같은 변수를 키로 여러 번 쓰면서 서로 다른 값을 붙였습니다. 앞의 값은 덮어써지고 마지막 값만 남으므로 실수일 가능성이 큽니다.",
+          "fix": "중복된 키 중 하나만 남기고 나머지를 지웁니다."
+        },
+        "en": {
+          "summary": "A dictionary uses the same variable as a key more than once with different values. Earlier values are overwritten and only the last remains, so this is likely a mistake.",
+          "fix": "Keep only one entry for the key and remove the others."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F622": {
+      "guide": {
+        "name": "multiple-starred-expressions",
+        "bad": "*head, *tail = [1, 2, 3]\n",
+        "good": "head, *tail = [1, 2, 3]\n",
+        "ko": {
+          "summary": "대입문의 왼쪽에 별표(`*`) 식을 두 개 이상 썼습니다. 남은 값을 어느 쪽이 받아야 할지 정할 수 없어서 `SyntaxError`가 납니다.",
+          "fix": "별표 식은 하나만 남깁니다."
+        },
+        "en": {
+          "summary": "The left-hand side of an assignment has more than one starred (`*`) expression. Python cannot tell which one should receive the remaining values, so this is a `SyntaxError`.",
+          "fix": "Keep only one starred expression."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F631": {
+      "guide": {
+        "name": "assert-tuple",
+        "bad": "def set_count(count):\n    assert (count > 0, \"count must be positive\")\n    return count\n",
+        "good": "def set_count(count):\n    assert count > 0, \"count must be positive\"\n    return count\n",
+        "ko": {
+          "summary": "`assert` 조건에 비어 있지 않은 튜플을 썼습니다. 비어 있지 않은 튜플은 항상 참이므로 이 `assert`는 절대 실패하지 않습니다. 대개 괄호를 잘못 쓴 실수입니다.",
+          "fix": "조건과 메시지를 감싼 괄호를 없애 `assert 조건, \"메시지\"` 형태로 씁니다."
+        },
+        "en": {
+          "summary": "An `assert` uses a non-empty tuple as its condition. A non-empty tuple is always true, so the assertion can never fail. This is usually caused by misplaced parentheses.",
+          "fix": "Remove the parentheses around the condition and message so it reads `assert condition, \"message\"`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F632": {
+      "guide": {
+        "name": "is-literal",
+        "bad": "def check(code):\n    if code is 200:\n        print(\"OK\")\n",
+        "good": "def check(code):\n    if code == 200:\n        print(\"OK\")\n",
+        "ko": {
+          "summary": "숫자, 문자열, 리스트 같은 리터럴과 `is`나 `is not`으로 비교했습니다. `is`는 값이 아니라 같은 객체인지를 보므로 우연히 맞을 때가 있어도 결과가 보장되지 않습니다.",
+          "fix": "값을 비교할 때는 `==`, `!=`를 씁니다."
+        },
+        "en": {
+          "summary": "A literal such as a number, string or list is compared with `is` or `is not`. `is` checks whether two objects are the same object, not whether their values are equal, so the result is not guaranteed even if it sometimes works.",
+          "fix": "Use `==` or `!=` to compare values."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F633": {
+      "guide": {
+        "name": "invalid-print-syntax",
+        "bad": "import sys\n\nprint >> sys.stderr, \"Something went wrong\"\n",
+        "good": "import sys\n\nprint(\"Something went wrong\", file=sys.stderr)\n",
+        "ko": {
+          "summary": "파이썬 2의 `print >> 파일` 문법을 썼습니다. 파이썬 3에서 `print`는 함수일 뿐이라 이 문법은 더 이상 동작하지 않습니다.",
+          "fix": "`print(..., file=sys.stderr)`처럼 `file` 키워드 인자를 쓰거나 `sys.stderr.write`, `logging` 모듈을 씁니다."
+        },
+        "en": {
+          "summary": "The Python 2 `print >> file` syntax is used. In Python 3, `print` is only a function, so this syntax no longer works.",
+          "fix": "Use the `file` keyword argument, as in `print(..., file=sys.stderr)`, or use `sys.stderr.write` or the `logging` module."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F634": {
+      "guide": {
+        "name": "if-tuple",
+        "bad": "def check(count):\n    if (count > 0,):\n        print(\"positive\")\n",
+        "good": "def check(count):\n    if count > 0:\n        print(\"positive\")\n",
+        "ko": {
+          "summary": "`if` 조건에 비어 있지 않은 튜플을 썼습니다. 비어 있지 않은 튜플은 항상 참이므로 조건과 상관없이 항상 실행됩니다. 실수일 가능성이 큽니다.",
+          "fix": "튜플을 만드는 쉼표와 괄호를 없애고 조건식만 씁니다."
+        },
+        "en": {
+          "summary": "An `if` statement uses a non-empty tuple as its condition. A non-empty tuple is always true, so the branch always runs. This is likely a mistake.",
+          "fix": "Remove the comma (and parentheses) that create the tuple and use the condition itself."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F701": {
+      "guide": {
+        "name": "break-outside-loop",
+        "bad": "def process(item):\n    if item is None:\n        break\n    print(item)\n",
+        "good": "def process(item):\n    if item is None:\n        return\n    print(item)\n",
+        "ko": {
+          "summary": "`for`나 `while` 반복문 밖에서 `break`를 썼습니다. 반복문 밖의 `break`는 `SyntaxError`를 일으킵니다.",
+          "fix": "`break`는 반복문 안에서만 씁니다. 함수에서 일찍 빠져나가려던 것이라면 `return`을 씁니다."
+        },
+        "en": {
+          "summary": "A `break` statement is used outside a `for` or `while` loop. A `break` outside a loop raises a `SyntaxError`.",
+          "fix": "Use `break` only inside a loop. If you wanted to leave a function early, use `return`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F702": {
+      "guide": {
+        "name": "continue-outside-loop",
+        "bad": "def process(item):\n    if item is None:\n        continue\n    print(item)\n",
+        "good": "def process(item):\n    if item is None:\n        return\n    print(item)\n",
+        "ko": {
+          "summary": "`for`나 `while` 반복문 밖에서 `continue`를 썼습니다. 반복문 밖의 `continue`는 `SyntaxError`를 일으킵니다.",
+          "fix": "`continue`는 반복문 안에서만 씁니다. 함수에서 일찍 빠져나가려던 것이라면 `return`을 씁니다."
+        },
+        "en": {
+          "summary": "A `continue` statement is used outside a `for` or `while` loop. A `continue` outside a loop raises a `SyntaxError`.",
+          "fix": "Use `continue` only inside a loop. If you wanted to leave a function early, use `return`."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F704": {
+      "guide": {
+        "name": "yield-outside-function",
+        "bad": "for number in range(3):\n    yield number\n",
+        "good": "def numbers():\n    for number in range(3):\n        yield number\n",
+        "ko": {
+          "summary": "함수 밖에서 `yield`, `yield from`, `await`를 썼습니다. 이 키워드들은 함수 안에서만 쓸 수 있으며, 함수 밖에서 쓰면 `SyntaxError`가 납니다.",
+          "fix": "해당 코드를 함수(`yield`는 제너레이터 함수, `await`는 `async def` 함수) 안으로 옮깁니다."
+        },
+        "en": {
+          "summary": "`yield`, `yield from` or `await` is used outside a function. These keywords are only allowed inside functions; elsewhere they raise a `SyntaxError`.",
+          "fix": "Move the code into a function (a generator function for `yield`, an `async def` function for `await`)."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F706": {
+      "guide": {
+        "name": "return-outside-function",
+        "bad": "import sys\n\nif len(sys.argv) < 2:\n    return\nprint(sys.argv[1])\n",
+        "good": "import sys\n\n\ndef main():\n    if len(sys.argv) < 2:\n        return\n    print(sys.argv[1])\n\n\nmain()\n",
+        "ko": {
+          "summary": "함수 밖에서 `return`을 썼습니다. 함수 밖의 `return`은 `SyntaxError`를 일으킵니다.",
+          "fix": "`return`이 들어 있는 코드를 함수 안으로 옮기고 그 함수를 호출합니다."
+        },
+        "en": {
+          "summary": "A `return` statement is used outside a function. A `return` outside a function raises a `SyntaxError`.",
+          "fix": "Move the code containing `return` into a function and call that function."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F707": {
+      "guide": {
+        "name": "default-except-not-last",
+        "bad": "def to_number(text):\n    try:\n        return int(text)\n    except:\n        return None\n    except ValueError:\n        return 0\n",
+        "good": "def to_number(text):\n    try:\n        return int(text)\n    except ValueError:\n        return 0\n    except Exception:\n        return None\n",
+        "ko": {
+          "summary": "모든 예외를 잡는 `except:` 블록이 마지막이 아닌 자리에 있습니다. `except` 블록은 순서대로 검사되므로 그 뒤의 블록은 절대 실행되지 않고, 파이썬은 `SyntaxError`를 냅니다.",
+          "fix": "구체적인 예외를 잡는 블록을 앞에 두고, 모든 예외를 잡는 블록은 맨 마지막으로 옮깁니다."
+        },
+        "en": {
+          "summary": "An `except:` block that catches all exceptions is not the last one. `except` blocks are checked in order, so the blocks after it could never run, and Python raises a `SyntaxError`.",
+          "fix": "Put the blocks for specific exceptions first and move the catch-all block to the end."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F722": {
+      "guide": {
+        "name": "forward-annotation-syntax-error",
+        "bad": "def parse(text: str) -> \"list[int\":\n    return [int(x) for x in text.split()]\n",
+        "good": "def parse(text: str) -> \"list[int]\":\n    return [int(x) for x in text.split()]\n",
+        "ko": {
+          "summary": "문자열로 쓴 형식 힌트(전방 참조)가 올바른 파이썬 식이 아닙니다. 실행할 때는 `SyntaxError`가 나지 않지만 형식 검사를 할 때 오류가 납니다.",
+          "fix": "따옴표 안의 형식 힌트를 올바른 파이썬 식으로 고칩니다(괄호 짝, 오타 등)."
+        },
+        "en": {
+          "summary": "A type annotation written as a string (a forward reference) is not a valid Python expression. It does not raise a `SyntaxError` at runtime, but type checking will fail.",
+          "fix": "Fix the quoted annotation so it is a valid Python expression (balanced brackets, no typos)."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F811": {
+      "guide": {
+        "name": "redefined-while-unused",
+        "bad": "import os\nimport sys\nimport os\n\nprint(os.getcwd(), sys.argv)\n",
+        "good": "import os\nimport sys\n\nprint(os.getcwd(), sys.argv)\n",
+        "ko": {
+          "summary": "아직 한 번도 쓰지 않은 이름을 다시 정의했습니다(예: 같은 모듈을 두 번 import). 필요 없는 코드이며 실수일 가능성이 큽니다.",
+          "fix": "중복된 정의를 지웁니다. 서로 다른 것을 뜻한다면 이름을 다르게 붙입니다."
+        },
+        "en": {
+          "summary": "A name is redefined before it was ever used, for example by importing the same module twice. The redefinition is unnecessary and often a mistake.",
+          "fix": "Remove the duplicate definition, or give it a different name if it means something else."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F821": {
+      "guide": {
+        "name": "undefined-name",
+        "bad": "def double():\n    return n * 2\n",
+        "good": "def double(n):\n    return n * 2\n",
+        "ko": {
+          "summary": "정의하지 않은 이름을 사용했습니다. 실행하면 `NameError`가 날 가능성이 큽니다.",
+          "fix": "이름의 오타를 확인하고, 변수를 정의하거나 매개변수로 받거나 import로 가져옵니다."
+        },
+        "en": {
+          "summary": "An undefined name is used. This is likely to raise a `NameError` at runtime.",
+          "fix": "Check the name for typos, then define it, take it as a parameter or import it."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F822": {
+      "guide": {
+        "name": "undefined-export",
+        "bad": "def load():\n    return {}\n\n\n__all__ = [\"load\", \"save\"]\n",
+        "good": "def load():\n    return {}\n\n\n__all__ = [\"load\"]\n",
+        "ko": {
+          "summary": "`__all__`에 모듈 안에 정의되지 않은 이름이 들어 있습니다. `__all__`은 `from 모듈 import *`로 내보낼 이름 목록이라, 없는 이름이 있으면 가져올 때 오류가 날 수 있습니다.",
+          "fix": "`__all__`에서 없는 이름을 빼거나, 그 이름을 모듈 안에 정의하거나 가져옵니다."
+        },
+        "en": {
+          "summary": "`__all__` contains a name that is not defined in the module. `__all__` lists the names exported by `from module import *`, so an undefined name there can cause an error when the module is imported.",
+          "fix": "Remove the name from `__all__`, or define or import it in the module."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F823": {
+      "guide": {
+        "name": "undefined-local",
+        "bad": "count = 0\n\n\ndef increment():\n    count += 1\n",
+        "good": "count = 0\n\n\ndef increment():\n    global count\n    count += 1\n",
+        "ko": {
+          "summary": "함수 안의 지역 변수를 값이 대입되기 전에 사용했습니다. 함수 안에서 대입하는 이름은 지역 변수가 되므로 바깥 변수를 읽지 못하고, 실행하면 `UnboundLocalError`가 납니다.",
+          "fix": "바깥(모듈) 변수를 바꾸려던 것이라면 `global` 선언을 더합니다. 그렇지 않다면 쓰기 전에 지역 변수에 값을 먼저 대입합니다."
+        },
+        "en": {
+          "summary": "A local variable is used before a value is assigned to it. A name assigned inside a function is local to it, so it cannot read the outer variable, and this raises an `UnboundLocalError` at runtime.",
+          "fix": "If you meant to change the module-level variable, add a `global` declaration. Otherwise, assign the local variable before using it."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F841": {
+      "guide": {
+        "name": "unused-variable",
+        "bad": "def total(prices):\n    tax = 0.1\n    return sum(prices)\n",
+        "good": "def total(prices):\n    return sum(prices)\n",
+        "ko": {
+          "summary": "함수 안에서 변수에 값을 넣었지만 그 변수를 한 번도 쓰지 않았습니다. 실수일 가능성이 크고 읽는 사람을 헷갈리게 합니다.",
+          "fix": "쓰지 않는 변수를 지웁니다. 일부러 남겨 두는 것이라면 이름을 밑줄(`_`)로 시작하게 합니다."
+        },
+        "en": {
+          "summary": "A value is assigned to a variable inside a function, but the variable is never used. This is likely a mistake and confuses readers.",
+          "fix": "Delete the unused variable. If it is intentional, start its name with an underscore (`_`)."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F842": {
+      "guide": {
+        "name": "unused-annotation",
+        "bad": "def greet():\n    name: str\n    print(\"Hello\")\n",
+        "good": "def greet():\n    print(\"Hello\")\n",
+        "ko": {
+          "summary": "함수 안에서 지역 변수에 형식 힌트만 붙이고 그 변수를 한 번도 쓰지 않았습니다. 쓰지 않는 변수의 형식 힌트는 필요 없습니다.",
+          "fix": "쓰지 않는 형식 힌트 줄을 지웁니다."
+        },
+        "en": {
+          "summary": "A local variable is annotated with a type but never used. The annotation of an unused variable is unnecessary.",
+          "fix": "Delete the unused annotation line."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    },
+    "F901": {
+      "guide": {
+        "name": "raise-not-implemented",
+        "bad": "class Shape:\n    def area(self):\n        raise NotImplemented\n",
+        "good": "class Shape:\n    def area(self):\n        raise NotImplementedError\n",
+        "ko": {
+          "summary": "`raise NotImplemented`를 썼습니다. `NotImplemented`는 연산 메서드가 돌려주는 특별한 값이지 예외가 아니므로 `raise`할 수 없습니다.",
+          "fix": "`NotImplementedError`를 `raise`합니다."
+        },
+        "en": {
+          "summary": "`raise NotImplemented` is used. `NotImplemented` is a special value returned by binary special methods, not an exception, so it cannot be raised.",
+          "fix": "Raise `NotImplementedError` instead."
+        },
+        "checked": {
+          "tool": "ruff",
+          "version": "0.16.10"
+        }
+      }
+    }
+  }
+}

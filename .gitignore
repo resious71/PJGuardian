@@ -1,0 +1,124 @@
+# ---- 런타임 데이터 (폴더 구조용 .gitkeep만 유지) ----
+/data/**
+!/data/**/
+!/data/**/.gitkeep
+
+# ---- 설정과 시크릿 (예시 파일만 커밋) ----
+/config/config.ini
+/config/secrets.*
+# P27A 화면 설정(관리자 "설정 관리"가 씀)과 그 백업·잠금·임시 파일
+/config/settings.local.ini*
+# P27B 복원 전 보관본(config.ini.before_restore 등)
+/config/*.before_restore
+!/config/secrets.example
+
+# ---- 백업 묶음(P27B 기본 백업 폴더 — 폴더 안 .gitignore도 같은 일을 한다) ----
+/backups/
+# P32: 어디에 두었든 백업 묶음·암호화 키 파일은 커밋하지 않는다
+*.pjgbak
+*.pjgkey
+
+# ---- 의존성 (Composer vendor는 루트만. public/assets/vendor/의 JS 라이브러리는 커밋) ----
+/vendor/
+node_modules/
+
+# ---- bin/: 실행 파일과 node_modules 제외, 매니페스트·문서는 커밋 ----
+/bin/**
+!/bin/**/
+!/bin/**/.gitkeep
+!/bin/**/*.md
+!/bin/**/*.txt
+!/bin/**/*.sha256
+!/bin/**/SHA256SUMS*
+!/bin/**/manifest*
+!/bin/eslint/*/package.json
+!/bin/eslint/*/package-lock.json
+/bin/**/node_modules/
+# X09: git·p4는 OS 폴더 아래(받은 묶음 — 라이선스·설명 텍스트 포함)를 모두 제외. 버전 폴더의 SHA256SUMS·VERSION.txt만 커밋
+/bin/git/*/windows/**
+/bin/git/*/linux/**
+/bin/p4/*/windows/**
+/bin/p4/*/linux/**
+
+# ---- OS·에디터 임시 파일 ----
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/
+*.tmp
+*.bak
+
+# ---- 배포 묶음 산출물(P31 tools/build_bundle.php) ----
+/dist/
+
+# =====================================================================
+# 오픈소스 공개 대비 보강 (기존 규칙은 그대로 두고 아래만 추가)
+# 주의: .gitignore는 "아직 추적하지 않는 파일"만 막는다. 이미 커밋된 파일은
+#       git rm --cached <파일> 로 추적을 끊어야 하고, 과거 기록은 그대로 남는다.
+# =====================================================================
+
+# ---- 로그·임시·작업 파일 ----
+/logs/
+*.log
+*.pid
+/tmp/
+/temp/
+*.orig
+*.rej
+
+# ---- DB 파일은 어디에 있든 (시험용 고정 데이터는 tests/ 안에서만 허용) ----
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite-journal
+*.db
+*.db-wal
+*.db-shm
+!/tests/**/*.sqlite
+!/tests/**/*.sqlite3
+
+# ---- 환경 변수·키·인증서 (시험용 가짜 인증서는 tests/ 안에서만 허용) ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+id_rsa*
+!/tests/**/*.pem
+!/tests/**/*.key
+# 예시 키·인증서 파일을 일부러 커밋해야 하면 파일 이름을 *.example.* 로 한다
+!*.example.*
+
+# ---- 개발 도구 캐시·리포트 ----
+.phpunit.cache/
+.phpunit.result.cache
+.php-cs-fixer.cache
+.php_cs.cache
+.phpstan/
+coverage/
+build/
+.eslintcache
+.npm/
+npm-debug.log*
+yarn-error.log*
+
+# ---- 에디터·OS 추가 ----
+.history/
+*.code-workspace
+*:Zone.Identifier
+ehthumbs.db
+$RECYCLE.BIN/
+
+# ---- AI 도구의 개인 설정 (프로젝트 규칙 CLAUDE.md는 커밋) ----
+/.claude/settings.local.json
+CLAUDE.local.md
+
+
+

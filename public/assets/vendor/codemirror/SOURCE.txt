@@ -1,0 +1,21 @@
+codemirror.js — CodeMirror 6 읽기 전용 코드 뷰어용 번들(P17)
+출처: npm 레지스트리(tools/vendor/codemirror/package-lock.json의 버전과 무결성 값)
+빌드: node tools/build_vendor.mjs codemirror (esbuild 0.28.2, ESM, minify, target es2020)
+크기: 431615 바이트, SHA-256: 3d767dffc1be371c62f9708f94e5ee2179e6e13d05a57ce00b1b588a892b378f
+
+포함 패키지:
+  @codemirror/autocomplete 6.20.3 (MIT)
+  @codemirror/lang-javascript 6.2.5 (MIT)
+  @codemirror/lang-python 6.2.1 (MIT)
+  @codemirror/language 6.12.4 (MIT)
+  @codemirror/state 6.7.6 (MIT)
+  @codemirror/view 6.43.13 (MIT)
+  @lezer/common 1.5.3 (MIT)
+  @lezer/highlight 1.2.5 (MIT)
+  @lezer/javascript 1.5.6 (MIT)
+  @lezer/lr 1.4.10 (MIT)
+  @lezer/python 1.1.19 (MIT)
+  @marijn/find-cluster-break 1.0.4 (MIT)
+  crelt 1.0.7 (MIT)
+  style-mod 4.1.4 (MIT)
+  w3c-keyname 2.2.8 (MIT)

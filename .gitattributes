@@ -1,0 +1,22 @@
+# 텍스트 파일은 저장소와 작업 폴더 모두 LF로 통일한다(Windows/Linux 동일 동작, 시그니처 테스트 재현성).
+# CRLF가 필요한 시험 데이터는 테스트가 실행 중에 복사본을 만들어 변환한다(P04 시나리오 6).
+* text=auto eol=lf
+
+# Windows 전용 스크립트는 CRLF
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+*.ps1  text eol=crlf
+
+# 바이너리
+*.zip     binary
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.ico     binary
+*.pdf     binary
+*.ttf     binary
+*.woff    binary
+*.woff2   binary
+*.sqlite  binary
+*.exe     binary

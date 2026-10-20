@@ -1,0 +1,10 @@
+# PJGuardian 재작성 규칙: 실제 파일(정적 자산)이 아니면 모두 index.php로 보낸다.
+# vhost에서 AllowOverride None을 쓰는 경우에는 이 파일이 무시되므로 vhost에 FallbackResource /index.php를 둔다
+# (docs/xampp_vhost.md).
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>

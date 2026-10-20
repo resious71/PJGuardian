@@ -1,0 +1,10 @@
+{
+  "name": "pjguardian-test-tools",
+  "private": true,
+  "description": "시험 전용 개발 의존성(P20). 배포물에 넣지 않는다. tools/run_all_tests.php가 없으면 npm ci로 설치한다. 엄격한 YAML 파서로 docs/openapi.yaml 전체를 읽는 시험(tests/js/openapi.test.mjs)에 쓴다.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "devDependencies": {
+    "yaml": "2.9.1"
+  }
+}

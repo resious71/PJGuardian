@@ -1,0 +1,20 @@
+{
+    "name": "pjguardian/pjguardian",
+    "description": "PJGuardian — ruff·ESLint 정적 분석 결과 공동 관리(PHP 의존성은 빌드 때 Composer로 받아 vendor/와 함께 배포, CLAUDE.md)",
+    "type": "project",
+    "license": "Apache-2.0",
+    "require": {
+        "php": ">=8.2",
+        "ext-dom": "*",
+        "ext-openssl": "*",
+        "onelogin/php-saml": "4.3.2",
+        "phpmailer/phpmailer": "7.1.1"
+    },
+    "config": {
+        "platform": {
+            "php": "8.2.0"
+        },
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}

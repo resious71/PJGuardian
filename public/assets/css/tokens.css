@@ -1,0 +1,300 @@
+/* PJGuardian 디자인 토큰(명세 20). 색·간격·글꼴·모서리·그림자는 이 파일에서만 정한다.
+   외부 폰트를 불러오지 않는다(시스템 글꼴). 의미 색(심각도·상태)은 텍스트 색(fg)과 배경(bg)·테두리(bd)를 함께 정하고,
+   fg는 bg 위에서 WCAG AA(4.5:1) 이상 대비를 목표로 한다. 색만으로 구분하지 않도록 배지는 항상 아이콘 + 텍스트를 함께 쓴다. */
+:root {
+  color-scheme: light;
+  /* 글꼴 */
+  --font-sans: system-ui, -apple-system, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, "D2Coding", monospace;
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-md: 14px;
+  --text-lg: 16px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --leading: 1.5;
+
+  /* 간격(4px 단위) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* 모서리·그림자 */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --shadow-sm: 0 1px 2px rgb(16 24 40 / 0.08);
+  --shadow-md: 0 4px 12px rgb(16 24 40 / 0.12);
+  --shadow-lg: 0 12px 32px rgb(16 24 40 / 0.2);
+
+  /* 기본 색 */
+  --color-bg: #f5f6f8;
+  --color-surface: #ffffff;
+  --color-border: #d0d5dd;
+  --color-border-strong: #868fa0; /* P27D: #98a2b3 → 카드 위 3:1(입력 칸 경계, WCAG 1.4.11) */
+  --color-text: #101828;
+  --color-text-muted: #475467;
+  --color-primary: #1d4ed8;
+  --color-primary-hover: #1e40af;
+  --color-primary-fg: #ffffff;
+  --color-link: #1d4ed8; /* 글자로 쓰는 강조(링크·현재 탭) — 라이트는 primary와 같음, 다크는 밝게(P27D) */
+  --guide-legend-border: #4b5563; /* X13 가이드 범례 표 선(진한 회색 1px) — 다크는 배경 대비 3:1 이상을 우선 */
+  --color-danger: #b42318;
+  --color-danger-hover: #912018;
+  --color-danger-fg: #ffffff;
+  --color-focus: #c86a00; /* P27D: #f59e0b → 바탕·카드 위 3:1(포커스 링) */
+  --color-topbar: #101828;
+  --color-topbar-fg: #f2f4f7;
+  --color-topbar-muted: #98a2b3;
+
+  /* 심각도(명세 6.2, 20.3) */
+  --sev-critical-fg: #912018; --sev-critical-bg: #fee4e2; --sev-critical-bd: #f04438;
+  --sev-high-fg: #9c2a10;     --sev-high-bg: #fef0c7;     --sev-high-bd: #f79009;
+  --sev-medium-fg: #854a0e;   --sev-medium-bg: #fef7c3;   --sev-medium-bd: #eaaa08;
+  --sev-low-fg: #1849a9;      --sev-low-bg: #d1e9ff;      --sev-low-bd: #2e90fa;
+  --sev-none-fg: #344054;     --sev-none-bg: #f2f4f7;     --sev-none-bd: #98a2b3;
+
+  /* 차트 팔레트(P20 대시보드): Okabe–Ito 색각 이상 안전 팔레트. 심각도는 선 모양·점 모양도 달리 해 색에만 의존하지 않는다(dashboard_core.js) */
+  --chart-total: #0072b2;
+  --chart-critical: #d55e00;
+  --chart-high: #e69f00;
+  --chart-medium: #cc79a7;
+  --chart-low: #56b4e9;
+  --chart-not_defined: #4d4d4d;
+  --chart-marker: #009e73;
+  /* 상위 10 막대(P21U): 파스텔 채움 + 진한 테두리. 채움은 밝아 배경과 대비가 낮으므로(1.57:1) 막대의 경계는 테두리가 맡는다
+     (테두리:배경 5.41:1, 테두리:채움 3.44:1 ≥ 3:1). 막대 끝 건수 글자는 --chart-text(배경 위 10.46:1). 계산: tests/js/chart_style.test.mjs */
+  --chart-bar: #a9d4f0;
+  --chart-bar-border: #2d6f9e;
+  --chart-grid: #e4e7ec;
+  --chart-text: #344054;
+
+  /* 결함 상태 */
+  --st-open-fg: #1849a9;        --st-open-bg: #d1e9ff;        --st-open-bd: #2e90fa;
+  --st-progress-fg: #5925dc;    --st-progress-bg: #ebe9fe;    --st-progress-bd: #7a5af8;
+  --st-postponed-fg: #93370d;   --st-postponed-bg: #fef0c7;   --st-postponed-bd: #f79009;
+  --st-intentional-fg: #0e5d70; --st-intentional-bg: #cff9fe; --st-intentional-bd: #06aed4;
+  --st-notfix-fg: #344054;      --st-notfix-bg: #eaecf0;      --st-notfix-bd: #667085;
+  --st-resolved-fg: #05603a;    --st-resolved-bg: #d1fadf;    --st-resolved-bd: #12b76a;
+
+  /* 분석 상태·시스템 상태 */
+  --ok-fg: #05603a;    --ok-bg: #d1fadf;    --ok-bd: #12b76a;
+  --warn-fg: #93370d;  --warn-bg: #fef0c7;  --warn-bd: #f79009;
+  --error-fg: #912018; --error-bg: #fee4e2; --error-bd: #f04438;
+  --info-fg: #1849a9;  --info-bg: #d1e9ff;  --info-bd: #2e90fa;
+  --muted-fg: #344054; --muted-bg: #f2f4f7; --muted-bd: #98a2b3;
+  /* 상태 아이콘 단독 색(P21C, 점검 탭 "환경" 표): 정상 녹색·경고(미확인 포함) 주황·문제 빨강. 흰 배경 대비 3:1 이상(WCAG 1.4.11 비텍스트) —
+     녹색 3.73, 주황 3.49, 빨강 4.83. 색만으로 구분하지 않는다(아이콘 모양 badge-check·badge-alert·badge-x + 글자) */
+  --status-icon-ok: #039855;
+  --status-icon-warn: #dc6803;
+  --status-icon-fail: #d92d20;
+  /* 언어 배지 너비(P21C): Py·JS/TS가 같은 폭(가장 긴 "JS/TS" + 아이콘 + 여백, 이후 언어도 이 안에) */
+  --lang-badge-width: 5.5rem;
+
+  /* P27D: 하드코딩 색을 옮긴 토큰(라이트 값은 그대로) */
+  --color-topbar-divider: #344054;
+  --color-topbar-hover: rgb(255 255 255 / 0.1);
+  --color-topbar-active: rgb(255 255 255 / 0.16);
+  --color-row-hover: #f9fafb;
+  --color-surface-alt: rgb(16 24 40 / 0.04);
+  --color-overlay: rgb(16 24 40 / 0.45);
+  --shadow-tip: 0 4px 12px rgba(0, 0, 0, .2);
+
+  /* 코드 뷰어 문법 색(P27D, CodeMirror defaultHighlightStyle과 같은 값 — code_viewer.js가 이 토큰으로 강조) */
+  --code-meta: #404740;
+  --code-keyword: #770088;
+  --code-atom: #221199;
+  --code-literal: #116644;
+  --code-string: #aa1111;
+  --code-regexp: #d03b00; /* P27D: 기본 #e40 → 4.5:1 */
+  --code-def: #0000ff;
+  --code-local: #3300aa;
+  --code-type: #008855;
+  --code-class: #116677;
+  --code-special: #225566;
+  --code-property: #0000cc;
+  --code-comment: #994400;
+  --code-invalid: #e00000; /* P27D: 기본 #f00 → 4.5:1 */
+
+  /* 레이아웃 */
+  --app-min-width: 1280px;
+  --content-max-width: 1440px;
+  --hit-target: 32px; /* 아이콘 단독 버튼 최소 클릭 영역(명세 20.4) */
+}
+
+/* 다크 테마(P27D): 명시한 다크(data-theme="dark") 또는 시스템이 다크이고 라이트를 명시하지 않았을 때. 두 블록은 같은 값이어야 한다(tools/check_theme_contrast.mjs가 확인).
+   글자·배경 쌍은 WCAG AA(글자 4.5:1, 큰 글자·아이콘·경계 3:1) — 같은 점검 스크립트가 계산한다. 색만으로 구분하지 않는 규칙은 그대로(아이콘 + 글자). */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 12px 32px rgb(0 0 0 / 0.6);
+  --shadow-tip: 0 4px 12px rgb(0 0 0 / 0.6);
+
+  --color-bg: #111418;
+  --color-surface: #1b2028;
+  --color-border: #3b4350;
+  --color-border-strong: #6b7584;
+  --color-text: #e8ebf0;
+  --color-text-muted: #a8b1be;
+  --color-primary: #3d6fd6;
+  --color-primary-hover: #2f5fc4;
+  --color-primary-fg: #ffffff;
+  --color-link: #8ab4ff;
+  --guide-legend-border: #7b8494;
+  --color-danger: #c53a2f;
+  --color-danger-hover: #b33229;
+  --color-danger-fg: #ffffff;
+  --color-focus: #f5b544;
+  --color-topbar: #0a0d11;
+  --color-topbar-fg: #e8ebf0;
+  --color-topbar-muted: #8f99a7;
+  --color-topbar-divider: #2c333d;
+  --color-topbar-hover: rgb(255 255 255 / 0.1);
+  --color-topbar-active: rgb(255 255 255 / 0.18);
+  --color-row-hover: #222934;
+  --color-surface-alt: rgb(255 255 255 / 0.05);
+  --color-overlay: rgb(0 0 0 / 0.6);
+
+  --sev-critical-fg: #ffb4ab; --sev-critical-bg: #4a1814; --sev-critical-bd: #f97066;
+  --sev-high-fg: #ffcf99;     --sev-high-bg: #47290b;     --sev-high-bd: #fdb022;
+  --sev-medium-fg: #f6dc85;   --sev-medium-bg: #3b3210;   --sev-medium-bd: #eaaa08;
+  --sev-low-fg: #a9d2ff;      --sev-low-bg: #12294a;      --sev-low-bd: #53a6ff;
+  --sev-none-fg: #d0d6df;     --sev-none-bg: #29303a;     --sev-none-bd: #7c8695;
+
+  --chart-total: #59b0e6;
+  --chart-critical: #ff8a47;
+  --chart-high: #f2b648;
+  --chart-medium: #e391c0;
+  --chart-low: #8fd0f5;
+  --chart-not_defined: #b3b3b3;
+  --chart-marker: #3fd0a0;
+  --chart-bar: #24465f;
+  --chart-bar-border: #7cb8e6;
+  --chart-grid: #2f3742;
+  --chart-text: #cdd4de;
+
+  --st-open-fg: #a9d2ff;        --st-open-bg: #12294a;        --st-open-bd: #53a6ff;
+  --st-progress-fg: #cdbfff;    --st-progress-bg: #2b2058;    --st-progress-bd: #9b84fb;
+  --st-postponed-fg: #ffcf99;   --st-postponed-bg: #47290b;   --st-postponed-bd: #fdb022;
+  --st-intentional-fg: #9fe9f5; --st-intentional-bg: #0c3942; --st-intentional-bd: #22c3e6;
+  --st-notfix-fg: #d0d6df;      --st-notfix-bg: #2d343e;      --st-notfix-bd: #8a94a3;
+  --st-resolved-fg: #8fe8b5;    --st-resolved-bg: #0c3a25;    --st-resolved-bd: #32d583;
+
+  --ok-fg: #8fe8b5;    --ok-bg: #0c3a25;    --ok-bd: #32d583;
+  --warn-fg: #ffcf99;  --warn-bg: #47290b;  --warn-bd: #fdb022;
+  --error-fg: #ffb4ab; --error-bg: #4a1814; --error-bd: #f97066;
+  --info-fg: #a9d2ff;  --info-bg: #12294a;  --info-bd: #53a6ff;
+  --muted-fg: #d0d6df; --muted-bg: #29303a; --muted-bd: #7c8695;
+  --status-icon-ok: #3ccb7f;
+  --status-icon-warn: #fdb022;
+  --status-icon-fail: #f97066;
+
+  --code-meta: #a8b1be;
+  --code-keyword: #d7a6ff;
+  --code-atom: #9db8ff;
+  --code-literal: #7ee0a8;
+  --code-string: #ff9e92;
+  --code-regexp: #ffad66;
+  --code-def: #7fb3ff;
+  --code-local: #b9a8ff;
+  --code-type: #5fd4a8;
+  --code-class: #6fd3e0;
+  --code-special: #8fc3d6;
+  --code-property: #8fb8ff;
+  --code-comment: #e0a050;
+  --code-invalid: #ff6b6b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-md: 0 4px 12px rgb(0 0 0 / 0.5);
+    --shadow-lg: 0 12px 32px rgb(0 0 0 / 0.6);
+    --shadow-tip: 0 4px 12px rgb(0 0 0 / 0.6);
+  
+    --color-bg: #111418;
+    --color-surface: #1b2028;
+    --color-border: #3b4350;
+    --color-border-strong: #6b7584;
+    --color-text: #e8ebf0;
+    --color-text-muted: #a8b1be;
+    --color-primary: #3d6fd6;
+    --color-primary-hover: #2f5fc4;
+    --color-primary-fg: #ffffff;
+    --color-link: #8ab4ff;
+    --guide-legend-border: #7b8494;
+    --color-danger: #c53a2f;
+    --color-danger-hover: #b33229;
+    --color-danger-fg: #ffffff;
+    --color-focus: #f5b544;
+    --color-topbar: #0a0d11;
+    --color-topbar-fg: #e8ebf0;
+    --color-topbar-muted: #8f99a7;
+    --color-topbar-divider: #2c333d;
+    --color-topbar-hover: rgb(255 255 255 / 0.1);
+    --color-topbar-active: rgb(255 255 255 / 0.18);
+    --color-row-hover: #222934;
+    --color-surface-alt: rgb(255 255 255 / 0.05);
+    --color-overlay: rgb(0 0 0 / 0.6);
+  
+    --sev-critical-fg: #ffb4ab; --sev-critical-bg: #4a1814; --sev-critical-bd: #f97066;
+    --sev-high-fg: #ffcf99;     --sev-high-bg: #47290b;     --sev-high-bd: #fdb022;
+    --sev-medium-fg: #f6dc85;   --sev-medium-bg: #3b3210;   --sev-medium-bd: #eaaa08;
+    --sev-low-fg: #a9d2ff;      --sev-low-bg: #12294a;      --sev-low-bd: #53a6ff;
+    --sev-none-fg: #d0d6df;     --sev-none-bg: #29303a;     --sev-none-bd: #7c8695;
+  
+    --chart-total: #59b0e6;
+    --chart-critical: #ff8a47;
+    --chart-high: #f2b648;
+    --chart-medium: #e391c0;
+    --chart-low: #8fd0f5;
+    --chart-not_defined: #b3b3b3;
+    --chart-marker: #3fd0a0;
+    --chart-bar: #24465f;
+    --chart-bar-border: #7cb8e6;
+    --chart-grid: #2f3742;
+    --chart-text: #cdd4de;
+  
+    --st-open-fg: #a9d2ff;        --st-open-bg: #12294a;        --st-open-bd: #53a6ff;
+    --st-progress-fg: #cdbfff;    --st-progress-bg: #2b2058;    --st-progress-bd: #9b84fb;
+    --st-postponed-fg: #ffcf99;   --st-postponed-bg: #47290b;   --st-postponed-bd: #fdb022;
+    --st-intentional-fg: #9fe9f5; --st-intentional-bg: #0c3942; --st-intentional-bd: #22c3e6;
+    --st-notfix-fg: #d0d6df;      --st-notfix-bg: #2d343e;      --st-notfix-bd: #8a94a3;
+    --st-resolved-fg: #8fe8b5;    --st-resolved-bg: #0c3a25;    --st-resolved-bd: #32d583;
+  
+    --ok-fg: #8fe8b5;    --ok-bg: #0c3a25;    --ok-bd: #32d583;
+    --warn-fg: #ffcf99;  --warn-bg: #47290b;  --warn-bd: #fdb022;
+    --error-fg: #ffb4ab; --error-bg: #4a1814; --error-bd: #f97066;
+    --info-fg: #a9d2ff;  --info-bg: #12294a;  --info-bd: #53a6ff;
+    --muted-fg: #d0d6df; --muted-bg: #29303a; --muted-bd: #7c8695;
+    --status-icon-ok: #3ccb7f;
+    --status-icon-warn: #fdb022;
+    --status-icon-fail: #f97066;
+  
+    --code-meta: #a8b1be;
+    --code-keyword: #d7a6ff;
+    --code-atom: #9db8ff;
+    --code-literal: #7ee0a8;
+    --code-string: #ff9e92;
+    --code-regexp: #ffad66;
+    --code-def: #7fb3ff;
+    --code-local: #b9a8ff;
+    --code-type: #5fd4a8;
+    --code-class: #6fd3e0;
+    --code-special: #8fc3d6;
+    --code-property: #8fb8ff;
+    --code-comment: #e0a050;
+    --code-invalid: #ff6b6b;
+  }
+}
+
+/* 프린트는 라이트 고정 */
+@media print {
+  :root { color-scheme: light; }
+}
