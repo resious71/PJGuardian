@@ -14,12 +14,30 @@ PJGuardian은 팀이 정적 분석 결과를 함께 관리하는 설치형 웹 �
 ## 주요 기능
 
 - **업로드와 분석**: zip 파일이나 폴더 전체를 조각으로 나눠 올리고 끊기면 이어 올립니다(기본 2GB까지). 안전하게 압축을 풀고, 분석 전에 대상 파일과 경고를 보여 준 뒤, 백그라운드 워커가 대기열 순서대로 분석합니다.
+
+  <img src="docs/screenshots/upload-precheck.ko.png" alt="업로드 화면과 사전 검사 경고" width="48%"> <img src="docs/screenshots/analysis-status.ko.png" alt="분석 결과 화면: 성공한 분석의 요약" width="48%">
+
 - **결함 추적**: 코드 내용으로 만든 시그니처로 결함을 식별하므로 줄이 밀려도 같은 결함으로 이어집니다. 다시 분석하면 사라진 결함은 자동으로 해결되고 다시 나타나면 재오픈됩니다. 담당자·심각도·상태 변경, 일괄 변경, 내 결함.
+
+  <img src="docs/screenshots/defects-list.ko.png" alt="결함 목록: 심각도·상태 칩과 검색 영역" width="75%">
+
 - **Run·히스토리·대시보드**: 성공한 분석마다 Run이 되며, 과거 Run을 읽기 전용으로 보고 직전 Run과 비교하며 대시보드에서 추이를 봅니다.
+
+  <img src="docs/screenshots/history.ko.png" alt="히스토리: Run별 변화 추이와 직전 Run 대비 비교" width="75%">
+
 - **규칙**: 설치된 ruff·ESLint 버전의 규칙 설명, 자주 나오는 규칙의 쉬운 설명과 예시, 관리자의 규칙 켜기·끄기.
+
+  <img src="docs/screenshots/rules.ko.png" alt="규칙 설명 화면(Python 탭)" width="75%">
+
 - **Git·Perforce**: 허용 호스트의 저장소에서 가져와 분석, 주기 분석, 변경 없음 감지.
 - **운영**: 사용자·그룹·프로젝트별 접근 범위, LDAP/Active Directory와 SSO(OpenID Connect·SAML 2.0), 백업·복원, 시스템 모니터링과 `/health`, 관리자 장애 이메일, 변조를 알아챌 수 있는 감사 로그, 업그레이드 유지보수 모드.
+
+  <img src="docs/screenshots/backups.ko.png" alt="백업·복원 화면" width="48%"> <img src="docs/screenshots/settings-admin-email.ko.png" alt="설정 관리의 관리자 이메일 탭" width="48%">
+
 - **화면**: 한국어·영어, 라이트·다크 테마, 내장 사용자·관리자 가이드와 FAQ, CSV·Excel 내보내기.
+
+  <img src="docs/screenshots/guide.ko.png" alt="내장 사용자 가이드 화면" width="75%">
+
 
 화면과 함께 보는 전체 소개는 [docs/features.ko.md](docs/features.ko.md)에 있습니다.
 

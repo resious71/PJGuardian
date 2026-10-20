@@ -10,12 +10,30 @@ PJGuardian is a self-hosted web application where a team manages static analysis
 ## Features
 
 - **Upload and analyze**: resumable chunked upload of zip files or a whole folder (up to 2 GB by default), safe extraction, a pre-check with warnings before the analysis starts, and a queue processed by a background worker.
+
+  <img src="docs/screenshots/upload-precheck.png" alt="Upload page with the pre-check warnings" width="48%"> <img src="docs/screenshots/analysis-status.png" alt="Analysis result page for a successful analysis" width="48%">
+
 - **Defect tracking**: defects are identified by a content-based signature, so they survive line shifts. Re-analysis resolves defects that disappeared and reopens ones that came back. Assignee, severity, status, bulk changes and "my defects".
+
+  <img src="docs/screenshots/defects-list.png" alt="Defect list with severity and status chips and the search area" width="75%">
+
 - **Runs, history and dashboard**: every successful analysis is a Run; view any past Run read-only, compare with the previous Run, and follow trends on the dashboard.
+
+  <img src="docs/screenshots/history.png" alt="History page with the change trend per Run and the comparison with the previous Run" width="75%">
+
 - **Rules**: rule descriptions for the installed ruff and ESLint versions, plain-language guides with examples for common rules, and admin control to turn rules on or off.
+
+  <img src="docs/screenshots/rules.png" alt="Rule description page (Python tab)" width="75%">
+
 - **Git and Perforce**: import from repositories on an allowed-host list, scheduled analysis, and "no change" detection.
 - **Operations**: users, groups and per-project access, LDAP/Active Directory and SSO (OpenID Connect, SAML 2.0), backup and restore, system monitoring with a `/health` endpoint, admin alert e-mail, a tamper-evident audit log, and an upgrade maintenance mode.
+
+  <img src="docs/screenshots/backups.png" alt="Backup and restore page" width="48%"> <img src="docs/screenshots/settings-admin-email.png" alt="Administrator email tab in settings management" width="48%">
+
 - **Interface**: Korean and English, light and dark themes, a built-in user/admin guide and FAQ, CSV/Excel export.
+
+  <img src="docs/screenshots/guide.png" alt="Built-in user guide page" width="75%">
+
 
 See [docs/features.md](docs/features.md) for the full tour with screenshots.
 
