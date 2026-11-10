@@ -7,7 +7,7 @@
         "php": ">=8.2",
         "ext-dom": "*",
         "ext-openssl": "*",
-        "onelogin/php-saml": "4.3.2",
+        "onelogin/php-saml": "4.4.1",
         "phpmailer/phpmailer": "7.1.1"
     },
     "config": {
